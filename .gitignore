@@ -1,0 +1,8 @@
+.DS_Store
+.project
+.settings/*
+.metadata
+target/*
+*/.DS_Store
+*.*~
+

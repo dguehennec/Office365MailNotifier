@@ -1,0 +1,39 @@
+{
+    "manifest_version": 2,
+    "name": "__MSG_extName__",
+    "version": "1.0.0",
+    "default_locale": "en",
+    "description": "__MSG_extDescription__",
+    "browser_action": {
+        "default_icon": "skin/images/icon_disabled.png",
+        "default_popup": "popup.html",
+        "default_title": "__MSG_extName__"
+    },
+    "icons": {
+        "16": "skin/images/office365_mail_notifier_32.png",
+        "32": "skin/images/office365_mail_notifier_32.png",
+        "48": "skin/images/office365_mail_notifier_48.png",
+        "64": "skin/images/office365_mail_notifier_64.png",
+        "128": "skin/images/office365_mail_notifier_128.png"
+    },
+    "permissions": [
+        "tabs",
+        "notifications",
+        "chrome://favicon/",
+        "storage"
+    ],
+    "optional_permissions": [
+        "background"
+    ],
+    "background": {
+        "page": "background.html"
+    },
+    "content_scripts": [{
+        "matches": ["*://outlook.office365.com/*","*://login.microsoftonline.com/*"],
+        "js":      ["js/owacontent.js"]
+    }],
+    "options_page": "options.html",
+    "web_accessible_resources": [
+        "skin/images/office365_mail_notifier.png"
+    ]
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>office365 Mail Notifier</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+		<link rel="stylesheet" type="text/css" media="screen" href="skin/global.css" />
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/uiutil.js"></script>
+		<script type="text/javascript" src="js/options.js"></script>
+
+	</head>
+	<body class="option">
+		<div class="header">
+			<h1 class="title" style="text-shadow:1px 1px 4px #222"><img src="skin/images/office365_mail_notifier.png" height=48 alt="Icon" /><span msg="extName"></span></h1>
+		</div>
+
+		<div class="content">
+			<ul class="menu">
+				<li><a contentID="0" href="#"><img src="skin/images/prefs/general.png" height="22" alt="Icon" /><span msg="option_common_label"></span></a></li>
+				<li><a contentID="1" href="#"><img src="skin/images/prefs/calendar.png" height="22" alt="Icon" /><span msg="option_calendar_label"></span></a></li>
+				<li><a contentID="2" href="#"><img src="skin/images/prefs/message.png" height="22" alt="Icon" /><span msg="option_message_label"></span></a></li>
+			</ul>	       
+			<div class="tabContentWrapper">
+				<div id="content_0" class="tabContent hide">
+					<fieldset class="options">
+						<legend><label class="section" msg="option_common_mail_notification_caption"></label></legend>
+						<div class="subOptions">
+							<div>
+								<input type="checkbox" id="office365_mail_notifier-optionMailNotification" pref="systemNotificationEnabled" />
+								<label for="office365_mail_notifier-optionMailNotification" msg="option_common_mail_systemNotification"></label>
+							</div>
+							<div>
+								<input type="checkbox" id="office365_mail_notifier-optionMailSound" pref="soundEnabled" />
+								<label for="office365_mail_notifier-optionMailSound" msg="option_common_mail_soundNotification"></label>
+							</div>
+							<div>
+								<label msg="option_common_mail_notify_duration_caption" msgTemplate="%MSG% : "></label>
+								<input id="intNumber" type="number" min="2" max="999" step="4" maxlength="3" pref="emailNotificationDuration"/>
+								<label msg="seconds"></label>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div id="content_1" class="tabContent hide">
+					<input type="checkbox" id="office365_mail_notifier-optionCalendarEnabled" pref="calendarEnabled" />
+					<label for="office365_mail_notifier-optionCalendarEnabled" msg="option_calendar_activate"></label>
+					<fieldset class="options">
+						<legend><label class="section" msg="option_calendar_notification_caption"></label></legend>
+						<div class="subOptions">
+							<div>
+								<input type="checkbox" id="office365_mail_notifier-optionCalendarSystemNotification" pref="calendarSystemNotificationEnabled" />
+								<label for="office365_mail_notifier-optionCalendarSystemNotification" msg="option_calendar_systemNotification"></label>
+							</div>
+							<div>
+								<input type="checkbox" id="office365_mail_notifier-optionCalendarSoundNotification" pref="calendarSoundEnabled" />
+								<label for="office365_mail_notifier-optionCalendarSoundNotification" msg="option_calendar_soundNotification"></label>
+							</div>
+							<div>
+								<label msg="option_calendar_repeat" msgTemplate="%MSG% : "></label>
+								<select id="office365_mail_notifier-optionCalendarReminderNbRepeat" pref="calendarReminderRepeatNb">
+								   <option value="0" msg="no"></option>
+								   <option value="1">1</option>
+								   <option value="2">2</option>
+								   <option value="3">3</option>
+								   <option value="5">5</option>
+							   </select>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div id="content_2" class="tabContent hide">
+					<input type="checkbox" id="office365_mail_notifier-optionmessageEnabled" pref="messageEnabled" />
+					<label for="office365_mail_notifier-optionMessageEnabled" msg="option_message_activate"></label>
+					<fieldset class="options">
+						<legend><label class="section" msg="option_message_notification_caption"></label></legend>
+						<div class="subOptions">
+							<div>
+								<input type="checkbox" id="office365_mail_notifier-optionMessageSystemNotification" pref="messageSystemNotificationEnabled" />
+								<label for="office365_mail_notifier-optionCalendarSystemNotification" msg="option_calendar_systemNotification"></label>
+							</div>
+							<div>
+								<input type="checkbox" id="office365_mail_notifier-optionMessageSoundNotification" pref="messageSoundEnabled" />
+								<label for="office365_mail_notifier-optionMessageSoundNotification" msg="option_message_soundNotification"></label>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			<div class="footer">
+				<span class="legal" msg="about_legal_label"></span>
+				<span class="createby" msg="about_createdby_label"></span>
+			</div>
+		</div>
+	</body>
+</html>

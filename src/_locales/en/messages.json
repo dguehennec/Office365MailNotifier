@@ -1,0 +1,202 @@
+﻿{
+    "extName": {
+        "message": "Office 365 Mail Notifier",
+        "description": ""
+    },
+	"extDescription": {
+        "message": "This extension notifies you when new messages arrive in your Office 365 mailbox",
+        "description": ""
+    },
+    "yes": {
+        "message": "yes",
+        "description": ""
+    },
+    "no": {
+        "message": "no",
+        "description": ""
+    },
+    "seconds": {
+        "message": "seconds",
+        "description": ""
+    },
+    "main_checkNow": {
+        "message": "Refresh...",
+        "description": ""
+    },
+    "main_options_label": {
+        "message": "Preferences",
+        "description": ""
+    },
+    "main_about_label": {
+        "message": "About Office 365 Mail Notifier",
+        "description": ""
+    },
+    "tooltip_calendar_caption": {
+        "message": "Events",
+        "description": ""
+    },
+    "tooltip_message_caption": {
+        "message": "Messages",
+        "description": ""
+    },
+    "about_homepage_label": {
+        "message": "Web Site :",
+        "description": ""
+    },
+    "about_createdby_label": {
+        "message": "By: David GUEHENNEC",
+        "description": ""
+    },
+    "about_version_label": {
+        "message": "Version",
+        "description": ""
+    },
+    "about_legal_label": {
+        "message": "This extension is not affiliated or endorsed by Microsoft",
+        "description": ""
+    },
+    "about_close_label": {
+        "message": "Close",
+        "description": ""
+    },
+    "option_option_label": {
+        "message": "Preferences",
+        "description": ""
+    },
+    "option_common_label": {
+        "message": "General",
+        "description": ""
+    },
+    "option_common_mail_notification_caption": {
+        "message": "Notification unread mail",
+        "description": ""
+    },
+    "option_common_mail_systemNotification": {
+        "message": "System notification",
+        "description": ""
+    },
+    "option_common_mail_soundNotification": {
+        "message": "Sound notification",
+        "description": ""
+    },
+    "option_common_mail_notify_duration_caption": {
+        "message": "Notification duration",
+        "description": ""
+    },
+    "option_common_access_caption": {
+        "message": "Extension access",
+        "description": ""
+    },
+    "option_common_statusbar": {
+        "message": "Statusbar",
+        "description": ""
+    },
+    "option_calendar_label": {
+        "message": "Calendar",
+        "description": ""
+    },
+    "option_calendar_activate": {
+        "message": "Enable calendar management",
+        "description": ""
+    },
+    "option_calendar_notification_caption": {
+        "message": "Notification event",
+        "description": ""
+    },
+    "option_calendar_systemNotification": {
+        "message": "System notification",
+        "description": ""
+    },
+    "option_calendar_soundNotification": {
+        "message": "Sound notification",
+        "description": ""
+    },
+    "option_calendar_repeat": {
+        "message": "Repeat",
+        "description": ""
+    },
+    "option_message_label": {
+        "message": "Message",
+        "description": ""
+    },
+    "option_message_activate": {
+        "message": "Enable message management",
+        "description": ""
+    },
+    "option_message_notification_caption": {
+        "message": "Notification message",
+        "description": ""
+    },
+    "option_message_systemNotification": {
+        "message": "System notification",
+        "description": ""
+    },
+    "option_message_soundNotification": {
+        "message": "Sound notification",
+        "description": ""
+    },
+    "locale": {
+        "message": "en",
+        "description": ""
+    },
+    "tooltip_notConnected_title": {
+        "message": "Disconnected",
+        "description": ""
+    },
+    "tooltip_notConnected_description": {
+        "message": "For notifications, please log in on Office 365",
+        "description": ""
+    },
+    "tooltip_errorConnected_title": {
+        "message": "Update failed",
+        "description": ""
+    },
+    "tooltip_errorInitPage_title": {
+       "message": "Sorry, an error has occurred, please reload this page.",
+       "description": ""
+    },
+    "tooltip_unreadMessages_title": {
+        "message": "%NB% unread message(s)",
+        "description": ""
+    },
+    "tooltip_connected_description": {
+        "message": "Status: Connected\n",
+        "description": ""
+    },
+    "tooltip_noEvent": {
+        "message": "No event in progress",
+        "description": ""
+    },
+    "tooltip_noMessage": {
+        "message": "No message in progress",
+        "description": ""
+    },
+    "connector_notification_nbUnreadMessages": {
+        "message": "%NB% new unread messages!",
+        "description": ""
+    },
+    "connector_notification_calEvent": {
+        "message": "Event: ",
+        "description": ""
+    },
+    "connector_notification_messageEvent": {
+        "message": "Message: ",
+        "description": ""
+    },
+    "connector_error_unreadmsg": {
+        "message": "Error when retrieving for new mail: %REASON%!",
+        "description": ""
+    },
+    "connector_error_calendar": {
+        "message": "Error when retrieving the calendar events: %REASON%!",
+        "description": ""
+    },
+    "connector_error_message": {
+        "message": "Error when retrieving the message events: %REASON%!",
+        "description": ""
+    },
+    "connector_error_reason0": {
+        "message": "No item detected",
+        "description": ""
+    }
+}

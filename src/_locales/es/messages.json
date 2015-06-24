@@ -1,0 +1,202 @@
+{
+    "extName": {
+        "message": "Office 365 Mail Notifier",
+        "description": ""
+    },
+    "extDescription": {
+        "message": "Office 365 Mail Notifier comprueba su cuenta de correo Office 365 y le comunica el número de mensajes no leídos",
+        "description": ""
+    },
+    "yes": {
+        "message": "Si",
+        "description": ""
+    },
+    "no": {
+        "message": "No",
+        "description": ""
+    },
+    "seconds": {
+        "message": "segundo",
+        "description": ""
+    },
+    "main_checkNow": {
+        "message": "Recargar...",
+        "description": ""
+    },
+    "main_options_label": {
+        "message": "Preferencias",
+        "description": ""
+    },
+    "main_about_label": {
+        "message": "Acerca de Office 365 Mail Notifier",
+        "description": ""
+    },
+    "tooltip_calendar_caption": {
+        "message": "Próximos evento",
+        "description": ""
+    },
+    "tooltip_message_caption": {
+        "message": "Charla actuales",
+        "description": ""
+    },
+    "about_homepage_label": {
+        "message": "Página Web:",
+        "description": ""
+    },
+    "about_createdby_label": {
+        "message": "Creado por David GUEHENNEC",
+        "description": ""
+    },
+    "about_version_label": {
+        "message": "Versión",
+        "description": ""
+    },
+    "about_legal_label": {
+        "message": "Esta extensión no está afiliada a Microsoft ni avalada por ella",
+        "description": ""
+    },
+    "about_close_label": {
+        "message": "Cerrar",
+        "description": ""
+    },
+    "option_option_label": {
+        "message": "Preferencias",
+        "description": ""
+    },
+    "option_common_label": {
+        "message": "General",
+        "description": ""
+    },
+    "option_common_mail_notification_caption": {
+        "message": "Notificación",
+        "description": ""
+    },
+    "option_common_mail_systemNotification": {
+        "message": "Notificación del sistema",
+        "description": ""
+    },
+    "option_common_mail_soundNotification": {
+        "message": "Notificación sonora",
+        "description": ""
+    },
+    "option_common_mail_notify_duration_caption": {
+        "message": "Duración de notificación",
+        "description": ""
+    },
+    "option_common_access_caption": {
+        "message": "Acceso a la extensión",
+        "description": ""
+    },
+    "option_common_statusbar": {
+        "message": "Barra de estado",
+        "description": ""
+    },
+    "option_calendar_label": {
+        "message": "Calendario",
+        "description": ""
+    },
+    "option_calendar_activate": {
+        "message": "Activar la gestión del calendario",
+        "description": ""
+    },
+    "option_calendar_notification_caption": {
+        "message": "Notificación",
+        "description": ""
+    },
+    "option_calendar_systemNotification": {
+        "message": "Notificación del sistema",
+        "description": ""
+    },
+    "option_calendar_soundNotification": {
+        "message": "Notificación sonora",
+        "description": ""
+    },
+    "option_calendar_repeat": {
+        "message": "Repetir",
+        "description": ""
+    },
+    "option_message_label": {
+        "message": "Charla",
+        "description": ""
+    },
+    "option_message_activate": {
+        "message": "Activar la gestión de Charla",
+        "description": ""
+    },
+    "option_message_notification_caption": {
+        "message": "Notificación",
+        "description": ""
+    },
+    "option_message_systemNotification": {
+        "message": "Notificación del sistema",
+        "description": ""
+    },
+    "option_message_soundNotification": {
+        "message": "Notificación sonora",
+        "description": ""
+    },
+    "locale": {
+        "message": "es",
+        "description": ""
+    },
+    "tooltip_notConnected_title": {
+        "message": "Desconectado",
+        "description": ""
+    },
+    "tooltip_notConnected_description": {
+        "message": "Para recibir notificaciones log in, por favor",
+        "description": ""
+    },
+    "tooltip_errorConnected_title": {
+        "message": "Error de actualización",
+        "description": ""
+    },
+    "tooltip_errorInitPage_title": {
+        "message": "Lo sentimos, ha ocurrido un error, por favor vuelva a cargar esta página.",
+        "description": ""
+    },
+    "tooltip_unreadMessages_title": {
+        "message": "%NB% mensajes no leídos",
+        "description": ""
+    },
+    "tooltip_connected_description": {
+        "message": "Estado: Conectado \n",
+        "description": ""
+    },
+    "tooltip_noEvent": {
+        "message": "Ningún evento en curso",
+        "description": ""
+    },
+    "tooltip_noMessage": {
+        "message": "Ninguna charla en curso",
+        "description": ""
+    },
+    "connector_notification_nbUnreadMessages": {
+        "message": "%NB% mensajes nuevos no leídos !",
+        "description": ""
+    },
+    "connector_notification_calEvent": {
+        "message": "Evento :",
+        "description": ""
+    },
+    "connector_notification_messageEvent": {
+        "message": "Charla :",
+        "description": ""
+    },
+    "connector_error_unreadmsg": {
+        "message": "Error durante la verificación de nuevos mensajes: %REASON%!",
+        "description": ""
+    },
+    "connector_error_calendar": {
+        "message": "Error al recuperar los eventos del calendario: %REASON%!",
+        "description": ""
+    },
+    "connector_error_message": {
+        "message": "Error al recuperar las charlas: %REASON%!",
+        "description": ""
+    },
+    "connector_error_reason0": {
+        "message": "Ningún elemento detectado",
+        "description": ""
+    }
+}

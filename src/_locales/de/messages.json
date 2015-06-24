@@ -1,0 +1,202 @@
+{
+    "extName": {
+        "message": "Office 365 Mail Notifier",
+        "description": ""
+    },
+    "extDescription": {
+        "message": "Diese Erweiterung benachrichtigt dich wenn du neue Nachrichten in deiner Office 365 Mailbox bekommst",
+        "description": ""
+    },
+    "yes": {
+        "message": "Ja",
+        "description": ""
+    },
+    "no": {
+        "message": "Nein",
+        "description": ""
+    },
+    "seconds": {
+        "message": "sekunden",
+        "description": ""
+    },
+    "main_checkNow": {
+        "message": "Aktualisieren",
+        "description": ""
+    },
+    "main_options_label": {
+        "message": "Einstellungen",
+        "description": ""
+    },
+    "main_about_label": {
+        "message": "About Office 365 Mail Notifier",
+        "description": ""
+    },
+    "tooltip_calendar_caption": {
+        "message": "Nächste Events",
+        "description": ""
+    },
+    "tooltip_message_caption": {
+        "message": "Nachricht",
+        "description": ""
+    },
+    "about_homepage_label": {
+        "message": "Website:",
+        "description": ""
+    },
+    "about_createdby_label": {
+        "message": "Von: David GUEHENNEC",
+        "description": ""
+    },
+    "about_version_label": {
+        "message": "Version",
+        "description": ""
+    },
+    "about_legal_label": {
+        "message": "Diese Erweiterung ist nicht zugehörig zu Microsoft",
+        "description": ""
+    },
+    "about_close_label": {
+        "message": "Schließen",
+        "description": ""
+    },
+    "option_option_label": {
+        "message": "Einstellungen",
+        "description": ""
+    },
+    "option_common_label": {
+        "message": "Generell",
+        "description": ""
+    },
+    "option_common_mail_notification_caption": {
+        "message": "Benachrichtigung",
+        "description": ""
+    },
+    "option_common_mail_systemNotification": {
+        "message": "System Benachrichtigung",
+        "description": ""
+    },
+    "option_common_mail_soundNotification": {
+        "message": "Sound-Benachrichtigung",
+        "description": ""
+    },
+    "option_common_mail_notify_duration_caption": {
+        "message": "Zeit der Benachrichtigung",
+        "description": ""
+    },
+    "option_common_access_caption": {
+        "message": "Erweiterungszugang",
+        "description": ""
+    },
+    "option_common_statusbar": {
+        "message": "Statusleiste",
+        "description": ""
+    },
+    "option_calendar_label": {
+        "message": "Kalender",
+        "description": ""
+    },
+    "option_calendar_activate": {
+        "message": "Kalendermanagement aktivieren",
+        "description": ""
+    },
+    "option_calendar_notification_caption": {
+        "message": "Benachrichtigung",
+        "description": ""
+    },
+    "option_calendar_systemNotification": {
+        "message": "System-Benachrichtigung",
+        "description": ""
+    },
+    "option_calendar_soundNotification": {
+        "message": "Sound-Benachrichtigung",
+        "description": ""
+    },
+    "option_calendar_repeat": {
+        "message": "Wiederholen",
+        "description": ""
+    },
+    "option_message_label": {
+        "message": "Nachricht",
+        "description": ""
+    },
+    "option_message_activate": {
+        "message": "Nachrichtmanagement aktivieren",
+        "description": ""
+    },
+    "option_message_notification_caption": {
+        "message": "Benachrichtigung",
+        "description": ""
+    },
+    "option_message_systemNotification": {
+        "message": "System-Benachrichtigung",
+        "description": ""
+    },
+    "option_message_soundNotification": {
+        "message": "Sound-Benachrichtigung",
+        "description": ""
+    },
+    "locale": {
+        "message": "de",
+        "description": ""
+    },
+    "tooltip_notConnected_title": {
+        "message": "Getrennt",
+        "description": ""
+    },
+    "tooltip_notConnected_description": {
+        "message": "Für Benachrichtigungen bitte einloggen Office 365",
+        "description": ""
+    },
+    "tooltip_errorConnected_title": {
+        "message": "Update fehlgeschlagen",
+        "description": ""
+    },
+    "tooltip_errorInitPage_title": {
+        "message": " Entschuldigung, ist ein Fehler aufgetreten, bitte laden Sie diese Seite.",
+        "description": ""
+    },
+    "tooltip_unreadMessages_title": {
+        "message": "%NB% ungelesene Nachrichten",
+        "description": ""
+    },
+    "tooltip_connected_description": {
+        "message": "Status: Verbunden\n",
+        "description": ""
+    },
+    "tooltip_noEvent": {
+        "message": "Derzeit kein Event",
+        "description": ""
+    },
+    "tooltip_noMessage": {
+        "message": "Derzeit keine Nachricht",
+        "description": ""
+    },
+    "connector_notification_nbUnreadMessages": {
+        "message": "%NB% neue ungelesene Nachrichten",
+        "description": ""
+    },
+    "connector_notification_calEvent": {
+        "message": "Event: ",
+        "description": ""
+    },
+    "connector_notification_messageEvent": {
+        "message": "Message: ",
+        "description": ""
+    },
+    "connector_error_unreadmsg": {
+        "message": "Fehler während Empfangen neuer Mails: %REASON%!",
+        "description": ""
+    },
+    "connector_error_calendar": {
+        "message": "Fehler während Empfangen neuer Events: %REASON%!",
+        "description": ""
+    },
+    "connector_error_message": {
+        "message": "Fehler während Empfangen neuer Nachricht: %REASON%!",
+        "description": ""
+    },
+    "connector_error_reason0": {
+        "message": "Kein Artikel erfasst",
+        "description": ""
+    }
+}

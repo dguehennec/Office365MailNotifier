@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
+		<link rel="stylesheet" type="text/css" media="screen" href="skin/global.css" />
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/uiutil.js"></script>
+		<script type="text/javascript" src="js/popup.js"></script>
+	</head>
+	<body class="popup">
+		<div class="action">
+			<img id="office365_mail_notifier_tooltipHome"
+				src="skin/images/button_home.png" msgTitle="main_homepage_label"/>
+			<img id="office365_mail_notifier_tooltipCheckNow" style="display: none"
+				src="skin/images/button_refresh.png" msgTitle="main_checkNow" />
+			<img id="office365_mail_notifier_tooltipOption"
+				src="skin/images/button_option.png" msgTitle="main_options_label" />
+		</div>
+		<div>
+			<div id="office365_mail_notifier_tooltipLogo">
+				<image src="/skin/images/office365_mail_notifier.png">
+			</div>
+			<div id="office365_mail_notifier_tooltipContent">
+				<div id="office365_mail_notifier_tooltipTitle"></div>
+				<div id="office365_mail_notifier_tooltipDescription"></div>
+			</div>
+		</div>
+
+		<fieldset id="office365_mail_notifier_tooltipCalendarGroup">
+			<legend>
+				<label class="section" msg="tooltip_calendar_caption"></label>
+			</legend>
+			<div id="office365_mail_notifier_tooltipCalendar"></div>
+		</fieldset>
+
+		<fieldset id="office365_mail_notifier_tooltipMessageGroup">
+			<legend>
+				<label class="section" msg="tooltip_Message_caption"></label>
+			</legend>
+			<div id="office365_mail_notifier_tooltipMessage"></div>
+		</fieldset>
+	</body>
+</html>
+

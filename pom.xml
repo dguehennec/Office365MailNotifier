@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.office365</groupId>
+	<artifactId>Office365MailNotifierChrome</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0</version>
+
+	<name>office365 Notifier</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<withCompletion>false</withCompletion>
+		<sonar.language>js</sonar.language>
+		<sonar.javascript.file.suffixes>js</sonar.javascript.file.suffixes>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.host.url>http://127.0.0.1:9000</sonar.host.url>
+	</properties>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jsdoctk2</id>
+			<url>http://jsdoctk-plugin.googlecode.com/svn/repo</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<profiles>
+		<profile>
+			<id>Prod</id>
+			<activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>nl.windgazer</groupId>
+						<artifactId>jsdoctk-plugin</artifactId>
+						<version>2.3.2</version>
+						<executions>
+							<execution>
+								<phase>verify</phase>
+								<configuration>
+									<template>jsdoc</template>
+									<directory>${project.build.directory}/jsdoc</directory>
+									<recurse>10</recurse>
+									<extension>js,jsm</extension>
+									<allfunctions>true</allfunctions>
+									<Allfunctions>true</Allfunctions>
+									<privateOption>true</privateOption>
+									<srcDir>${basedir}/src/</srcDir>
+								</configuration>
+								<goals>
+									<goal>jsdoc-report</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<build>
+		<sourceDirectory>src/</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<configuration>
+							<target>
+								<echo message="Copy sources" />
+								<copy todir="${project.build.directory}/sources">
+								    <fileset dir="${basedir}/src/"/>
+								</copy>
+								<echo message="Generate XPI archive" />
+								<zip update="true" compress="true"
+									destfile="${project.build.directory}/${project.name}-${project.version}.crx"
+									basedir="${project.build.directory}/sources" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>attach-artifacts</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attach-artifact</goal>
+						</goals>
+						<configuration>
+							<artifacts>
+								<artifact>
+									<file>${project.build.directory}/${project.name}-${project.version}.xpi</file>
+									<type>xpi</type>
+								</artifact>
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.google.javascript</groupId>
+				<artifactId>closure-compiler</artifactId>
+				<version>r2079</version>
+			</dependency>
+			<dependency>
+				<groupId>args4j</groupId>
+				<artifactId>args4j</artifactId>
+				<version>2.0.12</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>r07</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<developers>
+		<developer>
+			<id>dguehennec</id>
+			<name>David GUEHENNEC</name>
+			<email>david.guehennec@gmail.com</email>
+		</developer>
+	</developers>
+
+</project>

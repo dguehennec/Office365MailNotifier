@@ -1,0 +1,202 @@
+﻿{
+    "extName": {
+        "message": "Office 365 Mail Notifier",
+        "description": ""
+    },
+    "extDescription": {
+        "message": "Cette extension vous notifie d'un nouveau mail sur votre messagerie Office 365",
+        "description": ""
+    },
+    "yes": {
+        "message": "Oui",
+        "description": ""
+    },
+    "no": {
+        "message": "Non",
+        "description": ""
+    },
+    "seconds": {
+        "message": "secondes",
+        "description": ""
+    },
+    "main_checkNow": {
+        "message": "Rafraichir...",
+        "description": ""
+    },
+    "main_options_label": {
+        "message": "Préférences",
+        "description": ""
+    },
+    "main_about_label": {
+        "message": "à propos de Office 365 Mail Notifier",
+        "description": ""
+    },
+    "tooltip_calendar_caption": {
+        "message": "Evenements",
+        "description": ""
+    },
+    "tooltip_message_caption": {
+        "message": "Messages",
+        "description": ""
+    },
+    "about_homepage_label": {
+        "message": "Site Web :",
+        "description": ""
+    },
+    "about_createdby_label": {
+        "message": "Créé par : David GUEHENNEC",
+        "description": ""
+    },
+    "about_version_label": {
+        "message": "Version",
+        "description": ""
+    },
+    "about_legal_label": {
+        "message": "Cette extension n'est pas affiliée à Microsoft ni soutenue par cette entreprise",
+        "description": ""
+    },
+    "about_close_label": {
+        "message": "Fermer",
+        "description": ""
+    },
+    "option_option_label": {
+        "message": "Préférences",
+        "description": ""
+    },
+    "option_common_label": {
+        "message": "General",
+        "description": ""
+    },
+    "option_common_mail_notification_caption": {
+        "message": "Notification e-mail non lu",
+        "description": ""
+    },
+    "option_common_mail_systemNotification": {
+        "message": "Notification système",
+        "description": ""
+    },
+    "option_common_mail_soundNotification": {
+        "message": "Émettre un son",
+        "description": ""
+    },
+    "option_common_mail_notify_duration_caption": {
+        "message": "Durée de la notification",
+        "description": ""
+    },
+    "option_common_access_caption": {
+        "message": "Moyen d'accès au module",
+        "description": ""
+    },
+    "option_common_statusbar": {
+        "message": "Barre des modules",
+        "description": ""
+    },
+    "option_calendar_label": {
+        "message": "Calendrier",
+        "description": ""
+    },
+    "option_calendar_activate": {
+        "message": "Activer la gestion du calendrier",
+        "description": ""
+    },
+    "option_calendar_notification_caption": {
+        "message": "Notification",
+        "description": ""
+    },
+    "option_calendar_systemNotification": {
+        "message": "Notification système",
+        "description": ""
+    },
+    "option_calendar_soundNotification": {
+        "message": "Notification sonore",
+        "description": ""
+    },
+    "option_calendar_repeat": {
+        "message": "Répéter",
+        "description": ""
+    },
+    "option_message_label": {
+        "message": "Message",
+        "description": ""
+    },
+    "option_message_activate": {
+        "message": "Activer la gestion des messages",
+        "description": ""
+    },
+    "option_message_notification_caption": {
+        "message": "Notification",
+        "description": ""
+    },
+    "option_message_systemNotification": {
+        "message": "System notification",
+        "description": ""
+    },
+    "option_message_soundNotification": {
+        "message": "Sound notification",
+        "description": ""
+    },
+    "locale": {
+        "message": "fr",
+        "description": ""
+    },
+    "tooltip_notConnected_title": {
+        "message": "Non connecté",
+        "description": ""
+    },
+    "tooltip_notConnected_description": {
+        "message": "Pour avoir des notifications, veuillez-vous connecter à Office 365",
+        "description": ""
+    },
+    "tooltip_errorConnected_title": {
+        "message": "Echec de la mise à jour",
+        "description": ""
+    },
+    "tooltip_errorInitPage_title": {
+        "message": "Désolé une erreur s'est produite, s'il vous plaît recharger cette page.",
+        "description": ""
+    },
+    "tooltip_unreadMessages_title": {
+        "message": "%NB% mail(s) non lu(s)",
+        "description": ""
+    },
+    "tooltip_connected_description": {
+        "message": "Etat : Connecté\n",
+        "description": ""
+    },
+    "tooltip_noEvent": {
+        "message": "Pas d'évenement en cours",
+        "description": ""
+    },
+    "tooltip_noMessage": {
+        "message": "Pas de message en cours",
+        "description": ""
+    },
+    "connector_notification_nbUnreadMessages": {
+        "message": "%NB% nouveaux mails non lus !",
+        "description": ""
+    },
+    "connector_notification_calEvent": {
+        "message": "Rendez-vous :",
+        "description": ""
+    },
+    "connector_notification_messageEvent": {
+        "message": "Message: ",
+        "description": ""
+    },
+    "connector_error_unreadmsg": {
+        "message": "Erreur lors de la vérification des nouveaux mails : %REASON% !",
+        "description": ""
+    },
+    "connector_error_calendar": {
+        "message": "Erreur lors de la récupération du calendrier : %REASON% !",
+        "description": ""
+    },
+    "connector_error_message": {
+        "message": "Erreur lors de la récupération des messages : %REASON% !",
+        "description": ""
+    },
+    "connector_error_reason0": {
+        "message": "Aucun element detecté",
+        "description": ""
+    }
+}
