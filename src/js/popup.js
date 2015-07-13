@@ -179,7 +179,7 @@ office365_notifier_popup.initializeTooltipCalendar = function() {
                 text : this._office365_notifier_Util.maxStringLength(currentEvent.name, 50)
             }).appendTo("#office365_mail_notifier_tooltipCalendar");
             $('<div/>', {
-                class : 'eventLabelTitle',
+                class : 'eventLabelDesc',
                 text : this._office365_notifier_Util.maxStringLength(currentEvent.duration, 50)
             }).appendTo("#office365_mail_notifier_tooltipCalendar");
         }
@@ -201,7 +201,7 @@ office365_notifier_popup.initializeTooltipMessage = function() {
     if (events.length === 0) {
         $('<div/>', {
             class : 'eventLabelTitle',
-            text : chrome.i18n.getMessage("tooltip_noEvent")
+            text : chrome.i18n.getMessage("tooltip_noMessage")
         }).appendTo("#office365_mail_notifier_tooltipMessage");
     } else {
         for (index = 0; index < events.length; index++) {

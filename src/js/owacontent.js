@@ -69,7 +69,9 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             if (elementTimeDuration.length > 0) {
                 eventTimeDuration = elementTimeDuration[0].textContent;
             }
-            calendarEvents.push({ title : eventTitle, timeDuration : eventTimeDuration, timeToStart : eventTimeToStart});
+            if ((eventTitle != "") && (eventTimeDuration != "")) {
+                calendarEvents.push({ title : eventTitle, timeDuration : eventTimeDuration, timeToStart : eventTimeToStart});
+            }
         }
         var messageEvents = [];
         var elementChats = document.getElementsByClassName("o365cs-notifications-chat-container");

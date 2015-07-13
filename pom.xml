@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 	<version>1.0.0</version>
 
-	<name>office365 Notifier</name>
+	<name>office365Notifier</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -77,9 +77,9 @@
 								<copy todir="${project.build.directory}/sources">
 								    <fileset dir="${basedir}/src/"/>
 								</copy>
-								<echo message="Generate XPI archive" />
+								<echo message="Generate ZIP archive" />
 								<zip update="true" compress="true"
-									destfile="${project.build.directory}/${project.name}-${project.version}.crx"
+									destfile="${project.build.directory}/${project.name}-${project.version}.zip"
 									basedir="${project.build.directory}/sources" />
 							</target>
 						</configuration>
@@ -103,8 +103,8 @@
 						<configuration>
 							<artifacts>
 								<artifact>
-									<file>${project.build.directory}/${project.name}-${project.version}.xpi</file>
-									<type>xpi</type>
+									<file>${project.build.directory}/${project.name}-${project.version}.zip</file>
+									<type>zip</type>
 								</artifact>
 							</artifacts>
 						</configuration>
