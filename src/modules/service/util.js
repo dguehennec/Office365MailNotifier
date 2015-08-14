@@ -142,12 +142,12 @@ office365_notifier_Util.showNotification = function(title, text, duration, callb
                 chrome.notifications.onClicked.addListener(function(notificationIdClicked) {
                     if(notificationIdClicked == notificationId) {
                         callback.apply(callbackThis);
-                        chrome.notifications.clear(notificationId);
+                        chrome.notifications.clear(notificationId, function(wasCleared) {});
                     }
                 });
                 // hide notification after the duration timeout
                 office365_notifier_Util.setTimer(null, function() {
-                    chrome.notifications.clear(notificationId);
+                    chrome.notifications.clear(notificationId, function(wasCleared) {});
                 }, duration);
             });
         } else {

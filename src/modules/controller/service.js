@@ -156,9 +156,16 @@ office365_notifier_Service.prototype._planRefresh = function(delayMs) {
     this._logger.trace("planRefresh: " + delayMs);
     var object = this;
     this._stateTimer = office365_notifier_Util.setTimer(this._stateTimer, function() {
-        chrome.tabs.sendMessage(object._parent._currentInterfaceListener, "getOwsDOMContent", null, function(msg, sender, sendResponse) {
-            object._refreshState(msg);
-        });
+	var chromeVersion = parseInt(/Chrome\/([0-9]+)/.exec(navigator.userAgent)[1]);
+	if(chromeVersion >= 41) {
+            chrome.tabs.sendMessage(object._parent._currentInterfaceListener, "getOwsDOMContent", null, function(msg, sender, sendResponse) {
+                object._refreshState(msg);
+            });
+	} else {
+            chrome.tabs.sendMessage(object._parent._currentInterfaceListener, "getOwsDOMContent", function(msg, sender, sendResponse) {
+                object._refreshState(msg);
+            });
+	}
     }, delayMs);
 };
 
