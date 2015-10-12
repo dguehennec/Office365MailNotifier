@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "__MSG_extName__",
-    "version": "1.0.1",
+    "version": "1.1.2",
     "default_locale": "en",
     "description": "__MSG_extDescription__",
     "browser_action": {
@@ -29,7 +29,7 @@
         "page": "background.html"
     },
     "content_scripts": [{
-        "matches": ["*://outlook.office365.com/*","*://login.microsoftonline.com/*"],
+        "matches": ["*://outlook.office365.com/*", "*://outlook.office.com/*", "*://login.microsoftonline.com/*"],
         "js":      ["js/owacontent.js"]
     }],
     "options_page": "options.html",

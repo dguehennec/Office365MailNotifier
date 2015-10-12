@@ -50,7 +50,7 @@ var office365_notifier_Constant = {};
  * 
  * @constant
  */
-office365_notifier_Constant.VERSION = 0x010000;
+office365_notifier_Constant.VERSION = 0x010102;
 
 /**
  * Logger level
@@ -70,7 +70,7 @@ office365_notifier_Constant.LOGGER = {
  */
 office365_notifier_Constant.URLS = {
     SITE_AUTHENT : "https://login.microsoftonline.com/",
-    SITE_DEFAULT : "https://outlook.office365.com/owa/"
+    SITE_DEFAULT : "https://outlook.office.com/owa/"
 };
 
 /**
