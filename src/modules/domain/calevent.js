@@ -51,59 +51,68 @@ var EXPORTED_SYMBOLS = [ "office365_notifier_calEvent" ];
  * @param {Number}
  *            timeToStart the time to start
  */
-var office365_notifier_calEvent = function(name, duration, timeToStart) {
+var office365_notifier_CalEvent = function(id, name, timestamp, duration, timeConf) {
     this.type = "CALENDAR";
-    this.key = office365_notifier_Util.crc32(name + duration);
+    this.key = office365_notifier_Util.crc32(id + name + timestamp);
+    this.id = id;
     this.name = name;
+    this.startDate = new Date(timestamp);
+    this.endDate = new Date(timestamp + duration);
     this.duration = duration;
-    this.timeToStart = timeToStart;
-    this.isInvalid = true;
-    this._delayMs = 60 * 1000;
-    this._nbTimeShow = 0;
-    this._notifier = null;
+    this.timeConf = timeConf;
+    this.notifier = null;
+    this.startWeek = this.weekDate(this.startDate);
 };
 
 /**
  * stop notification
  * 
- * @this {calEvent}
+ * @this {messageEvent}
  */
-office365_notifier_calEvent.prototype.stopNotification = function() {
+office365_notifier_CalEvent.prototype.stopNotification = function() {
     if (this._notifier) {
-        clearTimeout(this._notifier);
-    } else {
-        this._notifier = null;
+        this._notifier.stop();
     }
 };
 
 /**
- * notify
- * 
- * @this {calEvent}
+ * Indicate the week date / Week number of the specified date
+ * @see http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @this {CalEvent}
+ * @param {Date}
+ *            date The date
+ * @return {Number} Week number
  */
-office365_notifier_calEvent.prototype.notify = function() {
-    if ((office365_notifier_Prefs.getCalendarReminderNbRepeat() < this._nbTimeShow) || !office365_notifier_Prefs.isCalendarEnabled()) {
-        return;
+office365_notifier_CalEvent.prototype.weekDate = function(date) {
+    // If we are in december, this is possible that we are in W1 of the next year
+    if (date.getMonth() === 11) {
+        var dateW1NextY = this.dateBeginW1(date.getFullYear() + 1);
+        if (date >= dateW1NextY) {
+            // We are in the first week of the next year
+            return 1;
+        }
     }
+    // General case
+    var dateW1 = this.dateBeginW1(date.getFullYear());
+    var diffDays = Math.floor((date.getTime() - dateW1.getTime()) / 86400000);
+    return Math.floor(diffDays / 7) + 1;
+};
 
-    this._nbTimeShow++;
-    if (office365_notifier_Prefs.isCalendarSoundEnabled()) {
-        office365_notifier_Util.playSound();
-    }
-    if (office365_notifier_Prefs.isCalendarNotificationEnabled()) {
-        var calEventTitle = office365_notifier_Util.maxStringLength(office365_notifier_Util.getBundleString("connector.notification.calEvent") + this.name, 32);
-        office365_notifier_Util.showNotification(calEventTitle, this.duration, office365_notifier_Prefs.getEmailNotificationDuration(), function() {
-            office365_notifier_Util.openURL(office365_notifier_Constant.URLS.SITE_DEFAULT);
-        }, null);
-    }
-
-    var object = this;
-    this._notifier = office365_notifier_Util.setTimer(this._notifier, function() {
-        object.notify();
-    }, this._delayMs);
+/**
+ * Find the date corresponding of the first day of W1
+ *
+ * @this {CalEvent}
+ * @param {Number}
+ *            year  The year
+ * @return {Date} The date of the first day of W1
+ */
+office365_notifier_CalEvent.prototype.dateBeginW1 = function(year) {
+    var dateDay4 = new Date(year, 0, 4, 0, 0, 0, 0);
+    return new Date(dateDay4.getTime() - (dateDay4.getDay() * 86400000));
 };
 
 /**
  * Freeze the interface
  */
-Object.freeze(office365_notifier_calEvent);
+Object.freeze(office365_notifier_CalEvent);

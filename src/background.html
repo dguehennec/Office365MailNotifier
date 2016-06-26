@@ -4,22 +4,28 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>office365 Mail Notifier Background page</title>
 
+		<script type="text/javascript" src="js/chrome.js"></script>
+
 		<script type="text/javascript" src="modules/service/util.js" ></script>
 		<script type="text/javascript" src="modules/constant/office365helper.js"></script>
 		
 		<script type="text/javascript" src="modules/domain/calevent.js"></script>
 		<script type="text/javascript" src="modules/domain/messageevent.js"></script>
+		<script type="text/javascript" src="modules/domain/mailboxinfo.js"></script>
 		<script type="text/javascript" src="modules/domain/eventsmanager.js"></script>
+		<script type="text/javascript" src="modules/domain/message.js"></script>
+		<script type="text/javascript" src="modules/domain/messagesmanager.js"></script>
 		
 		<script type="text/javascript" src="modules/service/logger.js"></script>
 		<script type="text/javascript" src="modules/service/prefs.js"></script>
+		<script type="text/javascript" src="modules/service/notifier.js"></script>
 		<script type="text/javascript" src="modules/service/util.js"></script>
 
 		<script type="text/javascript" src="modules/controller/service.js"></script>
 		<script type="text/javascript" src="modules/controller/controller.js"></script>
 
-		<script src="js/background.js"></script>
-	
+		<script type="text/javascript" src="js/background.js"></script>
+		<script type="text/javascript" src="js/background_specific.js"></script>
 	</head>
 	<body>
 		<audio id="sound" src="skin/notify.ogg"></audio>

@@ -62,15 +62,22 @@ office365_notifier_Prefs.PREF = {
     EMAIL_NOTIFICATION_ENABLED      : "systemNotificationEnabled",
     EMAIL_SOUND_ENABLED             : "soundEnabled",
     EMAIL_NOTIFICATION_DURATION     : "emailNotificationDuration",
+    // Message
+    MESSAGE_ENABLED                 : "messageEnabled",
+    MESSAGE_NB_DISPLAYED            : "messageNbDisplayed",
+    MESSAGE_NB_CHARACTERS_DISPLAYED : "messageNbCharactersDisplayed",
     // calendar
     CALENDAR_ENABLED                : "calendarEnabled",
+    CALENDAR_PERIOD_DISPLAYED       : "calendarPeriodDisplayed",
+    CALENDAR_NB_DISPLAYED           : "calendarNbDisplayed",
     CALENDAR_NOTIFICATION_ENABLED   : "calendarSystemNotificationEnabled",
     CALENDAR_SOUND_ENABLED          : "calendarSoundEnabled",
+    CALENDAR_REMINDER_TIME_CONF     : "calendarReminderTimeConf",
     CALENDAR_REMINDER_NB_REPEAT     : "calendarReminderRepeatNb",
     // message
-    MESSAGE_ENABLED                 : "messageEnabled",
-    MESSAGE_NOTIFICATION_ENABLED    : "messageSystemNotificationEnabled",
-    MESSAGE_SOUND_ENABLED           : "messageSoundEnabled"
+    INSTANT_MESSAGE_ENABLED         : "instantMessageEnabled",
+    INSTANT_MESSAGE_NOTIFICATION_ENABLED    : "instantMessageSystemNotificationEnabled",
+    INSTANT_MESSAGE_SOUND_ENABLED           : "instantMessageSoundEnabled"
 };
 office365_notifier_Util.deepFreeze(office365_notifier_Prefs.PREF);
 
@@ -97,15 +104,22 @@ office365_notifier_Prefs.load = function() {
     this.pref_email_notification_enabled   = this._getPref(this.PREF.EMAIL_NOTIFICATION_ENABLED);
     this.pref_email_sound_enabled          = this._getPref(this.PREF.EMAIL_SOUND_ENABLED);
     this.pref_email_notification_duration  = this._getPref(this.PREF.EMAIL_NOTIFICATION_DURATION);
+    // message
+    this.pref_message_enabled                 = this._getPref(this.PREF.MESSAGE_ENABLED);
+    this.pref_message_nb_displayed            = this._getPref(this.PREF.MESSAGE_NB_DISPLAYED);
+    this.pref_message_nb_characters_displayed = this._getPref(this.PREF.MESSAGE_NB_CHARACTERS_DISPLAYED);
     // calendar
     this.pref_calendar_enabled               = this._getPref(this.PREF.CALENDAR_ENABLED);
+    this.pref_calendar_period_displayed      = this._getPref(this.PREF.CALENDAR_PERIOD_DISPLAYED);
+    this.pref_calendar_nb_displayed          = this._getPref(this.PREF.CALENDAR_NB_DISPLAYED);
     this.pref_calendar_notification_enabled  = this._getPref(this.PREF.CALENDAR_NOTIFICATION_ENABLED);
     this.pref_calendar_sound_enabled         = this._getPref(this.PREF.CALENDAR_SOUND_ENABLED);
+    this.pref_calendar_reminder_time_conf    = this._getPref(this.PREF.CALENDAR_REMINDER_TIME_CONF);
     this.pref_calendar_reminder_nb_repeat    = this._getPref(this.PREF.CALENDAR_REMINDER_NB_REPEAT);
-    // message
-    this.pref_message_enabled               = this._getPref(this.PREF.MESSAGE_ENABLED);
-    this.pref_message_notification_enabled  = this._getPref(this.PREF.MESSAGE_NOTIFICATION_ENABLED);
-    this.pref_message_sound_enabled         = this._getPref(this.PREF.MESSAGE_SOUND_ENABLED);
+    // instant message
+    this.pref_instant_message_notification_enabled   = this._getPref(this.PREF.INSTANT_MESSAGE_ENABLED);
+    this.pref_instant_message_sound_enabled          = this._getPref(this.PREF.INSTANT_MESSAGE_SOUND_ENABLED);
+    this.pref_instant_message_notification_duration  = this._getPref(this.PREF.INSTANT_MESSAGE_NOTIFICATION_DURATION);
 };
 
 /**
@@ -165,9 +179,30 @@ office365_notifier_Prefs.getPref = function(key) {
             value = this.pref_email_notification_duration;
             break;
 
+         // message
+        case this.PREF.MESSAGE_ENABLED:
+            value = this.pref_message_enabled;
+            break;
+
+        case this.PREF.MESSAGE_NB_DISPLAYED:
+            value = this.pref_message_nb_displayed;
+            break;
+
+        case this.PREF.MESSAGE_NB_CHARACTERS_DISPLAYED:
+            value = this.pref_message_nb_characters_displayed;
+            break;
+
         // calendar
         case this.PREF.CALENDAR_ENABLED:
             value = this.pref_calendar_enabled;
+            break;
+
+        case this.PREF.CALENDAR_PERIOD_DISPLAYED:
+            value = this.pref_calendar_period_displayed;
+            break;
+
+        case this.PREF.CALENDAR_NB_DISPLAYED:
+            value = this.pref_calendar_nb_displayed;
             break;
 
         case this.PREF.CALENDAR_NOTIFICATION_ENABLED:
@@ -178,23 +213,26 @@ office365_notifier_Prefs.getPref = function(key) {
             value = this.pref_calendar_sound_enabled;
             break;
 
+        case this.PREF.CALENDAR_REMINDER_TIME_CONF:
+            value = this.pref_calendar_reminder_time_conf;
+            break;
+
         case this.PREF.CALENDAR_REMINDER_NB_REPEAT:
             value = this.pref_calendar_reminder_nb_repeat;
             break;
 
-        // message
-        case this.PREF.MESSAGE_ENABLED:
-            value = this.pref_message_enabled;
+        // instant message
+        case this.PREF.INSTANT_MESSAGE_NOTIFICATION_ENABLED:
+            value = this.pref_instant_message_notification_enabled;
             break;
 
-        case this.PREF.MESSAGE_NOTIFICATION_ENABLED:
-            value = this.pref_message_notification_enabled;
+        case this.PREF.INSTANT_MESSAGE_SOUND_ENABLED:
+            value = this.pref_instant_message_sound_enabled;
             break;
 
-        case this.PREF.MESSAGE_SOUND_ENABLED:
-            value = this.pref_message_sound_enabled;
+        case this.PREF.INSTANT_MESSAGE_NOTIFICATION_DURATION:
+            value = this.pref_instant_message_notification_duration;
             break;
-
         default:
             break;
     }
@@ -226,9 +264,30 @@ office365_notifier_Prefs.updatePref = function(key, value) {
             this.pref_email_notification_duration = value;
             break;
 
+        // message
+        case this.PREF.MESSAGE_ENABLED:
+            this.pref_message_enabled = value;
+            break;
+
+        case this.PREF.MESSAGE_NB_DISPLAYED:
+            this.pref_message_nb_displayed = value;
+            break;
+
+        case this.PREF.MESSAGE_NB_CHARACTERS_DISPLAYED:
+            this.pref_message_nb_characters_displayed = value;
+            break;
+
         // calendar
         case this.PREF.CALENDAR_ENABLED:
             this.pref_calendar_enabled = value;
+            break;
+
+        case this.PREF.CALENDAR_PERIOD_DISPLAYED:
+            this.pref_calendar_period_displayed = value;
+            break;
+
+        case this.PREF.CALENDAR_NB_DISPLAYED:
+            this.pref_calendar_nb_displayed = value;
             break;
 
         case this.PREF.CALENDAR_NOTIFICATION_ENABLED:
@@ -239,21 +298,25 @@ office365_notifier_Prefs.updatePref = function(key, value) {
             this.pref_calendar_sound_enabled = value;
             break;
 
+        case this.PREF.CALENDAR_REMINDER_TIME_CONF:
+            this.pref_calendar_reminder_time_conf = value;
+            break;
+
         case this.PREF.CALENDAR_REMINDER_NB_REPEAT:
             this.pref_calendar_reminder_nb_repeat = value;
             break;
-            
-        // message
-        case this.PREF.MESSAGE_ENABLED:
-            this.pref_message_enabled = value;
+
+        // instant message
+        case this.PREF.INSTANT_MESSAGE_NOTIFICATION_ENABLED:
+            this.pref_instant_message_notification_enabled = value;
             break;
 
-        case this.PREF.MESSAGE_NOTIFICATION_ENABLED:
-            this.pref_message_notification_enabled = value;
+        case this.PREF.INSTANT_MESSAGE_SOUND_ENABLED:
+            this.pref_instant_message_sound_enabled = value;
             break;
 
-        case this.PREF.MESSAGE_SOUND_ENABLED:
-            this.pref_message_sound_enabled = value;
+        case this.PREF.INSTANT_MESSAGE_NOTIFICATION_DURATION:
+            this.pref_instant_message_notification_duration = value;
             break;
           
         default:
@@ -319,6 +382,38 @@ office365_notifier_Prefs.getEmailNotificationDuration = function() {
     return (this.pref_email_notification_duration * 1000);
 };
 
+/* *************************** message *************************** */
+
+/**
+ * indicate if Message is enabled
+ *
+ * @this {Prefs}
+ * @return {Boolean} true if enabled
+ */
+office365_notifier_Prefs.isMessageEnabled = function() {
+    return this.pref_message_enabled;
+};
+
+/**
+ * get Message number displayed
+ *
+ * @this {Prefs}
+ * @return {Number}
+ */
+office365_notifier_Prefs.getMessageNbDisplayed = function() {
+    return this.pref_message_nb_displayed;
+};
+
+/**
+ * get Message number characters displayed
+ *
+ * @this {Prefs}
+ * @return {Number}
+ */
+office365_notifier_Prefs.getMessageNbCharactersDisplayed = function() {
+    return this.pref_message_nb_characters_displayed;
+};
+
 /* *************************** calendar *************************** */
 
 /**
@@ -329,6 +424,26 @@ office365_notifier_Prefs.getEmailNotificationDuration = function() {
  */
 office365_notifier_Prefs.isCalendarEnabled = function() {
     return this.pref_calendar_enabled;
+};
+
+/**
+ * get Calendar Period Displayed
+ *
+ * @this {Prefs}
+ * @return {Number}
+ */
+office365_notifier_Prefs.getCalendarPeriodDisplayed = function() {
+    return this.pref_calendar_period_displayed;
+};
+
+/**
+ * get Calendar Number Displayed
+ *
+ * @this {Prefs}
+ * @return {Number}
+ */
+office365_notifier_Prefs.getCalendarNbDisplayed = function() {
+    return this.pref_calendar_nb_displayed;
 };
 
 /**
@@ -352,6 +467,16 @@ office365_notifier_Prefs.isCalendarSoundEnabled = function() {
 };
 
 /**
+ * get Calendar Reminder Time Configuration
+ *
+ * @this {Prefs}
+ * @return {Number}
+ */
+office365_notifier_Prefs.getCalendarReminderTimeConf = function() {
+    return this.pref_calendar_reminder_time_conf;
+};
+
+/**
  * get Calendar Reminder number repeat
  *
  * @this {Prefs}
@@ -361,26 +486,26 @@ office365_notifier_Prefs.getCalendarReminderNbRepeat = function() {
     return this.pref_calendar_reminder_nb_repeat;
 };
 
-/* *************************** message *************************** */
+/* *************************** instant message *************************** */
 
 /**
- * indicate if Message is enabled
+ * indicate if instant message is enabled
  *
  * @this {Prefs}
  * @return {Boolean} true if enabled
  */
-office365_notifier_Prefs.isMessageEnabled = function() {
-    return this.pref_message_enabled;
+office365_notifier_Prefs.isInstantMessageEnabled = function() {
+    return this.pref_instant_message_enabled;
 };
 
 /**
- * indicate if Message System Notification is enabled
+ * indicate if instant message System Notification is enabled
  *
  * @this {Prefs}
  * @return {Boolean} true if enabled
  */
-office365_notifier_Prefs.isMessageNotificationEnabled = function() {
-    return this.pref_message_notification_enabled;
+office365_notifier_Prefs.isInstantMessageNotificationEnabled = function() {
+    return this.pref_instant_message_notification_enabled;
 };
 
 /**
@@ -389,8 +514,8 @@ office365_notifier_Prefs.isMessageNotificationEnabled = function() {
  * @this {Prefs}
  * @return {Boolean} true if enabled
  */
-office365_notifier_Prefs.isMessageSoundEnabled = function() {
-    return this.pref_message_sound_enabled;
+office365_notifier_Prefs.isInstantMessageSoundEnabled = function() {
+    return this.pref_instant_message_sound_enabled;
 };
 
 /* *************************** Private *************************** */
@@ -448,17 +573,24 @@ var PrefsService = {
             'currentVersion' : 0,
             'systemNotificationEnabled' : true,
             'soundEnabled' : true,
-            'emailNotificationDuration' : 16,
+            'emailNotificationDuration' : 14,
+            'messageEnabled' : true,
+            'messageNbDisplayed' : 5,
+            'messageNbCharactersDisplayed' : 80,
             'calendarEnabled' : true,
+            'calendarPeriodDisplayed' : 14,
+            'calendarNbDisplayed' : 5,
             'calendarSystemNotificationEnabled' : true,
             'calendarSoundEnabled' : true,
-            'calendarReminderRepeatNb' : 0,
-            'messageEnabled' : true,
-            'messageSystemNotificationEnabled' : true,
-            'messageSoundEnabled' : true
+            'calendarReminderTimeConf' : -1,
+            'calendarReminderRepeatNb' : 3,
+            'instantMessageEnabled' : true,
+            'instantMessageSystemNotificationEnabled' : true,
+            'instantMessageSoundEnabled' : true
         }
     },
-    _currentPref : undefined
+    _currentPref : undefined,
+    _saveTimerDelay : undefined
 };
 
 /**
@@ -468,12 +600,17 @@ var PrefsService = {
  * @param {Function} the callback when initialized
  */
 PrefsService.init = function(callback) {
-    chrome.storage.sync.get(this._defaultsPref, function(storage) {
+    var loadFunction = function(storage) {
         PrefsService._currentPref = storage;
         if (callback) {
             callback();
         }
-    });
+    };
+    if(chrome.storage.sync) {
+        chrome.storage.sync.get(this._defaultsPref, loadFunction);
+    } else {
+        chrome.storage.local.get(this._defaultsPref, loadFunction);
+    }
 };
 
 /**
@@ -485,7 +622,7 @@ PrefsService.init = function(callback) {
  */
 PrefsService.getPref = function(key) {
     var value = null;
-    if(this._currentPref) {
+    if(this._currentPref && this._currentPref.prefs[key] !== undefined) {
         value = this._currentPref.prefs[key];
     }
     return value;
@@ -500,8 +637,45 @@ PrefsService.getPref = function(key) {
  */
 PrefsService.setPref = function(key, value) {
     this._currentPref.prefs[key] = value;
-    //synchronise preference
-    chrome.storage.sync.set(this._currentPref);
+    this.synchronize();
 };
 
+/**
+ * remove the key.
+ *
+ * @this {PrefsService}
+ * @param {String} the key
+ */
+PrefsService.removePref = function(key) {
+    if(this._currentPref.prefs[key] !== undefined) {
+        delete this._currentPref.prefs[key];
+        this.synchronize();
+    }
+};
 
+/**
+ * synchronize preferences
+ *
+ * @private
+ * @this {PrefsService}
+ * @param {String} the key
+ */
+PrefsService.synchronize = function(forced) {
+    //synchronise preference after 1 seconds no change delay if not forced
+    clearTimeout(this._saveTimerDelay);
+    var that = this;
+    var saveFunction = function() {
+        if(chrome.storage.sync) {
+            chrome.storage.sync.set(that._currentPref);
+        } else {
+            chrome.storage.local.set(that._currentPref);
+        }
+    };
+    if(forced) {
+        saveFunction();
+    } else {
+        this._saveTimerDelay = setTimeout(function() {
+            saveFunction();
+        }, 1000);
+    }
+};

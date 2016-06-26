@@ -69,8 +69,7 @@ office365_notifier_Constant.LOGGER = {
  * @constant
  */
 office365_notifier_Constant.URLS = {
-    SITE_AUTHENT : "https://login.microsoftonline.com/",
-    SITE_DEFAULT : "https://outlook.office.com/owa/"
+    SITE_AUTHENT : "https://login.microsoftonline.com/"
 };
 
 /**
@@ -89,4 +88,26 @@ office365_notifier_Constant.OBSERVER = {
  */
 office365_notifier_Constant.STRING_BUNDLE = {
     DEFAULT_URL : "chrome://office365_mail_notifier/locale/office365_mail_notifier.properties"
+};
+
+/**
+ * Notifier
+ *
+ * @constant
+ *
+ */
+office365_notifier_Constant.NOTIFIER = {
+    REPEAT_DELAY_MS : 60000
+};
+
+/**
+ * Service
+ *
+ * @constant
+ *
+ */
+office365_notifier_Constant.SERVICE = {
+    NOTIFY_MAX_NB_MSG : 15,
+    NOTIFY_MAX_LEN_TITLE : 75,
+    NB_MAX_MSG_WITH_CONTENT : 200
 };

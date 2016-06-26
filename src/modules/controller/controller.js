@@ -55,6 +55,9 @@ var office365_notifier_Controller = {
     /** The current interface listener. */
     _currentInterfaceListener : undefined,
     /** @private */
+    /** The current interface uri. */
+    _currentInterfaceURI : undefined,
+    /** @private */
     /** The service */
     _service : undefined
 };
@@ -122,12 +125,13 @@ office365_notifier_Controller.event = function(event) {
  * @param {DOMDocument}
  *            doc the document of the current page
  */
-office365_notifier_Controller.office365InterfaceLoaded = function(listener, doc) {
-    this._logger.info("office365InterfaceLoaded");
+office365_notifier_Controller.office365InterfaceLoaded = function(listener, url) {
+    this._logger.info("office365InterfaceLoaded: " + listener);
     if (this._service) {
         return;
     }
     this._currentInterfaceListener = listener;
+    this._currentInterfaceURI = url.split("owa")[0];
     this._service = new office365_notifier_Service(this);
     this.event(true);
 };
@@ -139,7 +143,7 @@ office365_notifier_Controller.office365InterfaceLoaded = function(listener, doc)
  * @param {Object}
  *            listener the listener
  */
-office365_notifier_Controller.office365InterfaceUnloaded = function(listener) {
+office365_notifier_Controller.office365InterfaceUnloaded = function(listener, url) {
     this._logger.info("office365InterfaceUnloaded");
     if (this._currentInterfaceListener != listener) {
         return;
@@ -149,6 +153,20 @@ office365_notifier_Controller.office365InterfaceUnloaded = function(listener) {
     this._service = undefined;
     this.event();
 };
+
+/**
+ * check the current uri of the office365 interface
+ * 
+ * @this {Controller}
+ * @param {Object}
+ *            listener the listener
+ */
+office365_notifier_Controller.office365IsCurrentInterface = function(url) {
+    if(url && (url.indexOf(this._currentInterfaceURI) === 0)) {
+        return true;
+    }
+    return false;
+}
 
 /**
  * Get the service singleton
@@ -196,7 +214,7 @@ office365_notifier_Controller.openWebInterface = function() {
     if (!this.isInitialized()) {
         office365_notifier_Util.openURL(office365_notifier_Constant.URLS.SITE_AUTHENT);
     } else {
-        office365_notifier_Util.openURL(office365_notifier_Constant.URLS.SITE_DEFAULT);
+        office365_notifier_Util.openURL(this._currentInterfaceURI);
     }
 };
 
@@ -214,6 +232,20 @@ office365_notifier_Controller.getNbMessageUnread = function() {
 };
 
 /**
+ * Get unread messages
+ *
+ * @public
+ * @this {Controller}
+ * @return {Message[]} unread messages
+ */
+office365_notifier_Controller.getUnreadMessages = function() {
+    if (!this.isInitialized()) {
+        return [];
+    }
+    return this._service.getUnreadMessages();
+};
+
+/**
  * Get calendar events
  * 
  * @this {Controller}
@@ -226,17 +258,31 @@ office365_notifier_Controller.getCalendarEvents = function() {
     return this._service.getCalendarEvents();
 };
 
+
 /**
- * Get message events
+ * Get MailBox Info
+ *
+ * @this {Controller}
+ * @return {MailBoxInfo} mailBoxInfo
+ */
+office365_notifier_Controller.getMailBoxInfo = function() {
+    if (!this.isInitialized()) {
+        return new office365_notifier_MailBoxInfo();
+    }
+    return this._service.getMailBoxInfo();
+};
+
+/**
+ * Get instant message events
  * 
  * @this {Controller}
- * @return {Array} message events list
+ * @return {Array} instant message events list
  */
-office365_notifier_Controller.getMessageEvents = function() {
+office365_notifier_Controller.getInstantMessagesEvents = function() {
     if (!this.isInitialized()) {
         return [];
     }
-    return this._service.getMessageEvents();
+    return this._service.getInstantMessagesEvents();
 };
 
 /**

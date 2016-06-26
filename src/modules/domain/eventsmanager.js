@@ -60,11 +60,12 @@ office365_notifier_eventsManager.prototype.addNewEvent = function(event) {
     var eventExist = this.getEvent(event);
     if (eventExist) {
         eventExist.isInvalid = false;
+        return false;
     } else if (event.name !== "") {
         event.isInvalid = false;
         this._events.push(event);
-        event.notify();
     }
+    return true;
 };
 
 /**
@@ -117,6 +118,22 @@ office365_notifier_eventsManager.prototype.getEvent = function(event) {
         }
     }
     return null;
+};
+
+/**
+ * Find event already recorded
+ * 
+ * @this {eventsManager}
+ * @param {Onject}
+ *            event the event
+ */
+office365_notifier_eventsManager.prototype.updateEvent = function(oldEvent, newEvent) {
+    for (var index = 0; index < this._events.length; index++) {
+        if (this._events[index].key === oldEvent.key) {
+            this._events[index] = newEvent;
+            break;
+        }
+    }
 };
 
 /**

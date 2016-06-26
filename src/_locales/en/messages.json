@@ -1,12 +1,13 @@
-﻿{
+{
     "extName": {
-        "message": "Office365 Mail Notifier",
+        "message": "Office 365 Mail Notifier",
         "description": ""
     },
-	"extDescription": {
-        "message": "This extension notifies you when new messages arrive in your Office 365 mailbox",
+    "extDescription": {
+        "message": "This extension notifies you when new messages arrive in your Office mailbox.",
         "description": ""
     },
+    
     "yes": {
         "message": "yes",
         "description": ""
@@ -19,8 +20,49 @@
         "message": "seconds",
         "description": ""
     },
+    "week": {
+        "message": "week",
+        "description": ""
+    },
+    "weeks": {
+        "message": "weeks",
+        "description": ""
+    },
+    "time": {
+        "message": "time",
+        "description": ""
+    },
+    "atTime": {
+        "message": "at time",
+        "description": ""
+    },
+    "minuteBefore": {
+        "message": "minute before",
+        "description": ""
+    },
+    "minutesBefore": {
+        "message": "minutes before",
+        "description": ""
+    },
+    "hourBefore": {
+        "message": "hour before",
+        "description": ""
+    },
+    "hoursBefore": {
+        "message": "hours before",
+        "description": ""
+    },
+
     "main_checkNow": {
         "message": "Refresh...",
+        "description": ""
+    },
+    "main_connect": {
+        "message": "Connect",
+        "description": ""
+    },
+    "main_disconnect": {
+        "message": "Disconnect",
         "description": ""
     },
     "main_options_label": {
@@ -31,20 +73,30 @@
         "message": "About Office 365 Mail Notifier",
         "description": ""
     },
-    "tooltip_calendar_caption": {
-        "message": "Events",
+    "main_homepage_label": {
+        "message": "Web Site",
         "description": ""
     },
+
     "tooltip_message_caption": {
-        "message": "Messages",
+        "message": "Unread Emails",
         "description": ""
     },
+    "tooltip_calendar_caption": {
+        "message": "Next events",
+        "description": ""
+    },
+    "tooltip_task_caption": {
+        "message": "Current tasks",
+        "description": ""
+    },
+
     "about_homepage_label": {
         "message": "Web Site :",
         "description": ""
     },
     "about_createdby_label": {
-        "message": "By: David GUEHENNEC",
+        "message": "By David GUEHENNEC",
         "description": ""
     },
     "about_version_label": {
@@ -52,19 +104,32 @@
         "description": ""
     },
     "about_legal_label": {
-        "message": "This extension is not affiliated or endorsed by Microsoft",
+        "message": "This extension is not affiliated or endorsed by Microsoft.",
         "description": ""
     },
     "about_close_label": {
         "message": "Close",
         "description": ""
     },
+
     "option_option_label": {
         "message": "Preferences",
         "description": ""
     },
     "option_common_label": {
         "message": "General",
+        "description": ""
+    },
+    "option_common_connection_caption": {
+        "message": "Connection",
+        "description": ""
+    },
+    "option_common_autoConnect": {
+        "message": "Auto connection on startup",
+        "description": ""
+    },
+    "option_common_browserSetCookies": {
+        "message": "Auto connection on the web interface",
         "description": ""
     },
     "option_common_mail_notification_caption": {
@@ -83,12 +148,24 @@
         "message": "Notification duration",
         "description": ""
     },
-    "option_common_access_caption": {
-        "message": "Extension access",
+    "option_message_label": {
+        "message": "Email",
         "description": ""
     },
-    "option_common_statusbar": {
-        "message": "Statusbar",
+    "option_message_activate": {
+        "message": "Enable unread Emails management",
+        "description": ""
+    },
+    "option_message_view_caption": {
+        "message": "Displaying",
+        "description": ""
+    },
+    "option_message_view_nbMax_label": {
+        "message": "Maximum number of Emails displayed",
+        "description": ""
+    },
+    "option_message_view_nbMax_characters_label": {
+        "message": "Maximum number of characters displayed in Email abstract",
         "description": ""
     },
     "option_calendar_label": {
@@ -99,8 +176,20 @@
         "message": "Enable calendar management",
         "description": ""
     },
+    "option_calendar_view_caption": {
+        "message": "Displaying",
+        "description": ""
+    },
+    "option_calendar_view_period_label": {
+        "message": "Period displayed",
+        "description": ""
+    },
+    "option_calendar_view_nbMax_label": {
+        "message": "Maximum number of appointments displayed",
+        "description": ""
+    },
     "option_calendar_notification_caption": {
-        "message": "Notification event",
+        "message": "Notification",
         "description": ""
     },
     "option_calendar_systemNotification": {
@@ -115,88 +204,291 @@
         "message": "Repeat",
         "description": ""
     },
-    "option_message_label": {
-        "message": "Message",
+
+    "option_task_label": {
+        "message": "Tasks",
         "description": ""
     },
-    "option_message_activate": {
-        "message": "Enable message management",
+    "option_task_activate": {
+        "message": "Enable Tasks management",
         "description": ""
     },
-    "option_message_notification_caption": {
-        "message": "Notification message",
+    "option_task_view_caption": {
+        "message": "Displaying",
         "description": ""
     },
-    "option_message_systemNotification": {
-        "message": "System notification",
+    "option_task_view_reminder": {
+        "message": "Reminder",
         "description": ""
     },
-    "option_message_soundNotification": {
-        "message": "Sound notification",
+    "option_task_view_conf": {
+        "message": "Office Configuration",
         "description": ""
     },
-    "locale": {
-        "message": "en",
+    "option_task_view_nbTasks": {
+        "message": "Maximum number of tasks displayed",
         "description": ""
     },
+    "option_task_view_nbPriorities": {
+        "message": "Priorities set",
+        "description": ""
+    },
+    "option_task_view_all": {
+        "message": "All",
+        "description": ""
+    },
+    "option_task_view_highAndNormal": {
+        "message": "High and normal",
+        "description": ""
+    },
+    "option_task_view_high": {
+        "message": "High",
+        "description": ""
+    },
+    "option_task_view_normal": {
+        "message": "Normal",
+        "description": ""
+    },
+    "option_task_view_low": {
+        "message": "Low",
+        "description": ""
+    },
+
+    "option_identifiant_label": {
+        "message": "Accounts",
+        "description": ""
+    },
+    "option_identifiant_caption": {
+        "message": "Account",
+        "description": ""
+    },
+    "option_identifiant_params_caption": {
+        "message": "Authentication",
+        "description": ""
+    },
+    "option_identifiant_alias_label": {
+        "message": "Alias",
+        "description": ""
+    },
+    "option_identifiant_login_label": {
+        "message": "Login",
+        "description": ""
+    },
+    "option_identifiant_password_label": {
+        "message": "Password",
+        "description": ""
+    },
+    "option_identifiant_savePassword_label": {
+        "message": "Remember password",
+        "description": ""
+    },
+    "option_identifiant_server_caption": {
+        "message": "Server",
+        "description": ""
+    },
+    "option_identifiant_authtype_label": {
+        "message": "Authentication",
+        "description": ""
+    },
+    "option_identifiant_authtype_normal": {
+        "message": "Normal",
+        "description": ""
+    },
+    "option_identifiant_urlwebservice_label": {
+        "message": "Web service URL",
+        "description": ""
+    },
+    "option_identifiant_urlwebservice_tooltip": {
+        "message": "The URL of the mail service, most of the time the same as the web interface URL",
+        "description": ""
+    },
+    "option_identifiant_urlwebinterface_label": {
+        "message": "Web interface URL",
+        "description": ""
+    },
+    "option_identifiant_urlwebinterface_tooltip": {
+        "message": "The URL displayed in the Web browser when connected (Optional)",
+        "description": ""
+    },
+    "option_identifiant_add_button": {
+        "message": "Add new account",
+        "description": ""
+    },
+    "option_identifiant_remove_button": {
+        "message": "Remove",
+        "description": ""
+    },
+    "option_identifiant_connect_button": {
+        "message": "Connect",
+        "description": ""
+    },
+    "option_identifiant_connectCancel_button": {
+        "message": "Cancel...",
+        "description": ""
+    },
+    "option_identifiant_disconnect_button": {
+        "message": "Disconnect",
+        "description": ""
+    },  
+    
     "tooltip_notConnected_title": {
         "message": "Disconnected",
         "description": ""
     },
+    "tooltip_configuration_description": {
+        "message": "For notifications, please configure your account(s).",
+        "description": ""
+    },
     "tooltip_notConnected_description": {
-        "message": "For notifications, please log in on Office 365",
+        "message": "For notifications, please log in.",
         "description": ""
     },
     "tooltip_errorConnected_title": {
         "message": "Update failed",
         "description": ""
     },
-    "tooltip_errorInitPage_title": {
-       "message": "Sorry, an error has occurred, please reload this page.",
-       "description": ""
-    },
-    "tooltip_unreadMessages_title": {
-        "message": "%NB% unread message(s)",
+    "tooltip_disconnected_descriptionStatus": {
+        "message": "Status: Disconnected",
         "description": ""
     },
-    "tooltip_connected_description": {
-        "message": "Status: Connected\n",
+    "tooltip_errorInitPage_title": {
+        "message": "Sorry, an error has occurred, please reload this page.",
+        "description": ""
+    },
+    "tooltip_unreadMessages_title": {
+        "message": "Unread Emails: %NB% ",
+        "description": ""
+    },
+    "tooltip_connected_descriptionStatus": {
+        "message": "Status: Connected",
+        "description": ""
+    },
+    "tooltip_connected_descriptionAccount": {
+        "message": "Account: %EMAIL%",
+        "description": ""
+    },
+    "tooltip_connected_descriptionQuota": {
+        "message": "Quota: %PERCENTAGE%% (%USED% of %SIZE%)",
+        "description": ""
+    },
+    "tooltip_noUnreadMessage": {
+        "message": "No unread Email",
         "description": ""
     },
     "tooltip_noEvent": {
         "message": "No event in progress",
         "description": ""
     },
-    "tooltip_noMessage": {
-        "message": "No message in progress",
+    "tooltip_priority_high": {
+        "message": "High priority",
         "description": ""
     },
-    "connector_notification_nbUnreadMessages": {
-        "message": "%NB% new unread messages!",
+    "tooltip_priority_low": {
+        "message": "Low priority",
         "description": ""
     },
-    "connector_notification_calEvent": {
-        "message": "Event: ",
+    "tooltip_priority_normal": {
+        "message": "Normal priority",
         "description": ""
     },
-    "connector_notification_messageEvent": {
-        "message": "Message: ",
+    "tooltip_noTask": {
+        "message": "No task in progress",
+        "description": ""
+    },
+    "tooltip_week": {
+        "message": "W%WEEK%",
+        "description": ""
+    },
+    
+    "connector_error_req_internal": {
+        "message": "Internal error",
+        "description": ""
+    },
+    "connector_error_req_invalid": {
+        "message": "Invalid request",
+        "description": ""
+    },
+    "connector_error_req_timeout": {
+        "message": "No response",
+        "description": ""
+    },
+    "connector_error_req_server": {
+        "message": "Server error",
+        "description": ""
+    },
+    "connector_error_req_network": {
+        "message": "Network error",
+        "description": ""
+    },
+    "connector_error_req_authreq": {
+        "message": "Authentication expired",
+        "description": ""
+    },
+    "connector_error_req_logininvalid": {
+        "message": "Invalid login",
+        "description": ""
+    },
+
+    "connector_error_authentification": {
+        "message": "Authentication error: %REASON%!",
+        "description": ""
+    },
+    "connector_error_createwait": {
+        "message": "Error during create wait request: %REASON%!",
+        "description": ""
+    },
+    "connector_error_wait": {
+        "message": "Error waiting for a new message: %REASON%!",
+        "description": ""
+    },
+    "connector_error_mailboxinfo": {
+        "message": "Error when retrieving information from the mailbox: %REASON%!",
         "description": ""
     },
     "connector_error_unreadmsg": {
-        "message": "Error when retrieving for new mail: %REASON%!",
+        "message": "Error when retrieving for new Emails: %REASON%!",
         "description": ""
     },
     "connector_error_calendar": {
         "message": "Error when retrieving the calendar events: %REASON%!",
         "description": ""
     },
-    "connector_error_message": {
-        "message": "Error when retrieving the message events: %REASON%!",
+    "connector_error_task": {
+        "message": "Error when retrieving the tasks: %REASON%!",
         "description": ""
     },
-    "connector_error_reason0": {
-        "message": "No item detected",
+
+    "connector_notification_NewMessage": {
+        "message": "Message of %EMAIL%",
+        "description": ""
+    },
+    "connector_notification_nbUnreadMessages": {
+        "message": "%NB% new unread Emails!",
+        "description": ""
+    },
+    "connector_notification_event": {
+        "message": "Event:",
+        "description": ""
+    },
+
+    "unit_bytes_B": {
+        "message": "B",
+        "description": ""
+    },
+    "unit_bytes_KB": {
+        "message": "KB",
+        "description": ""
+    },
+    "unit_bytes_MB": {
+        "message": "MB",
+        "description": ""
+    },
+    "unit_bytes_GB": {
+        "message": "GB",
+        "description": ""
+    },
+    "unit_bytes_TB": {
+        "message": "TB",
         "description": ""
     }
 }

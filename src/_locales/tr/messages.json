@@ -1,0 +1,494 @@
+{
+    "extName": {
+        "message": "Office 365 Mail Notifier",
+        "description": ""
+    },
+    "extDescription": {
+        "message": "Bu eklenti, Office posta kutunuza yeni ileti geldiğinde sizi bilgilendirir.",
+        "description": ""
+    },
+    
+    "yes": {
+        "message": "Evet",
+        "description": ""
+    },
+    "no": {
+        "message": "Hayır",
+        "description": ""
+    },
+    "seconds": {
+        "message": "saniye",
+        "description": ""
+    },
+    "week": {
+        "message": "hafta",
+        "description": ""
+    },
+    "weeks": {
+        "message": "haftalar",
+        "description": ""
+    },
+    "time": {
+        "message": "saat",
+        "description": ""
+    },
+    "atTime": {
+        "message": "saatinde",
+        "description": ""
+    },
+    "minuteBefore": {
+        "message": "dakika önce",
+        "description": ""
+    },
+    "minutesBefore": {
+        "message": "dakika önce",
+        "description": ""
+    },
+    "hourBefore": {
+        "message": "saat önce",
+        "description": ""
+    },
+    "hoursBefore": {
+        "message": "saat önce",
+        "description": ""
+    },
+    "main_checkNow": {
+        "message": "Yenile...",
+        "description": ""
+    },
+    "main_connect": {
+        "message": "Bağlan",
+        "description": ""
+    },
+    "main_disconnect": {
+        "message": "Bağlantıyı kes",
+        "description": ""
+    },
+    "main_options_label": {
+        "message": "Seçenekler",
+        "description": ""
+    },
+    "main_about_label": {
+        "message": "Hakkında Office 365 Mail Notifier",
+        "description": ""
+    },
+    "main_homepage_label": {
+        "message": "Web Sayfası",
+        "description": ""
+    },
+
+    "tooltip_message_caption": {
+        "message": "Okunmamış e-posta",
+        "description": ""
+    },
+    "tooltip_calendar_caption": {
+        "message": "Gelecek etkinlikler",
+        "description": ""
+    },
+    "tooltip_task_caption": {
+        "message": "Mevcut görevler",
+        "description": ""
+    },
+
+    "about_homepage_label": {
+        "message": "Web Sayfası:",
+        "description": ""
+    },
+    "about_createdby_label": {
+        "message": "Vasıtasıyla: David GUEHENNEC",
+        "description": ""
+    },
+    "about_version_label": {
+        "message": "Sürüm:",
+        "description": ""
+    },
+    "about_legal_label": {
+        "message": "Bu eklenti VMare ile bağlantılı yahut Microsoft tarafından onaylanmış değildir.",
+        "description": ""
+    },
+    "about_close_label": {
+        "message": "Kapat",
+        "description": ""
+    },
+
+    "option_option_label": {
+        "message": "Seçenekler",
+        "description": ""
+    },
+    "option_common_label": {
+        "message": "Genel",
+        "description": ""
+    },
+    "option_common_connection_caption": {
+        "message": "Bağlantı",
+        "description": ""
+    },
+    "option_common_autoConnect": {
+        "message": "Başlangıçta otomatik bağlantı",
+        "description": ""
+    },
+    "option_common_browserSetCookies": {
+        "message": "Web arayüzünde otomatik bağlantı",
+        "description": ""
+    },
+    "option_common_mail_notification_caption": {
+        "message": "Bildirim",
+        "description": ""
+    },
+    "option_common_mail_systemNotification": {
+        "message": "Sistem bildirimi",
+        "description": ""
+    },
+    "option_common_mail_soundNotification": {
+        "message": "Ses bildirimi",
+        "description": ""
+    },
+    "option_common_mail_notify_duration_caption": {
+        "message": "Bildirim süresi",
+        "description": ""
+    },
+
+    "option_message_label": {
+        "message": "E-posta",
+        "description": ""
+    },
+    "option_message_activate": {
+        "message": "E-posta yönetimini etkinleştir",
+        "description": ""
+    },
+    "option_message_view_caption": {
+        "message": "Görünüm",
+        "description": ""
+    },
+    "option_message_view_nbMax_label": {
+        "message": "Görüntülenecek azami E-postala sayısı",
+        "description": ""
+    },
+    "option_message_view_nbMax_characters_label": {
+        "message": "Görüntülenecek azami karakter E-postala soyut sayısı",
+        "description": ""
+    },
+
+    "option_calendar_label": {
+        "message": "Takvim",
+        "description": ""
+    },
+    "option_calendar_activate": {
+        "message": "Takvim yönetimini etkinleştir",
+        "description": ""
+    },
+    "option_calendar_view_caption": {
+        "message": "Görünüm",
+        "description": ""
+    },
+    "option_calendar_view_period_label": {
+        "message": "Gösterilen dönem",
+        "description": ""
+    },
+    "option_calendar_view_nbMax_label": {
+        "message": "Görüntülenecek azami görüşme sayısı",
+        "description": ""
+    },
+    "option_calendar_notification_caption": {
+        "message": "Bildirim",
+        "description": ""
+    },
+    "option_calendar_systemNotification": {
+        "message": "Sistem bildirimi",
+        "description": ""
+    },
+    "option_calendar_soundNotification": {
+        "message": "Ses bildirimi",
+        "description": ""
+    },
+    "option_calendar_repeat": {
+        "message": "Tekrarla",
+        "description": ""
+    },
+    
+    "option_task_label": {
+        "message": "Görevler",
+        "description": ""
+    },
+    "option_task_activate": {
+        "message": "Görev yönetimini etkinleştir",
+        "description": ""
+    },
+    "option_task_view_caption": {
+        "message": "Görüntülenen",
+        "description": ""
+    },
+    "option_task_view_reminder": {
+        "message": "Hatırlatıcı",
+        "description": ""
+    },
+    "option_task_view_conf": {
+        "message": "Office şekillenimi",
+        "description": ""
+    },
+    "option_task_view_nbTasks": {
+        "message": "Görüntülenecek azami görev sayısı",
+        "description": ""
+    },
+    "option_task_view_nbPriorities": {
+        "message": "Seçenek ayarları",
+        "description": ""
+    },
+    "option_task_view_all": {
+        "message": "Tümü",
+        "description": ""
+    },
+    "option_task_view_highAndNormal": {
+        "message": "Yüksek ve normal",
+        "description": ""
+    },
+    "option_task_view_high": {
+        "message": "Yüksek",
+        "description": ""
+    },
+    "option_task_view_normal": {
+        "message": "Normal",
+        "description": ""
+    },
+    "option_task_view_low": {
+        "message": "Düşük",
+        "description": ""
+    },
+    
+    "option_identifiant_label": {
+        "message": "Hesapları",
+        "description": ""
+    },
+    "option_identifiant_caption": {
+        "message": "Hesap",
+        "description": ""
+    },
+    "option_identifiant_params_caption": {
+        "message": "doğruluğunu kanıtlama",
+        "description": ""
+    },
+    "option_identifiant_alias_label": {
+        "message": "Başka ad",
+        "description": ""
+    },
+    "option_identifiant_login_label": {
+        "message": "Giriş",
+        "description": ""
+    },
+    "option_identifiant_password_label": {
+        "message": "Şifre",
+        "description": ""
+    },
+    "option_identifiant_savePassword_label": {
+        "message": "Şifreyi hatırla",
+        "description": ""
+    },
+    "option_identifiant_server_caption": {
+        "message": "Sunucu",
+        "description": ""
+    },
+    "option_identifiant_authtype_label": {
+        "message": "Kimlik doğrulama",
+        "description": ""
+    },
+    "option_identifiant_authtype_normal": {
+        "message": "Normal",
+        "description": ""
+    },
+    "option_identifiant_urlwebservice_label": {
+        "message": "web hizmeti URL",
+        "description": ""
+    },
+    "option_identifiant_urlwebservice_tooltip": {
+        "message": "Mail hizmeti URL'si, çoğu zaman web arayüzü URL'si ile aynı",
+        "description": ""
+    },
+    "option_identifiant_urlwebinterface_label": {
+        "message": "Web arayüzü URL",
+        "description": ""
+    },
+    "option_identifiant_urlwebinterface_tooltip": {
+        "message": "Bağlanıldığında Web tarayıcısında görüntülenen URL (İsteğe bağlı)",
+        "description": ""
+    },
+    "option_identifiant_add_button": {
+        "message": "Yeni hesap ekle",
+        "description": ""
+    },
+    "option_identifiant_remove_button": {
+        "message": "Kaldırmak",
+        "description": ""
+    },
+    "option_identifiant_connect_button": {
+        "message": "Bağlan",
+        "description": ""
+    },
+    "option_identifiant_connectCancel_button": {
+        "message": "İptal et...",
+        "description": ""
+    },
+    "option_identifiant_disconnect_button": {
+        "message": "Bağlantıyı kes",
+        "description": ""
+    },
+
+    "tooltip_notConnected_title": {
+        "message": "Bağlantı kesildi",
+        "description": ""
+    },
+    "tooltip_configuration_description": {
+        "message": "Bildirimler için, hesabınızı yapılandırmak lütfen",
+        "description": ""
+    },
+    "tooltip_notConnected_description": {
+        "message": "Güncelleme başarısız oldu",
+        "description": ""
+    },
+    "tooltip_errorConnected_title": {
+        "message": "Bağlantı başarısız oldu",
+        "description": ""
+    },
+    "tooltip_disconnected_descriptionStatus": {
+        "message": "Durum: kesildi",
+        "description": ""
+    },
+    "tooltip_errorInitPage_title": {
+        "message": "Üzgünüz, bir hata oluştu, bu sayfayı yeniden yükleyin.",
+        "description": ""
+    },
+    "tooltip_unreadMessages_title": {
+        "message": "Okunmayan ileti: %NB%",
+        "description": ""
+    },
+    "tooltip_connected_descriptionStatus": {
+        "message": "Durum: Bağlandı",
+        "description": ""
+    },
+    "tooltip_connected_descriptionAccount": {
+        "message": "Hesap: %EMAIL%",
+        "description": ""
+    },
+    "tooltip_connected_descriptionQuota": {
+        "message": "Kota: %PERCENTAGE%% (%SIZE%'ın %USED%)",
+        "description": ""
+    },
+    "tooltip_noUnreadMessage": {
+        "message": "Hiçbir okunmamış e-posta",
+        "description": ""
+    },
+    "tooltip_noEvent": {
+        "message": "Devam eden etkinlik yok",
+        "description": ""
+    },
+    "tooltip_priority_high": {
+        "message": "Yüksek öncelik",
+        "description": ""
+    },
+    "tooltip_priority_low": {
+        "message": "Düşük öncelik",
+        "description": ""
+    },
+    "tooltip_priority_normal": {
+        "message": "Normal öncelik",
+        "description": ""
+    },
+    "tooltip_noTask": {
+        "message": "Devam eden görev yok",
+        "description": ""
+    },
+    "tooltip_week": {
+        "message": "H%WEEK%",
+        "description": ""
+    },
+
+    "connector_error_req_internal": {
+        "message": "Dahili hata",
+        "description": ""
+    },
+    "connector_error_req_invalid": {
+        "message": "Geçersiz talep",
+        "description": ""
+    },
+    "connector_error_req_timeout": {
+        "message": "Cevap yok",
+        "description": ""
+    },
+    "connector_error_req_server": {
+        "message": "Sunucu hatası",
+        "description": ""
+    },
+    "connector_error_req_network": {
+        "message": "Ağ hatası",
+        "description": ""
+    },
+    "connector_error_req_authreq": {
+        "message": "Kimlik doğrulama sona erdi",
+        "description": ""
+    },
+    "connector_error_req_logininvalid": {
+        "message": "Geçersiz giriş",
+        "description": ""
+    },
+
+    "connector_error_authentification": {
+        "message": "Kimlik doğrulama hatası: %REASON%!",
+        "description": ""
+    },
+    "connector_error_createwait": {
+        "message": "Bekleme talebi oluşturulmasında hata: %REASON%!",
+        "description": ""
+    },
+    "connector_error_wait": {
+        "message": "Yeni ileti beklenmesinde hata: %REASON%!",
+        "description": ""
+    },
+    "connector_error_mailboxinfo": {
+        "message": "Posta kutusundan bilgi alımında hata: %REASON%!",
+        "description": ""
+    },
+    "connector_error_unreadmsg": {
+        "message": "Yeni ileti alımında hata: %REASON%!",
+        "description": ""
+    },
+    "connector_error_calendar": {
+        "message": "Takvim etkinliklerinin alımında hata: %REASON%!",
+        "description": ""
+    },
+    "connector_error_task": {
+        "message": "Görevlerin alımında hata: %REASON%!",
+        "description": ""
+    },
+    "connector_notification_NewMessage": {
+        "message": "%EMAIL%'dan ileti",
+        "description": ""
+    },
+    "connector_notification_nbUnreadMessages": {
+        "message": "%NB% okunmayan ileti!",
+        "description": ""
+    },
+    "connector_notification_event": {
+        "message": "Etkinlik:",
+        "description": ""
+    },
+
+    "unit_bytes_B": {
+        "message": "O",
+        "description": ""
+    },
+    "unit_bytes_KB": {
+        "message": "Ko",
+        "description": ""
+    },
+    "unit_bytes_MB": {
+        "message": "Mo",
+        "description": ""
+    },
+    "unit_bytes_GB": {
+        "message": "Go",
+        "description": ""
+    },
+    "unit_bytes_TB": {
+        "message": "To",
+        "description": ""
+    }
+}

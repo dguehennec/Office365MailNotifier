@@ -47,7 +47,9 @@ var office365_notifier_options = {};
 /**
  * init
  * 
+ * @public
  * @this {Options}
+ * @param {background} the background extension context
  */
 office365_notifier_options.init = function(background) {
     if (!background || !background['office365_notifier_Controller'] || !background['office365_notifier_Prefs']) {
@@ -69,11 +71,66 @@ office365_notifier_options.init = function(background) {
     this._office365_notifier_Controller.addCallBackRefresh(this);
 
     // Add button event
-    $(".menu a").click(function() {
+    $(".menu a").click(function(evt) {
+        evt.preventDefault();
         var contentID = $(this).attr("contentID");
         office365_notifier_options.showContent(contentID, 200);
     });
 
+    // refresh screen
+    this.refresh();
+}
+
+/**
+ * Call when the window is closed
+ * 
+ * @public
+ * @this {Option}
+ */
+office365_notifier_options.release = function() {
+    if(!this._office365_notifier_Controller) {
+        return;
+    }
+
+    this._office365_notifier_Controller.removeCallBackRefresh(this);
+};
+
+/**
+ * show selected content
+ * 
+ * @public
+ * @this {Options}
+ * @param {Number} content Id
+ * @param {Number} animation Time
+ */
+office365_notifier_options.showContent = function(contentId, animationTime) {
+    if(!$.isNumeric(contentId) || (Math.floor(contentId) != contentId) || (contentId<0) || (contentId>1) ) {
+        contentId = 0;
+    }
+    $.when($(".tabContent").fadeOut("fast")).done(function() {
+        $(".tabContent").eq(contentId).animate({
+            opacity : 'show',
+            height : 'show'
+        }, animationTime);
+    });
+
+    $('.menu > li > a').each(function(index) {
+        $(this).removeClass('active');
+        if (index == contentId) {
+            $(this).addClass('active');
+        }
+    });
+}
+
+/**
+ * Refresh.
+ * 
+ * @public
+ * @this {Option}
+ * @param {Event} the refresh event
+ * @param {Boolean} is forced (optional)
+ */
+office365_notifier_options.refresh = function(event) {
     //initialize values
     $("*").each(function() {
         var attr = $(this).attr("pref");
@@ -95,51 +152,19 @@ office365_notifier_options.init = function(background) {
             });
         }
     });
-}
-
-/**
- * Call when the window is closed
- * 
- * @this {Option}
- */
-office365_notifier_options.release = function() {
-    this._office365_notifier_Controller.removeCallBackRefresh(this);
 };
 
 /**
- * show selected content
- * 
- * @this {Options}
- */
-office365_notifier_options.showContent = function(contentId, animationTime) {
-    if(!$.isNumeric(contentId) || (Math.floor(contentId) != contentId) || (contentId<0) || (contentId>3) ) {
-        contentId = 0;
-    }
-    $.when($(".tabContent").fadeOut("fast")).done(function() {
-        $(".tabContent").eq(contentId).animate({
-            opacity : 'show',
-            height : 'show'
-        }, animationTime);
-    });
-
-    $('.menu > li > a').each(function(index) {
-        $(this).removeClass('active');
-        if (index == contentId) {
-            $(this).addClass('active');
-            location.href = location.href.split("#")[0] + "#" + contentId;
-        }
-    });
-}
-
-/**
- * add event listener to notify when content is loaded or unloaded
+ * add event listener to notify when content is loaded
  */
 document.addEventListener('DOMContentLoaded', function() {
-    chrome.runtime.getBackgroundPage(function(bg) {
-        office365_notifier_options.init(bg);
-    });
+    var backgroundPage = chrome.extension.getBackgroundPage();
+    office365_notifier_options.init(backgroundPage);
 });
 
+/**
+ * add event listener to notify when content is unloaded
+ */
 $(window).on('unload', function() {
     office365_notifier_options.release();
 });

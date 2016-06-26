@@ -132,15 +132,28 @@ office365_notifier_main.isOffice365WebSite = function(href) {
 /**
  * add events listener to notify when ows content is loaded or unloaded
  */
-chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
-    office365_notifier_Controller.office365InterfaceLoaded(sender.tab.id, null);
+chrome.runtime.onMessage.addListener(function(msg, sender) {
+    if(!msg) {
+        return;
+    }
+    switch(msg.type) {
+        case "owsDOMContentLoaded":
+            office365_notifier_Controller.office365InterfaceLoaded(sender.tab.id, sender.tab.url);
+            break;
+        default:
+            if (office365_notifier_Controller._currentInterfaceListener === sender.tab.id) {
+                office365_notifier_Controller.getService().injectCallback(msg);
+            }
+    }
+
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId , info) {
-    if ((office365_notifier_Controller._currentInterfaceListener === tabId) && info.url && !office365_notifier_main.isOffice365WebSite(info.url)) {
-        office365_notifier_Controller.office365InterfaceUnloaded(office365_notifier_Controller._currentInterfaceListener, null);
-    }
-    
+    if (office365_notifier_Controller._currentInterfaceListener === tabId) {
+        if(info.url && !office365_notifier_Controller.office365IsCurrentInterface(info.url)) {
+            office365_notifier_Controller.office365InterfaceUnloaded(office365_notifier_Controller._currentInterfaceListener, info.url);
+        }
+    }    
 });
 
 chrome.tabs.onRemoved.addListener(function(tabId , info) {

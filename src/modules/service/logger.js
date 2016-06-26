@@ -59,7 +59,7 @@ var office365_notifier_Logger = function(name) {
 office365_notifier_Logger.prototype.error = function(message) {
     if (office365_notifier_Constant.LOGGER.LEVEL > 0) {
         this._printStack();
-        dump(this._getStrDate() + "ERROR in " + this._name + " : " + message + "\n");
+        console.error(this._getStrDate() + "ERROR in " + this._name + " : " + message + "\n");
     }
 };
 
@@ -73,7 +73,7 @@ office365_notifier_Logger.prototype.error = function(message) {
 office365_notifier_Logger.prototype.warning = function(message) {
     if (office365_notifier_Constant.LOGGER.LEVEL > 1) {
         this._printStack();
-        dump(this._getStrDate() + "WARNING in " + this._name + " : " + message + "\n");
+        console.warn(this._getStrDate() + "WARNING in " + this._name + " : " + message + "\n");
     }
 };
 
@@ -87,7 +87,7 @@ office365_notifier_Logger.prototype.warning = function(message) {
 office365_notifier_Logger.prototype.info = function(message) {
     if (office365_notifier_Constant.LOGGER.LEVEL > 2) {
         this._printStack();
-        dump(this._getStrDate() + "INFO in " + this._name + " : " + message + "\n");
+        console.info(this._getStrDate() + "INFO in " + this._name + " : " + message + "\n");
     }
 };
 
@@ -101,7 +101,7 @@ office365_notifier_Logger.prototype.info = function(message) {
 office365_notifier_Logger.prototype.trace = function(message) {
     if (office365_notifier_Constant.LOGGER.LEVEL > 3) {
         this._printStack();
-        dump(this._getStrDate() + "TRACE in " + this._name + " : " + message + "\n");
+        console.log(this._getStrDate() + "TRACE in " + this._name + " : " + message + "\n");
     }
 };
 
@@ -117,7 +117,7 @@ office365_notifier_Logger.prototype._printStack = function() {
             throw Error('');
         } catch (err) {
             var stack = err.stack.split("\n").slice(2).join("\n");
-            dump("--------\n" + stack + "--------\n");
+            console.log("--------\n" + stack + "--------\n");
         }
     }
 };

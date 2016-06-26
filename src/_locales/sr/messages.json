@@ -1,0 +1,494 @@
+{
+    "extName": {
+        "message": "Office 365 Mail Notifier",
+        "description": ""
+    },
+    "extDescription": {
+        "message": "Ово проширење вас обавештава када пристигну нове поруке у вашем Office поштанском сандучету.",
+        "description": ""
+    },
+    
+    "yes": {
+        "message": "да",
+        "description": ""
+    },
+    "no": {
+        "message": "не",
+        "description": ""
+    },
+    "seconds": {
+        "message": "сек.",
+        "description": ""
+    },
+    "week": {
+        "message": "недеља",
+        "description": ""
+    },
+    "weeks": {
+        "message": "недеље",
+        "description": ""
+    },
+    "time": {
+        "message": "време",
+        "description": ""
+    },
+    "atTime": {
+        "message": "на време",
+        "description": ""
+    },
+    "minuteBefore": {
+        "message": "минут раније",
+        "description": ""
+    },
+    "minutesBefore": {
+        "message": "минута раније",
+        "description": ""
+    },
+    "hourBefore": {
+        "message": "сат раније",
+        "description": ""
+    },
+    "hoursBefore": {
+        "message": "сата раније",
+        "description": ""
+    },
+
+    "main_checkNow": {
+        "message": "Освежи...",
+        "description": ""
+    },
+    "main_connect": {
+        "message": "Повежи",
+        "description": ""
+    },
+    "main_disconnect": {
+        "message": "Прекини везу",
+        "description": ""
+    },
+    "main_options_label": {
+        "message": "Подешавања",
+        "description": ""
+    },
+    "main_about_label": {
+        "message": "Информације о Office 365 Mail Notifier",
+        "description": ""
+    },
+    "main_homepage_label": {
+        "message": "Веб сајт",
+        "description": ""
+    },
+
+    "tooltip_message_caption": {
+        "message": "Непрочитане поруке",
+        "description": ""
+    },
+    "tooltip_calendar_caption": {
+        "message": "Предстојећи догађаји",
+        "description": ""
+    },
+    "tooltip_task_caption": {
+        "message": "Тренутни задаци",
+        "description": ""
+    },
+
+    "about_homepage_label": {
+        "message": "Веб сајт :",
+        "description": ""
+    },
+    "about_createdby_label": {
+        "message": "Аутори: David GUEHENNEC",
+        "description": ""
+    },
+    "about_version_label": {
+        "message": "Верзија",
+        "description": ""
+    },
+    "about_legal_label": {
+        "message": "Ово проширење није повезано са Microsoft или одобрено од стране VMware.",
+        "description": ""
+    },
+    "about_close_label": {
+        "message": "Затвори",
+        "description": ""
+    },
+
+    "option_option_label": {
+        "message": "Подешавања",
+        "description": ""
+    },
+    "option_common_label": {
+        "message": "Опште",
+        "description": ""
+    },
+    "option_common_connection_caption": {
+        "message": "Веза",
+        "description": ""
+    },
+    "option_common_autoConnect": {
+        "message": "Аутоматско повезивање при покретању",
+        "description": ""
+    },
+    "option_common_browserSetCookies": {
+        "message": "Аутоматско повезивање на веб окружењу",
+        "description": ""
+    },
+    "option_common_mail_notification_caption": {
+        "message": "Обавештење за непрочитане поруке",
+        "description": ""
+    },
+    "option_common_mail_systemNotification": {
+        "message": "Обавештење система",
+        "description": ""
+    },
+    "option_common_mail_soundNotification": {
+        "message": "Звучно обавештење",
+        "description": ""
+    },
+    "option_common_mail_notify_duration_caption": {
+        "message": "Трајање обавештења",
+        "description": ""
+    },
+    "option_message_label": {
+        "message": "Е-пошта",
+        "description": ""
+    },
+    "option_message_activate": {
+        "message": "Омогући управљање непрочитаним порукама",
+        "description": ""
+    },
+    "option_message_view_caption": {
+        "message": "Приказ",
+        "description": ""
+    },
+    "option_message_view_nbMax_label": {
+        "message": "Највећи број непрочитаних порука",
+        "description": ""
+    },
+    "option_message_view_nbMax_characters_label": {
+        "message": "Највећи број знакова приказаних у сажетку поруке",
+        "description": ""
+    },
+    "option_calendar_label": {
+        "message": "Календар",
+        "description": ""
+    },
+    "option_calendar_activate": {
+        "message": "Омогући управљање календаром",
+        "description": ""
+    },
+    "option_calendar_view_caption": {
+        "message": "Приказ",
+        "description": ""
+    },
+    "option_calendar_view_period_label": {
+        "message": "Приказани период",
+        "description": ""
+    },
+    "option_calendar_view_nbMax_label": {
+        "message": "Највећи број приказаних обавеза",
+        "description": ""
+    },
+    "option_calendar_notification_caption": {
+        "message": "Обавештење",
+        "description": ""
+    },
+    "option_calendar_systemNotification": {
+        "message": "Обавештење система",
+        "description": ""
+    },
+    "option_calendar_soundNotification": {
+        "message": "Звучно обавештење",
+        "description": ""
+    },
+    "option_calendar_repeat": {
+        "message": "Понављање",
+        "description": ""
+    },
+
+    "option_task_label": {
+        "message": "Задаци",
+        "description": ""
+    },
+    "option_task_activate": {
+        "message": "Омогући управљање задацима",
+        "description": ""
+    },
+    "option_task_view_caption": {
+        "message": "Приказ",
+        "description": ""
+    },
+    "option_task_view_reminder": {
+        "message": "Подсетник",
+        "description": ""
+    },
+    "option_task_view_conf": {
+        "message": "Office конфигурација",
+        "description": ""
+    },
+    "option_task_view_nbTasks": {
+        "message": "Највећи број приказаних задатака",
+        "description": ""
+    },
+    "option_task_view_nbPriorities": {
+        "message": "Приоритет",
+        "description": ""
+    },
+    "option_task_view_all": {
+        "message": "Сви",
+        "description": ""
+    },
+    "option_task_view_highAndNormal": {
+        "message": "Високи и нормални",
+        "description": ""
+    },
+    "option_task_view_high": {
+        "message": "Високи",
+        "description": ""
+    },
+    "option_task_view_normal": {
+        "message": "Нормални",
+        "description": ""
+    },
+    "option_task_view_low": {
+        "message": "Ниски",
+        "description": ""
+    },
+
+    "option_identifiant_label": {
+        "message": "Налози",
+        "description": ""
+    },
+    "option_identifiant_caption": {
+        "message": "Налог",
+        "description": ""
+    },
+    "option_identifiant_params_caption": {
+        "message": "Провера идентитета",
+        "description": ""
+    },
+    "option_identifiant_alias_label": {
+        "message": "Псеудоним",
+        "description": ""
+    },
+    "option_identifiant_login_label": {
+        "message": "Пријава",
+        "description": ""
+    },
+    "option_identifiant_password_label": {
+        "message": "Лозинка",
+        "description": ""
+    },
+    "option_identifiant_savePassword_label": {
+        "message": "Запамти лозинку",
+        "description": ""
+    },
+    "option_identifiant_server_caption": {
+        "message": "Сервер",
+        "description": ""
+    },
+    "option_identifiant_authtype_label": {
+        "message": "Провера идентитета",
+        "description": ""
+    },
+    "option_identifiant_authtype_normal": {
+        "message": "Нормално",
+        "description": ""
+    },
+    "option_identifiant_urlwebservice_label": {
+        "message": "Адреса веб сервиса",
+        "description": ""
+    },
+    "option_identifiant_urlwebservice_tooltip": {
+        "message": "Адреса сервиса е-поште, најчешће иста као адреса веб окружења",
+        "description": ""
+    },
+    "option_identifiant_urlwebinterface_label": {
+        "message": "Адреса веб окружења",
+        "description": ""
+    },
+    "option_identifiant_urlwebinterface_tooltip": {
+        "message": "Адреса приказана у веб прегледачу кад је повезано (није обавезно)",
+        "description": ""
+    },
+    "option_identifiant_add_button": {
+        "message": "Додај нови налог",
+        "description": ""
+    },
+    "option_identifiant_remove_button": {
+        "message": "Уклони",
+        "description": ""
+    },
+    "option_identifiant_connect_button": {
+        "message": "Повежи",
+        "description": ""
+    },
+    "option_identifiant_connectCancel_button": {
+        "message": "Откажи...",
+        "description": ""
+    },
+    "option_identifiant_disconnect_button": {
+        "message": "Прекини везу",
+        "description": ""
+    },  
+    
+    "tooltip_notConnected_title": {
+        "message": "Није повезано",
+        "description": ""
+    },
+    "tooltip_configuration_description": {
+        "message": "За обавештења, подесите налог/е.",
+        "description": ""
+    },
+    "tooltip_notConnected_description": {
+        "message": "За обавештења, пријавите се.",
+        "description": ""
+    },
+    "tooltip_errorConnected_title": {
+        "message": "Ажурирање није успело",
+        "description": ""
+    },
+    "tooltip_disconnected_descriptionStatus": {
+        "message": "Статус: Није повезано",
+        "description": ""
+    },
+    "tooltip_errorInitPage_title": {
+        "message": "Жао нам је, дошло је до грешке, учитајте поново ову страницу.",
+        "description": ""
+    },
+    "tooltip_unreadMessages_title": {
+        "message": "Непрочитане поруке: %NB% ",
+        "description": ""
+    },
+    "tooltip_connected_descriptionStatus": {
+        "message": "Статус: Повезано",
+        "description": ""
+    },
+    "tooltip_connected_descriptionAccount": {
+        "message": "Налог: %EMAIL%",
+        "description": ""
+    },
+    "tooltip_connected_descriptionQuota": {
+        "message": "Простор: %PERCENTAGE%% (%USED% од %SIZE%)",
+        "description": ""
+    },
+    "tooltip_noUnreadMessage": {
+        "message": "Нема непрочитаних порука",
+        "description": ""
+    },
+    "tooltip_noEvent": {
+        "message": "Нема догађаја у току",
+        "description": ""
+    },
+    "tooltip_priority_high": {
+        "message": "Високи приоритет",
+        "description": ""
+    },
+    "tooltip_priority_low": {
+        "message": "Ниски приоритет",
+        "description": ""
+    },
+    "tooltip_priority_normal": {
+        "message": "Нормални приоритет",
+        "description": ""
+    },
+    "tooltip_noTask": {
+        "message": "Нема задатака у току",
+        "description": ""
+    },
+    "tooltip_week": {
+        "message": "Н%WEEK%",
+        "description": ""
+    },
+    
+    "connector_error_req_internal": {
+        "message": "Интерна грешка",
+        "description": ""
+    },
+    "connector_error_req_invalid": {
+        "message": "Неважећи захтев",
+        "description": ""
+    },
+    "connector_error_req_timeout": {
+        "message": "Нема одговора",
+        "description": ""
+    },
+    "connector_error_req_server": {
+        "message": "Грешка сервера",
+        "description": ""
+    },
+    "connector_error_req_network": {
+        "message": "Грешка на мрежи",
+        "description": ""
+    },
+    "connector_error_req_authreq": {
+        "message": "Аутентификација је истекла",
+        "description": ""
+    },
+    "connector_error_req_logininvalid": {
+        "message": "Неважеће пријављивање",
+        "description": ""
+    },
+
+    "connector_error_authentification": {
+        "message": "Грешка у провери идентитета: %REASON%!",
+        "description": ""
+    },
+    "connector_error_createwait": {
+        "message": "Грешка приликом креирања захтева на чекању: %REASON%!",
+        "description": ""
+    },
+    "connector_error_wait": {
+        "message": "Грешка приликом чекања на нову поруку: %REASON%!",
+        "description": ""
+    },
+    "connector_error_mailboxinfo": {
+        "message": "Грешка приликом преузимања информација из поштанског сандучета: %REASON%!",
+        "description": ""
+    },
+    "connector_error_unreadmsg": {
+        "message": "Грешка приликом преузимања нових порука: %REASON%!",
+        "description": ""
+    },
+    "connector_error_calendar": {
+        "message": "Грешка приликом преузимања догађаја из календара: %REASON%!",
+        "description": ""
+    },
+    "connector_error_task": {
+        "message": "Грешка приликом преузимања задатака: %REASON%!",
+        "description": ""
+    },
+
+    "connector_notification_NewMessage": {
+        "message": "Порука од %EMAIL%",
+        "description": ""
+    },
+    "connector_notification_nbUnreadMessages": {
+        "message": "%NB% нове непрочитане поруке!",
+        "description": ""
+    },
+    "connector_notification_event": {
+        "message": "Догађај:",
+        "description": ""
+    },
+
+    "unit_bytes_B": {
+        "message": "B",
+        "description": ""
+    },
+    "unit_bytes_KB": {
+        "message": "KB",
+        "description": ""
+    },
+    "unit_bytes_MB": {
+        "message": "MB",
+        "description": ""
+    },
+    "unit_bytes_GB": {
+        "message": "GB",
+        "description": ""
+    },
+    "unit_bytes_TB": {
+        "message": "TB",
+        "description": ""
+    }
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>David GUEHENNEC</string>
+	<key>Builder Version</key>
+	<string>11601.6.17</string>
+	<key>CFBundleDisplayName</key>
+	<string>Office365 Mail Notifier</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.davidguehennec.safari.offie365mailnotifier</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>PROJECT_VERSION</string>
+	<key>CFBundleVersion</key>
+	<string>PROJECT_VERSION</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Database Quota</key>
+		<real>1048576</real>
+		<key>Global Page</key>
+		<string>background.html</string>
+		<key>Toolbar Items</key>
+		<array>
+			<dict>
+				<key>Command</key>
+				<string>openPopup</string>
+				<key>Identifier</key>
+				<string>Office365MailNotifierTab</string>
+				<key>Image</key>
+				<string>skin/images/icon_disabled.png</string>
+				<key>Label</key>
+				<string>Office 365 Mail Notifier</string>
+				<key>Palette Label</key>
+				<string>Office 365 Mail Notifier</string>
+				<key>Tool Tip</key>
+				<string>Office 365 Mail Notifier</string>
+			</dict>
+		</array>
+	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>js/inject.js</string>
+			</array>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>This extension notifies you when new messages arrive in your offie 365 mailbox.</string>
+	<key>DeveloperIdentifier</key>
+	<string>Z75WJL54B4</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
+	</dict>
+	<key>Update Manifest URL</key>
+	<string>http://offie365mailnotifier.free.fr/safari/updatezmn.plist</string>
+	<key>Website</key>
+	<string>http://offie365mailnotifier.free.fr/</string>
+</dict>
+</plist>

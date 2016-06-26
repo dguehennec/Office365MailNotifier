@@ -81,9 +81,13 @@ fieldset {
   text-shadow:none
 }
 
-.option #zimbra_mail_notifier-serverError {
+.option #office365_mail_notifier-serverError {
   color: red;
   float:left;
+}
+
+.option fieldset {
+  background-color: #F6F6F6;
 }
 
 .option .actionButtons {
@@ -94,8 +98,13 @@ fieldset {
   display: none;
 }
 
+
 .popup {
-  width: 330px;
+  font-size: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  cursor: default;
+  background-color: #FFFFFF;
 }
 
 .popup #office365_mail_notifier_tooltipLogo {
@@ -104,19 +113,34 @@ fieldset {
   margin: 0px 20px 0px 10px;
 }
 
-.popup #office365_mail_notifier_tooltipTitle {
+.popup .tooltipIdentifier {
+  padding: 3px;
+  position: relative;
+}
+
+.popup .tooltipTitle {
   font-weight:bold
 }
 
-.popup  #office365_mail_notifier_tooltipCalendar,.popup #office365_mail_notifier_tooltipMessage {
+.popup  fieldset {
   margin:0px 6px;
   width: 280px;
+  background-color: #F6F6F6;
 }
 
-.popup  #office365_mail_notifier_tooltipDescription {
-  margin: 4px 0px;
-  font-size: 12px;
-  max-width: 300px;
+.popup .actionidentifier {
+  position:absolute;
+  top:3px;
+}
+
+.popup #office365_mail_notifier_tooltipMessage .tooltipMessageAbstract {
+  width: 260px;
+  word-wrap: break-word;
+}
+
+.popup .action > img, .popup #office365_mail_notifier_tooltipMessage .tooltipMessageAbstract {
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .popup .action {
@@ -125,9 +149,9 @@ fieldset {
 }
 
 .popup .action img {
-	width: 18px;
-	height: 18px;
-	margin-left: 6px;
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
 }
 
 .popup .section {
@@ -135,16 +159,15 @@ fieldset {
 }
 
 .popup legend{
-	font-size: 13px;
-	font-weight:bold;
+  font-size: 13px;
+  font-weight:bold;
 }
 
-.popup  .eventLabelTitle {
+.popup  .eventLabelDate {
   color: green;
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .popup  .eventLabelDesc {
-  font-size: 12px;
   padding-left:15px;
 }

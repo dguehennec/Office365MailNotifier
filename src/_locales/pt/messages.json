@@ -1,12 +1,13 @@
 {
     "extName": {
-        "message": "Office365 Mail Notifier",
+        "message": "Office 365 Mail Notifier",
         "description": ""
     },
     "extDescription": {
-        "message": "Esta extensão notifica-te quando novas mensagens chegarem à tua caixa de correio Office 365",
+        "message": "Esta extensão notifica-te quando novas mensagens chegarem à tua caixa de correio Office.",
         "description": ""
     },
+    
     "yes": {
         "message": "Sim",
         "description": ""
@@ -19,8 +20,48 @@
         "message": "segundos",
         "description": ""
     },
+    "week": {
+        "message": "semana",
+        "description": ""
+    },
+    "weeks": {
+        "message": "semanas",
+        "description": ""
+    },
+    "time": {
+        "message": "tempo",
+        "description": ""
+    },
+    "atTime": {
+        "message": "em tempo",
+        "description": ""
+    },
+    "minuteBefore": {
+        "message": "minuto anterior",
+        "description": ""
+    },
+    "minutesBefore": {
+        "message": "minutos anteriores",
+        "description": ""
+    },
+    "hourBefore": {
+        "message": "hora anterior",
+        "description": ""
+    },
+    "hoursBefore": {
+        "message": "horas anteriores",
+        "description": ""
+    },
     "main_checkNow": {
         "message": "Actualiza...",
+        "description": ""
+    },
+    "main_connect": {
+        "message": "Conectar",
+        "description": ""
+    },
+    "main_disconnect": {
+        "message": "Desconectar",
         "description": ""
     },
     "main_options_label": {
@@ -31,14 +72,24 @@
         "message": "Acerca de Office 365 Mail Notifier",
         "description": ""
     },
+    "main_homepage_label": {
+        "message": "Website",
+        "description": ""
+    },
+
+    "tooltip_message_caption": {
+        "message": "E-mail não lidas",
+        "description": ""
+    },
     "tooltip_calendar_caption": {
         "message": "Próximos eventos",
         "description": ""
     },
-    "tooltip_message_caption": {
-        "message": "Conversa em curso",
+    "tooltip_task_caption": {
+        "message": "Tarefas em curso",
         "description": ""
     },
+
     "about_homepage_label": {
         "message": "Website:",
         "description": ""
@@ -52,19 +103,32 @@
         "description": ""
     },
     "about_legal_label": {
-        "message": "Esta extensão não é afiliada ou promovida por Microsoft",
+        "message": "Esta extensão não é afiliada ou promovida por Microsoft.",
         "description": ""
     },
     "about_close_label": {
         "message": "Fechar",
         "description": ""
     },
+
     "option_option_label": {
         "message": "Preferências",
         "description": ""
     },
     "option_common_label": {
         "message": "Geral",
+        "description": ""
+    },
+    "option_common_connection_caption": {
+        "message": "Conexão",
+        "description": ""
+    },
+    "option_common_autoConnect": {
+        "message": "Conexão automática",
+        "description": ""
+    },
+    "option_common_browserSetCookies": {
+        "message": "Conexão automática ao interface web",
         "description": ""
     },
     "option_common_mail_notification_caption": {
@@ -83,20 +147,46 @@
         "message": "Duração da notificação",
         "description": ""
     },
-    "option_common_access_caption": {
-        "message": "Extensão de acesso",
+
+    "option_message_label": {
+        "message": "E-mail",
         "description": ""
     },
-    "option_common_statusbar": {
-        "message": "Barra de status",
+    "option_message_activate": {
+        "message": "Activar gestão do E-mail",
         "description": ""
     },
+    "option_message_view_caption": {
+        "message": "Exibindo",
+        "description": ""
+    },
+    "option_message_view_nbMax_label": {
+        "message": "Número máximo de E-mails visualizados",
+        "description": ""
+    },
+    "option_message_view_nbMax_characters_label": {
+        "message": "Número máximo de caracteres visualizados no e-mail abstrato",
+        "description": ""
+    },
+
     "option_calendar_label": {
         "message": "Calendário",
         "description": ""
     },
     "option_calendar_activate": {
         "message": "Activar gestão do calendário",
+        "description": ""
+    },
+    "option_calendar_view_caption": {
+        "message": "Exibindo",
+        "description": ""
+    },
+    "option_calendar_view_period_label": {
+        "message": "Período exibido",
+        "description": ""
+    },
+    "option_calendar_view_nbMax_label": {
+        "message": "Número máximo de ítens visualizados",
         "description": ""
     },
     "option_calendar_notification_caption": {
@@ -115,40 +205,151 @@
         "message": "Repetir",
         "description": ""
     },
-    "option_message_label": {
-        "message": "Conversa",
+
+    "option_task_label": {
+        "message": "Tarefas",
         "description": ""
     },
-    "option_message_activate": {
-        "message": "Activar a gestão de conversa",
+    "option_task_activate": {
+        "message": "Activar a gestão de tarefas",
         "description": ""
     },
-    "option_message_notification_caption": {
-        "message": "Notificação",
+    "option_task_view_caption": {
+        "message": "Visualização",
         "description": ""
     },
-    "option_message_systemNotification": {
-        "message": "Notificação do sistema",
+    "option_task_view_reminder": {
+        "message": "Lembrete",
         "description": ""
     },
-    "option_message_soundNotification": {
-        "message": "Notificação sonora",
+    "option_task_view_conf": {
+        "message": "Office Configuração",
         "description": ""
     },
-    "locale": {
-        "message": "pt",
+    "option_task_view_nbTasks": {
+        "message": "Número máximo de tarefas visualizadas",
         "description": ""
     },
+    "option_task_view_nbPriorities": {
+        "message": "Prioridades definidas",
+        "description": ""
+    },
+    "option_task_view_all": {
+        "message": "Tudo",
+        "description": ""
+    },
+    "option_task_view_highAndNormal": {
+        "message": "Alto e Normal",
+        "description": ""
+    },
+    "option_task_view_high": {
+        "message": "Alto",
+        "description": ""
+    },
+    "option_task_view_normal": {
+        "message": "Normal",
+        "description": ""
+    },
+    "option_task_view_low": {
+        "message": "Baixo",
+        "description": ""
+    },
+
+    "option_identifiant_label": {
+        "message": "Contas",
+        "description": ""
+    },
+    "option_identifiant_caption": {
+        "message": "Conta",
+        "description": ""
+    },
+    "option_identifiant_params_caption": {
+        "message": "Autenticação",
+        "description": ""
+    },
+    "option_identifiant_alias_label": {
+        "message": "Alias",
+        "description": ""
+    },
+    "option_identifiant_login_label": {
+        "message": "Login",
+        "description": ""
+    },
+    "option_identifiant_password_label": {
+        "message": "Password",
+        "description": ""
+    },
+    "option_identifiant_savePassword_label": {
+        "message": "Recordar password",
+        "description": ""
+    },
+    "option_identifiant_server_caption": {
+        "message": "Servidor",
+        "description": ""
+    },
+    "option_identifiant_authtype_label": {
+        "message": "Identificação",
+        "description": ""
+    },
+    "option_identifiant_authtype_normal": {
+        "message": "Normal",
+        "description": ""
+    },
+    "option_identifiant_urlwebservice_label": {
+        "message": "URL do serviço web",
+        "description": ""
+    },
+    "option_identifiant_urlwebservice_tooltip": {
+        "message": "O URL do serviço de mail, tem na maioria das vezes, o mesmo URL do interface web",
+        "description": ""
+    },
+    "option_identifiant_urlwebinterface_label": {
+        "message": "URL interface web",
+        "description": ""
+    },
+    "option_identifiant_urlwebinterface_tooltip": {
+        "message": "URL visualizado no browser quando conectado (opcional)",
+        "description": ""
+    },
+    "option_identifiant_add_button": {
+        "message": "Adicionar nova conta",
+        "description": ""
+    },
+    "option_identifiant_remove_button": {
+        "message": "Remover",
+        "description": ""
+    },
+    "option_identifiant_connect_button": {
+        "message": "Conectar",
+        "description": ""
+    },
+    "option_identifiant_connectCancel_button": {
+        "message": "Cancelar...",
+        "description": ""
+    },
+    "option_identifiant_disconnect_button": {
+        "message": "Desconectar",
+        "description": ""
+    },
+
     "tooltip_notConnected_title": {
         "message": "Desconectado",
         "description": ""
     },
+    "tooltip_configuration_description": {
+        "message": "Para as notificações, configure sua conta.",
+        "description": ""
+    },
     "tooltip_notConnected_description": {
-        "message": "Para notificações, por favor faça log in Office 365",
+        "message": "Para notificações, por favor faça log in",
         "description": ""
     },
     "tooltip_errorConnected_title": {
         "message": "Actualização falhou",
+        "description": ""
+    },
+    "tooltip_disconnected_descriptionStatus": {
+        "message": "Status: Desconectado",
         "description": ""
     },
     "tooltip_errorInitPage_title": {
@@ -156,31 +357,93 @@
         "description": ""
     },
     "tooltip_unreadMessages_title": {
-        "message": "%NB% mensagens por ler",
+        "message": "Mensagens por ler: %NB% ",
         "description": ""
     },
-    "tooltip_connected_description": {
-        "message": "Status: Conectado\n",
+    "tooltip_connected_descriptionStatus": {
+        "message": "Status: Conectado",
+        "description": ""
+    },
+    "tooltip_connected_descriptionAccount": {
+        "message": "Conta: %EMAIL%",
+        "description": ""
+    },
+    "tooltip_connected_descriptionQuota": {
+        "message": "Cota: %PERCENTAGE%% (%USED% de %SIZE%)",
+        "description": ""
+    },
+    "tooltip_noUnreadMessage": {
+        "message": "Nenhum e-mail não lidas",
         "description": ""
     },
     "tooltip_noEvent": {
         "message": "Nenhum evento em curso",
         "description": ""
     },
-    "tooltip_noMessage": {
-        "message": "Nenhuma conversa em curso",
+    "tooltip_priority_high": {
+        "message": "Prioridade Alta",
         "description": ""
     },
-    "connector_notification_nbUnreadMessages": {
-        "message": "%NB% mensagens não lidas !",
+    "tooltip_priority_low": {
+        "message": "Prioridade Baixa",
         "description": ""
     },
-    "connector_notification_calEvent": {
-        "message": "Evento:",
+    "tooltip_priority_normal": {
+        "message": "Prioridade Normal",
         "description": ""
     },
-    "connector_notification_messageEvent": {
-        "message": "Conversa:",
+    "tooltip_noTask": {
+        "message": "Nenhuma tarefa em curso",
+        "description": ""
+    },
+    "tooltip_week": {
+        "message": "S%WEEK%",
+        "description": ""
+    },
+
+    "connector_error_req_internal": {
+        "message": "Erro interno",
+        "description": ""
+    },
+    "connector_error_req_invalid": {
+        "message": "Pedido inválido",
+        "description": ""
+    },
+    "connector_error_req_timeout": {
+        "message": "Não responde",
+        "description": ""
+    },
+    "connector_error_req_server": {
+        "message": "Erro do servidor",
+        "description": ""
+    },
+    "connector_error_req_network": {
+        "message": "Erro da rede",
+        "description": ""
+    },
+    "connector_error_req_authreq": {
+        "message": "Autenticação expirou",
+        "description": ""
+    },
+    "connector_error_req_logininvalid": {
+        "message": "Login inválido",
+        "description": ""
+    },
+
+    "connector_error_authentification": {
+        "message": "Erro de autenticação: %REASON%!",
+        "description": ""
+    },
+    "connector_error_createwait": {
+        "message": "Erro criado durante o pedido de espera: %REASON%!",
+        "description": ""
+    },
+    "connector_error_wait": {
+        "message": "Erro esperando uma nova mensagem: %REASON%!",
+        "description": ""
+    },
+    "connector_error_mailboxinfo": {
+        "message": "Erro ao recuperar informações da caixa de correio: %REASON%!",
         "description": ""
     },
     "connector_error_unreadmsg": {
@@ -191,12 +454,41 @@
         "message": "Erro durante a verificação dos eventos no calendário: %REASON%!",
         "description": ""
     },
-    "connector_error_message": {
-        "message": "Erro durante a verificação de conversa: %REASON%!",
+    "connector_error_task": {
+        "message": "Erro durante a verificação de tarefas: %REASON%!",
         "description": ""
     },
-    "connector_error_reason0": {
-        "message": "Nenhum item detectado",
+    "connector_notification_NewMessage": {
+        "message": "Mensagem de %EMAIL%",
+        "description": ""
+    },
+    "connector_notification_nbUnreadMessages": {
+        "message": "%NB% mensagens não lidas !",
+        "description": ""
+    },
+    "connector_notification_event": {
+        "message": "Evento:",
+        "description": ""
+    },
+
+    "unit_bytes_B": {
+        "message": "O",
+        "description": ""
+    },
+    "unit_bytes_KB": {
+        "message": "Ko",
+        "description": ""
+    },
+    "unit_bytes_MB": {
+        "message": "Mo",
+        "description": ""
+    },
+    "unit_bytes_GB": {
+        "message": "Go",
+        "description": ""
+    },
+    "unit_bytes_TB": {
+        "message": "To",
         "description": ""
     }
 }

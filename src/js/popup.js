@@ -71,8 +71,8 @@ office365_notifier_popup.init = function(background) {
     // initialize background objects
     if (!background || !background['office365_notifier_Controller'] || !background['office365_notifier_Prefs'] || !background['office365_notifier_Util']) {
         $('#office365_mail_notifier_tooltipTitle').text(chrome.i18n.getMessage("tooltip_errorInitPage_title"));
-        $('#office365_mail_notifier_tooltipCalendarGroup').hide();
         $('#office365_mail_notifier_tooltipMessageGroup').hide();
+        $('#office365_mail_notifier_tooltipCalendarGroup').hide();
         return;
     }
     this._office365_notifier_Controller = background['office365_notifier_Controller'];
@@ -100,57 +100,124 @@ office365_notifier_popup.release = function() {
  * @this {Popup}
  */
 office365_notifier_popup.refresh = function() {
+    this.initializeTooltipIdentifier();
+    this.initializeTooltipMessage();
+    this.initializeTooltipCalendar();
+};
+
+
+/**
+ * Initialize tooltip identifier
+ * 
+ * @private
+ * @this {office365_notifier_popup}
+ */
+office365_notifier_popup.initializeTooltipIdentifier = function() {
     var errorMsg = this._office365_notifier_Controller.getLastErrorMessage();
-    if (this._office365_notifier_Controller.isInitialized()) {
+
+    // clean message
+    $("#office365_mail_notifier_tooltipIdentifierTitle").empty();
+    $("#office365_mail_notifier_tooltipIdentifierMessage").empty();
+
+    if (this._office365_notifier_Controller.isInitialized() && (errorMsg === "")) {
         $('#office365_mail_notifier_tooltipCheckNow').show();
-
-        if (errorMsg !== "") {
-            $('#office365_mail_notifier_tooltipTitle').text(chrome.i18n.getMessage("tooltip_errorConnected_title"));
-            $('#office365_mail_notifier_tooltipDescription').text(errorMsg);
-        } else {
-            // show title informations
-            var msgTitle = chrome.i18n.getMessage("tooltip_unreadMessages_title");
-            msgTitle = msgTitle.replace("%NB%", this._office365_notifier_Controller.getNbMessageUnread());
-            $('#office365_mail_notifier_tooltipTitle').text(msgTitle);
-
-            // show State and account informations
-            $("#office365_mail_notifier_tooltipDescription").empty();
-            $('<div/>', {
-                text : chrome.i18n.getMessage("tooltip_connected_descriptionStatus")
-            }).appendTo("#office365_mail_notifier_tooltipDescription");
-            var msgDesc = chrome.i18n.getMessage("tooltip_connected_descriptionAccount");
-            $('<div/>', {
-                text : msgDesc
-            }).appendTo("#office365_mail_notifier_tooltipDescription");
+        // show title informations
+        var email = this._office365_notifier_Controller.getMailBoxInfo().email;
+        if(email) {
+            email = email.split('@')[0];
         }
-
-        // show calendar
-        if (this._office365_notifier_Prefs.isCalendarEnabled()) {
-            $('#office365_mail_notifier_tooltipCalendarGroup').show();
-            this.initializeTooltipCalendar();
-        } else {
-            $('#office365_mail_notifier_tooltipCalendarGroup').hide();
-        }
-
-        // show tasks
-        if (this._office365_notifier_Prefs.isMessageEnabled()) {
-            $('#office365_mail_notifier_tooltipMessageGroup').show();
-            this.initializeTooltipMessage();
-        } else {
-            $('#office365_mail_notifier_tooltipMessageGroup').hide();
-        }
+        $('<div/>', {
+            text : chrome.i18n.getMessage("tooltip_connected_descriptionAccount").replace("%EMAIL%", email)
+        }).appendTo('#office365_mail_notifier_tooltipIdentifierTitle');
+         // show State and account informations
+        $('<div/>', {
+            text : chrome.i18n.getMessage("tooltip_connected_descriptionStatus")
+        }).appendTo("#office365_mail_notifier_tooltipIdentifierMessage");
+        var msgDesc = chrome.i18n.getMessage("tooltip_unreadMessages_title");
+        msgDesc = msgDesc.replace("%NB%", this._office365_notifier_Controller.getNbMessageUnread());
+        $('<div/>', {
+            text : msgDesc
+        }).appendTo("#office365_mail_notifier_tooltipIdentifierMessage");
     } else {
         $('#office365_mail_notifier_tooltipCheckNow').hide();
-
         if (errorMsg !== "") {
-            $('#office365_mail_notifier_tooltipTitle').text(chrome.i18n.getMessage("tooltip_notConnected_title"));
-            $('#office365_mail_notifier_tooltipDescription').text(errorMsg);
+            $('<div/>', {
+                text : chrome.i18n.getMessage("tooltip_notConnected_title")
+            }).appendTo("#office365_mail_notifier_tooltipIdentifierTitle");
+                $('<div/>', {
+                text : errorMsg
+            }).appendTo("#office365_mail_notifier_tooltipIdentifierMessage");
         } else {
-            $('#office365_mail_notifier_tooltipTitle').text(chrome.i18n.getMessage("tooltip_notConnected_title"));
-            $('#office365_mail_notifier_tooltipDescription').text(chrome.i18n.getMessage("tooltip_notConnected_description"));
+            $('<div/>', {
+                text : chrome.i18n.getMessage("tooltip_notConnected_title")
+            }).appendTo("#office365_mail_notifier_tooltipIdentifierTitle");
+                $('<div/>', {
+                text : chrome.i18n.getMessage("tooltip_notConnected_description")
+            }).appendTo("#office365_mail_notifier_tooltipIdentifierMessage");
         }
-        $('#office365_mail_notifier_tooltipCalendarGroup').hide();
+    }
+}
+
+/**
+ * Initialize tooltip messages
+ * 
+ * @private
+ * @this {offie365_notifier_popup}
+ */
+office365_notifier_popup.initializeTooltipMessage = function() {
+    var index, label, that = this;
+    var errorMsg = this._office365_notifier_Controller.getLastErrorMessage();
+
+    // clean message
+    $("#office365_mail_notifier_tooltipMessage").empty();
+
+    if (!this._office365_notifier_Controller.isInitialized() || (errorMsg !== "") || !this._office365_notifier_Prefs.isMessageEnabled()) {
         $('#office365_mail_notifier_tooltipMessageGroup').hide();
+        return;
+    }
+    $('#office365_mail_notifier_tooltipMessageGroup').show();
+
+    var unreadMessages = [];
+    this._office365_notifier_Controller.getUnreadMessages().forEach(function(message) {
+        var content = message.subject;
+        if(message.content != "") {
+            if(content !== "") {
+                content += " - " + message.content;
+            } else {
+                content = message.content;
+            }
+        }
+        unreadMessages.push({date: message.date, content: content});
+    });
+    // sort unread messages
+    unreadMessages = unreadMessages.sort(function(a, b) {
+        return b.date - a.date;
+    });
+    // display messages
+    if (unreadMessages.length === 0) {
+        $('<div/>', {
+            class : 'eventLabelDesc',
+            text : chrome.i18n.getMessage("tooltip_noUnreadMessage")
+        }).appendTo("#office365_mail_notifier_tooltipMessage");
+    } else {
+        var nbDisplayed = this._office365_notifier_Prefs.getMessageNbDisplayed();
+        var nbCharactersDisplayed = this._office365_notifier_Prefs.getMessageNbCharactersDisplayed();
+        var currentDisplayed = 0;
+        for (index = 0; (index < unreadMessages.length) && (currentDisplayed < nbDisplayed); index++) {
+            currentDisplayed++;
+            $('<div/>', {
+                class : 'eventLabelDate',
+                text : unreadMessages[index].date.toLocaleString()
+            }).appendTo("#office365_mail_notifier_tooltipMessage");
+            $('<div/>', {
+                id : 'office365_mail_notifier_tooltipMessage' + index,
+                class : 'eventLabelDesc tooltipMessageAbstract',
+                text : this._office365_notifier_Util.maxStringLength(unreadMessages[index].content, nbCharactersDisplayed)
+            }).appendTo("#office365_mail_notifier_tooltipMessage");
+            $('#office365_mail_notifier_tooltipMessage' + index).on('click', function() {
+                that._office365_notifier_Controller.openWebInterface();
+            });
+        }
     }
 };
 
@@ -160,60 +227,59 @@ office365_notifier_popup.refresh = function() {
  * @private
  */
 office365_notifier_popup.initializeTooltipCalendar = function() {
-    var index, label;
+   var index, label;
+    var errorMsg = this._office365_notifier_Controller.getLastErrorMessage();
 
     // clean calendar
     $("#office365_mail_notifier_tooltipCalendar").empty();
 
+    if (!this._office365_notifier_Controller.isInitialized() || (errorMsg !== "")  || !this._office365_notifier_Prefs.isCalendarEnabled()) {
+        $('#office365_mail_notifier_tooltipCalendarGroup').hide();
+        return;
+    }
+    $('#office365_mail_notifier_tooltipCalendarGroup').show();
+
     var events = this._office365_notifier_Controller.getCalendarEvents();
+    // sort events
+    events = events.sort(function(a, b) {
+        return a.startDate - b.startDate;
+    });
     if (events.length === 0) {
         $('<div/>', {
-            class : 'eventLabelTitle',
+            class : 'eventLabelDesc',
             text : chrome.i18n.getMessage("tooltip_noEvent")
         }).appendTo("#office365_mail_notifier_tooltipCalendar");
     } else {
-        for (index = 0; index < events.length; index++) {
+        var lastDate = "";
+        var nbDisplayed = this._office365_notifier_Prefs.getCalendarNbDisplayed();
+        var currentDisplayed = 0;
+        for (index = 0; (index < events.length) && (currentDisplayed < nbDisplayed); index++) {
+            currentDisplayed++;
             var currentEvent = events[index];
-            $('<div/>', {
-                class : 'eventLabelTitle',
-                text : this._office365_notifier_Util.maxStringLength(currentEvent.name, 50)
-            }).appendTo("#office365_mail_notifier_tooltipCalendar");
+            var startDate = currentEvent.startDate;
+            var starttime = startDate.toLocaleTimeString();
+            starttime = starttime.substring(0, 5) + starttime.substring(8);
+            var currentDate = chrome.i18n.getMessage("tooltip_week").replace("%WEEK%", currentEvent.startWeek) + " - " + startDate.toLocaleDateString();
+            if (lastDate !== currentDate) {
+                lastDate = currentDate;
+                $('<div/>', {
+                    class : 'eventLabelDate',
+                    text : currentDate
+                }).appendTo("#office365_mail_notifier_tooltipCalendar");
+            }
+            var endDate = currentEvent.endDate;
+            var endTime = endDate.toLocaleTimeString();
+            endTime = endTime.substring(0, 5) + endTime.substring(8);
+            var text = "";
+            if (currentEvent.duration < 86400000) {
+                text = starttime + "-" + endTime + "   " + this._office365_notifier_Util.maxStringLength(currentEvent.name, 40);
+            } else {
+                text = this._office365_notifier_Util.maxStringLength(currentEvent.name, 50);
+            }
             $('<div/>', {
                 class : 'eventLabelDesc',
-                text : this._office365_notifier_Util.maxStringLength(currentEvent.duration, 50)
+                text : text
             }).appendTo("#office365_mail_notifier_tooltipCalendar");
-        }
-    }
-};
-
-/**
- * Initiliaze tooltip message
- * 
- * @private
- */
-office365_notifier_popup.initializeTooltipMessage = function() {
-    var index, label;
-
-    // clean message
-    $("#office365_mail_notifier_tooltipMessage").empty();
-
-    var events = this._office365_notifier_Controller.getMessageEvents();
-    if (events.length === 0) {
-        $('<div/>', {
-            class : 'eventLabelTitle',
-            text : chrome.i18n.getMessage("tooltip_noMessage")
-        }).appendTo("#office365_mail_notifier_tooltipMessage");
-    } else {
-        for (index = 0; index < events.length; index++) {
-            var currentEvent = events[index];
-            $('<div/>', {
-                class : 'eventLabelTitle',
-                text : this._office365_notifier_Util.maxStringLength(currentEvent.name, 50)
-            }).appendTo("#office365_mail_notifier_tooltipMessage");
-            $('<div/>', {
-                class : 'eventLabelDesc',
-                text : this._office365_notifier_Util.maxStringLength(currentEvent.duration, 50)
-            }).appendTo("#office365_mail_notifier_tooltipMessage");
         }
     }
 };
@@ -231,7 +297,7 @@ office365_notifier_popup.openOptionPage = function(tab) {
     chrome.tabs.query({}, function(extensionTabs) {
         var found = false;
         for ( var i = 0; i < extensionTabs.length; i++) {
-            if (optionsUrl == extensionTabs[i].url.split("#")[0]) {
+            if (extensionTabs[i].url && optionsUrl == extensionTabs[i].url.split("#")[0]) {
                 found = true;
                 chrome.tabs.update(extensionTabs[i].id, {
                     "selected" : true,
@@ -265,11 +331,8 @@ office365_notifier_popup.optionClick = function() {
  * add event listener to notify when content is loaded or unloaded
  */
 document.addEventListener("DOMContentLoaded", function() {
-    if(chrome && chrome.runtime && chrome.runtime.getBackgroundPage) {
-        chrome.runtime.getBackgroundPage(function(bg) {
-            office365_notifier_popup.init(bg);
-        });
-    }
+    var backgroundPage = chrome.extension.getBackgroundPage();
+    office365_notifier_popup.init(backgroundPage);
 });
 
 $(window).on("unload", function() {

@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "__MSG_extName__",
-    "version": "1.1.2",
+    "version": "PROJECT_VERSION",
     "default_locale": "en",
     "description": "__MSG_extDescription__",
     "browser_action": {
@@ -9,6 +9,15 @@
         "default_popup": "popup.html",
         "default_title": "__MSG_extName__"
     },
+    /* for Firefox extension
+    "applications": {
+        "gecko": {
+            "id": "offie365_mail_notifier@davidguehennec.com",
+            "strict_min_version": "45.0.0",
+            "strict_max_version": "*"
+        }
+    },
+    for Firefox extension */
     "icons": {
         "16": "skin/images/office365_mail_notifier_32.png",
         "32": "skin/images/office365_mail_notifier_32.png",
@@ -22,15 +31,12 @@
         "chrome://favicon/",
         "storage"
     ],
-    "optional_permissions": [
-        "background"
-    ],
     "background": {
         "page": "background.html"
     },
     "content_scripts": [{
-        "matches": ["*://outlook.office365.com/*", "*://outlook.office.com/*", "*://login.microsoftonline.com/*"],
-        "js":      ["js/owacontent.js"]
+        "matches": ["*://outlook.office365.com/*", "*://outlook.office.com/*", "*://outlook.live.com/*"],
+        "js":      ["js/inject.js"]
     }],
     "options_page": "options.html",
     "web_accessible_resources": [

@@ -1,12 +1,13 @@
 {
     "extName": {
-        "message": "Office365 Mail Notifier",
+        "message": "Office 365 Mail Notifier",
         "description": ""
     },
     "extDescription": {
-        "message": "Office 365 Mail Notifier comprueba su cuenta de correo Office 365 y le comunica el número de mensajes no leídos",
+        "message": "Office 365 Mail Notifier comprueba su cuenta de correo Office y le comunica el número de mensajes no leídos.",
         "description": ""
     },
+    
     "yes": {
         "message": "Si",
         "description": ""
@@ -19,8 +20,48 @@
         "message": "segundo",
         "description": ""
     },
+    "week": {
+        "message": "semana",
+        "description": ""
+    },
+    "weeks": {
+        "message": "semanas",
+        "description": ""
+    },
+    "time": {
+        "message": "tiempo",
+        "description": ""
+    },
+    "atTime": {
+        "message": "ahora",
+        "description": ""
+    },
+    "minuteBefore": {
+        "message": "minuto anterior",
+        "description": ""
+    },
+    "minutesBefore": {
+        "message": "minutos anteriores",
+        "description": ""
+    },
+    "hourBefore": {
+        "message": "hora anterior",
+        "description": ""
+    },
+    "hoursBefore": {
+        "message": "horas anteriores",
+        "description": ""
+    },
     "main_checkNow": {
         "message": "Recargar...",
+        "description": ""
+    },
+    "main_connect": {
+        "message": "Conectar",
+        "description": ""
+    },
+    "main_disconnect": {
+        "message": "Desconectar",
         "description": ""
     },
     "main_options_label": {
@@ -31,20 +72,30 @@
         "message": "Acerca de Office 365 Mail Notifier",
         "description": ""
     },
+    "main_homepage_label": {
+        "message": "Página Web",
+        "description": ""
+    },
+
+    "tooltip_message_caption": {
+        "message": "Correos electrónicos no leídos",
+        "description": ""
+    },
     "tooltip_calendar_caption": {
         "message": "Próximos evento",
         "description": ""
     },
-    "tooltip_message_caption": {
-        "message": "Charla actuales",
+    "tooltip_task_caption": {
+        "message": "Tareas actuales",
         "description": ""
     },
+
     "about_homepage_label": {
         "message": "Página Web:",
         "description": ""
     },
     "about_createdby_label": {
-        "message": "Creado por David GUEHENNEC",
+        "message": "Creado por: David GUEHENNEC",
         "description": ""
     },
     "about_version_label": {
@@ -52,19 +103,32 @@
         "description": ""
     },
     "about_legal_label": {
-        "message": "Esta extensión no está afiliada a Microsoft ni avalada por ella",
+        "message": "Esta extensión no está afiliada a Microsoft ni avalada por ella.",
         "description": ""
     },
     "about_close_label": {
         "message": "Cerrar",
         "description": ""
     },
+
     "option_option_label": {
         "message": "Preferencias",
         "description": ""
     },
     "option_common_label": {
         "message": "General",
+        "description": ""
+    },
+    "option_common_connection_caption": {
+        "message": "Conexión",
+        "description": ""
+    },
+    "option_common_autoConnect": {
+        "message": "Conectarse automáticamente",
+        "description": ""
+    },
+    "option_common_browserSetCookies": {
+        "message": "Conexión automática en la interfaz web",
         "description": ""
     },
     "option_common_mail_notification_caption": {
@@ -83,20 +147,46 @@
         "message": "Duración de notificación",
         "description": ""
     },
-    "option_common_access_caption": {
-        "message": "Acceso a la extensión",
+
+    "option_message_label": {
+        "message": "Mensaje",
         "description": ""
     },
-    "option_common_statusbar": {
-        "message": "Barra de estado",
+    "option_message_activate": {
+        "message": "Activar la gestión del mensajes",
         "description": ""
     },
+    "option_message_view_caption": {
+        "message": "Visualización",
+        "description": ""
+    },
+    "option_message_view_nbMax_label": {
+        "message": "Número máximo de mensajes visualizadas",
+        "description": ""
+    },
+    "option_message_view_nbMax_characters_label": {
+        "message": "Número máximo de caracteres visualizadas en mensaje abstracta",
+        "description": ""
+    },
+
     "option_calendar_label": {
         "message": "Calendario",
         "description": ""
     },
     "option_calendar_activate": {
         "message": "Activar la gestión del calendario",
+        "description": ""
+    },
+    "option_calendar_view_caption": {
+        "message": "Visualización",
+        "description": ""
+    },
+    "option_calendar_view_period_label": {
+        "message": "Período visualizado",
+        "description": ""
+    },
+    "option_calendar_view_nbMax_label": {
+        "message": "Número máximo de citas visualizadas",
         "description": ""
     },
     "option_calendar_notification_caption": {
@@ -115,32 +205,139 @@
         "message": "Repetir",
         "description": ""
     },
-    "option_message_label": {
-        "message": "Charla",
+
+    "option_task_label": {
+        "message": "Tareas",
         "description": ""
     },
-    "option_message_activate": {
-        "message": "Activar la gestión de Charla",
+    "option_task_activate": {
+        "message": "Activar la gestión de tareas",
         "description": ""
     },
-    "option_message_notification_caption": {
-        "message": "Notificación",
+    "option_task_view_caption": {
+        "message": "Visualización",
         "description": ""
     },
-    "option_message_systemNotification": {
-        "message": "Notificación del sistema",
+    "option_task_view_reminder": {
+        "message": "Recordatorio",
         "description": ""
     },
-    "option_message_soundNotification": {
-        "message": "Notificación sonora",
+    "option_task_view_conf": {
+        "message": "Office Configuración",
         "description": ""
     },
-    "locale": {
-        "message": "es",
+    "option_task_view_nbTasks": {
+        "message": "Número máximo de tareas visualizadas",
         "description": ""
     },
+    "option_task_view_nbPriorities": {
+        "message": "Ajustar prioridades",
+        "description": ""
+    },
+    "option_task_view_all": {
+        "message": "Todos",
+        "description": ""
+    },
+    "option_task_view_highAndNormal": {
+        "message": "Alto y Normal",
+        "description": ""
+    },
+    "option_task_view_high": {
+        "message": "Alto",
+        "description": ""
+    },
+    "option_task_view_normal": {
+        "message": "Normal",
+        "description": ""
+    },
+    "option_task_view_low": {
+        "message": "Bajo",
+        "description": ""
+    },
+
+    "option_identifiant_label": {
+        "message": "Cuentas",
+        "description": ""
+    },
+    "option_identifiant_caption": {
+        "message": "Cuenta",
+        "description": ""
+    },
+    "option_identifiant_params_caption": {
+        "message": "Autenticación",
+        "description": ""
+    },
+    "option_identifiant_alias_label": {
+        "message": "Alias",
+        "description": ""
+    },
+    "option_identifiant_login_label": {
+        "message": "Login",
+        "description": ""
+    },
+    "option_identifiant_password_label": {
+        "message": "Contraseña",
+        "description": ""
+    },
+    "option_identifiant_savePassword_label": {
+        "message": "Recordar contraseña",
+        "description": ""
+    },
+    "option_identifiant_server_caption": {
+        "message": "Servidor",
+        "description": ""
+    },
+    "option_identifiant_authtype_label": {
+        "message": "Autenticación",
+        "description": ""
+    },
+    "option_identifiant_authtype_normal": {
+        "message": "Normal",
+        "description": ""
+    },
+    "option_identifiant_urlwebservice_label": {
+        "message": "URL del servidor",
+        "description": ""
+    },
+    "option_identifiant_urlwebservice_tooltip": {
+        "message": "La URL del servicio de correo, la mayoría de las veces el mismo que el URL de la interfaz web",
+        "description": ""
+    },
+    "option_identifiant_urlwebinterface_label": {
+        "message": "URL interfaz Web",
+        "description": ""
+    },
+    "option_identifiant_urlwebinterface_tooltip": {
+        "message": "La URL que aparece en el navegador Web cuando se conecta (Opcional)",
+        "description": ""
+    },
+    "option_identifiant_add_button": {
+        "message": "Añadir nueva cuenta",
+        "description": ""
+    },
+    "option_identifiant_remove_button": {
+        "message": "Suprimir",
+        "description": ""
+    },
+    "option_identifiant_connect_button": {
+        "message": "Conectar",
+        "description": ""
+    },
+    "option_identifiant_connectCancel_button": {
+        "message": "Anular...",
+        "description": ""
+    },
+    "option_identifiant_disconnect_button": {
+        "message": "Desconexión",
+        "description": ""
+    },
+
     "tooltip_notConnected_title": {
         "message": "Desconectado",
+        "description": ""
+    },
+    "tooltip_configuration_description": {
+        "message": "Para recibir notificaciones configure su cuenta, por favor",
         "description": ""
     },
     "tooltip_notConnected_description": {
@@ -151,36 +348,102 @@
         "message": "Error de actualización",
         "description": ""
     },
+    "tooltip_disconnected_descriptionStatus": {
+        "message": "Estado: Desconectado",
+        "description": ""
+    },
     "tooltip_errorInitPage_title": {
         "message": "Lo sentimos, ha ocurrido un error, por favor vuelva a cargar esta página.",
         "description": ""
     },
     "tooltip_unreadMessages_title": {
-        "message": "%NB% mensajes no leídos",
+        "message": "Mensajes no leídos: %NB% ",
         "description": ""
     },
-    "tooltip_connected_description": {
-        "message": "Estado: Conectado \n",
+    "tooltip_connected_descriptionStatus": {
+        "message": "Estado: Conectado",
+        "description": ""
+    },
+    "tooltip_connected_descriptionAccount": {
+        "message": "Cuenta: %EMAIL%",
+        "description": ""
+    },
+    "tooltip_connected_descriptionQuota": {
+        "message": "Espacio %PERCENTAGE%% (%USED% de %SIZE%)",
+        "description": ""
+    },
+    "tooltip_noUnreadMessage": {
+        "message": "Ningún no leído mensaje",
         "description": ""
     },
     "tooltip_noEvent": {
         "message": "Ningún evento en curso",
         "description": ""
     },
-    "tooltip_noMessage": {
-        "message": "Ninguna charla en curso",
+    "tooltip_priority_high": {
+        "message": "Alta prioridad",
         "description": ""
     },
-    "connector_notification_nbUnreadMessages": {
-        "message": "%NB% mensajes nuevos no leídos !",
+    "tooltip_priority_low": {
+        "message": "Baja prioridad",
         "description": ""
     },
-    "connector_notification_calEvent": {
-        "message": "Evento :",
+    "tooltip_priority_normal": {
+        "message": "Prioridad normal",
         "description": ""
     },
-    "connector_notification_messageEvent": {
-        "message": "Charla :",
+    "tooltip_noTask": {
+        "message": "Ninguna tarea en curso",
+        "description": ""
+    },
+    "tooltip_week": {
+        "message": "S%WEEK%",
+        "description": ""
+    },
+
+    "connector_error_req_internal": {
+        "message": "Error interno",
+        "description": ""
+    },
+    "connector_error_req_invalid": {
+        "message": "Solicitud no válida",
+        "description": ""
+    },
+    "connector_error_req_timeout": {
+        "message": "Sin respuesta",
+        "description": ""
+    },
+    "connector_error_req_server": {
+        "message": "Fallo del servidor",
+        "description": ""
+    },
+    "connector_error_req_network": {
+        "message": "Error de red",
+        "description": ""
+    },
+    "connector_error_req_authreq": {
+        "message": "Autentificación caducada",
+        "description": ""
+    },
+    "connector_error_req_logininvalid": {
+        "message": "Login inválido",
+        "description": ""
+    },
+
+    "connector_error_authentification": {
+        "message": "Error de autentificación: %REASON%!",
+        "description": ""
+    },
+    "connector_error_createwait": {
+        "message": "Error generado durante la espera: %REASON%!",
+        "description": ""
+    },
+    "connector_error_wait": {
+        "message": "Error esperando un mensaje nuevo: %REASON%!",
+        "description": ""
+    },
+    "connector_error_mailboxinfo": {
+        "message": "Error al intentar recuperar información de la bandeja de correo:%REASON%!",
         "description": ""
     },
     "connector_error_unreadmsg": {
@@ -188,15 +451,44 @@
         "description": ""
     },
     "connector_error_calendar": {
-        "message": "Error al recuperar los eventos del calendario: %REASON%!",
+        "message": "Error al recuperar los eventos del calendario:%REASON%!",
         "description": ""
     },
-    "connector_error_message": {
-        "message": "Error al recuperar las charlas: %REASON%!",
+    "connector_error_task": {
+        "message": "Error al recuperar las tareas: %REASON%!",
         "description": ""
     },
-    "connector_error_reason0": {
-        "message": "Ningún elemento detectado",
+    "connector_notification_NewMessage": {
+        "message": "Mensaje de %EMAIL%",
+        "description": ""
+    },
+    "connector_notification_nbUnreadMessages": {
+        "message": "%NB% mensajes nuevos no leídos !",
+        "description": ""
+    },
+    "connector_notification_event": {
+        "message": "Evento :",
+        "description": ""
+    },
+
+    "unit_bytes_B": {
+        "message": "O",
+        "description": ""
+    },
+    "unit_bytes_KB": {
+        "message": "Ko",
+        "description": ""
+    },
+    "unit_bytes_MB": {
+        "message": "Mo",
+        "description": ""
+    },
+    "unit_bytes_GB": {
+        "message": "Go",
+        "description": ""
+    },
+    "unit_bytes_TB": {
+        "message": "To",
         "description": ""
     }
 }

@@ -136,45 +136,21 @@ office365_notifier_Util.maxStringLength = function(text, length) {
  */
 office365_notifier_Util.showNotification = function(title, text, duration, callback, callbackThis) {
     try {
-        if(chrome.notifications) {
-            // Show the notification
-            chrome.notifications.create("", { type: "basic", iconUrl : "skin/images/office365_mail_notifier.png", title : title, message : text, isClickable : true}, function (notificationId) {
-                chrome.notifications.onClicked.addListener(function(notificationIdClicked) {
-                    if(notificationIdClicked == notificationId) {
+        // Show the notification
+        chrome.notifications.create("", { type: "basic", iconUrl : "skin/images/office365_mail_notifier.png", title : title, message : text, isClickable : true}, function (notificationId) {
+            chrome.notifications.onClicked.addListener(function(notificationIdClicked) {
+                if(notificationIdClicked == notificationId) {
+                    if(callback) {
                         callback.apply(callbackThis);
-                        chrome.notifications.clear(notificationId, function(wasCleared) {});
                     }
-                });
-                // hide notification after the duration timeout
-                office365_notifier_Util.setTimer(null, function() {
                     chrome.notifications.clear(notificationId, function(wasCleared) {});
-                }, duration);
+                }
             });
-        } else {
-            if (window.webkitNotifications.checkPermission() == 0) {
-                var notification = webkitNotifications.createNotification("skin/images/office365_mail_notifier.png", title, text);
-                // add callback if needed
-                if (callback) {
-                    var arrayArgs = [].slice.call(arguments, 0);
-                    notification.onclick = function() {
-                        callback.apply(callbackThis, arrayArgs.slice(5));
-                        this.cancel();
-                    };
-                }
-                // add default notification time if event
-                if(duration===0) {
-                    duration = 10000;
-                }
-                // hide notification after the duration timeout
-                office365_notifier_Util.setTimer(null, function() {
-                    notification.cancel();
-                }, duration);
-                // show notification
-                notification.show();
-            } else {
-                window.webkitNotifications.requestPermission();
-            }
-        }
+            // hide notification after the duration timeout
+            office365_notifier_Util.setTimer(null, function() {
+                chrome.notifications.clear(notificationId, function(wasCleared) {});
+            }, duration);
+        });
     }
     catch (e) {
         return false;
@@ -304,7 +280,7 @@ office365_notifier_Util.dump = function(obj, pref) {
             if (v) {
                 if (typeof(v) === 'object') {
                     console.log("\n");
-                    zimbra_notifier_Util.dump(v, pref + p + '.');
+                    office365_notifier_Util.dump(v, pref + p + '.');
                 }
                 else if (typeof(v) !== 'function') {
                     console.log(" : " + v + ";");

@@ -60,6 +60,7 @@ var office365_notifier_messageEvent = function(sender, message) {
     this._delayMs = 60 * 1000;
     this._nbTimeShow = 0;
     this._notifier = null;
+    this.notify();
 };
 
 /**
