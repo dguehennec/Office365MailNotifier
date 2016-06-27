@@ -40,6 +40,7 @@
         _notifications: [],
         _callbacksNotification: [],
         _callbacksMessage: [],
+        _tabs: [],
         browserAction: {
             setIcon: function(details, callback) {
                 if (!details || !details.path) {
@@ -147,16 +148,26 @@
             getTab: function(url) {
                 var tabDetected = null;
                 if(url) {               
-                    safari.application.browserWindows.forEach(function(win, winIndex) {
-                        win.tabs.forEach(function(tab, tabIndex) {
-                            if(tab.url && tab.url.indexOf(url)===0) {
-                                if(!tab.id) {
-                                    tab.id = tab.url;
+                    var _tabs = [];
+                    safari.application.browserWindows.forEach(function (brWindow, wI) {
+                        brWindow.tabs.forEach(function (brTab, tabI) {
+                            var id;
+                            chrome._tabs.forEach(function (rTab) {
+                                if(rTab.target === brTab) {
+                                    id = rTab.id;
                                 }
-                                tabDetected = tab;
+                            });
+                            if(!id) {
+                                id = (new Date()).getTime();
                             }
-                        });
+                            brTab.id = id;
+                            _tabs.push({id: id, target: brTab})
+                            if(brTab.url && brTab.url.indexOf(url)>=0) {
+                                tabDetected = brTab;
+                            }
+                        })
                     });
+                    chrome._tabs = _tabs;
                 }
                 return tabDetected;
             },
@@ -189,7 +200,8 @@
                 } else {
                     var newTab = safari.application.activeBrowserWindow.openTab();
                     newTab.url = obj.url;
-                    newTab.id = newTab.url;
+                    newTab.id = (new Date()).getTime();
+                    chrome._tabs.push({id: id, target: newTab});
                     if(obj.active) {
                         newTab.activate();
                     }
@@ -200,12 +212,10 @@
             },
             get: function (tabId, callback) {
                 var tab;
-                safari.application.browserWindows.forEach(function (brWindow, wI) {
-                    brWindow.tabs.forEach(function (brTab, tabI) {
-                        if((tabId === brTab.id) || (tabId === brTab.url)) {
-                            tab = brTab;
-                        }
-                    })
+                chrome._tabs.forEach(function (brTab) {
+                    if(brTab.id === tabId) {
+                        tab = brTab.target;
+                    }
                 });
                 if(callback) {
                     callback(tab);
@@ -249,23 +259,31 @@
             query: function(queryInfo, callback) {
                 if (callback) {
                     var tabs = [];
-                    safari.application.browserWindows.forEach(function(win, winIndex) {
-                        win.tabs.forEach(function(tab, tabIndex) {
-                            if(!tab.id) {
-                                tab.id = tab.url;
+                    var _tabs = [];
+                    safari.application.browserWindows.forEach(function (brWindow, wI) {
+                        brWindow.tabs.forEach(function (brTab, tabI) {
+                            var id;
+                            chrome._tabs.forEach(function (rTab) {
+                                if(rTab.target === brTab) {
+                                    id = rTab.id;
+                                }
+                            });
+                            if(!id) {
+                                id = (new Date()).getTime();
                             }
-                            tabs.push(tab);
-                        });
+                            brTab.id = id;
+                            _tabs.push({id: id, target: brTab})
+                            tabs.push(brTab);
+                        })
                     });
+                    chrome._tabs = _tabs;
                     callback(tabs);
                 }
             },
             sendMessage: function(tabId, message) {
-                console.log("send message: " + tabId)
                 chrome.tabs.get(tabId, function(tab) {
                     if(tab) {
                         tab.page.dispatchMessage("Office365MailNotifier_sendMessage", message);
-                        console.log("send message confirmed: " + tabId)
                     }
                 });
             }
@@ -280,13 +298,20 @@
         },
         runtime: {
             onMessageCallback: function(result) {
-                var tab = chrome.tabs.getTab(result.target.url);
-                if(tab) {
-                    var sender = {tab: { id: tab.id, url : result.target.url } };
-                    chrome._callbacksMessage.forEach(function (callback) {
-                        callback(result.message, sender);
-                    });
+                var id;
+                chrome._tabs.forEach(function (tab) {
+                    if(tab.target === result.target) {
+                        id = tab.id;
+                    }
+                });
+                if(!id) {
+                    id = (new Date()).getTime();
+                    chrome._tabs.push({ id: id, target: result.target});
                 }
+                var sender = {tab: {id: id, url: result.target.url} };
+                chrome._callbacksMessage.forEach(function (callback) {
+                    callback(result.message, sender);
+                });
             },
             onMessage: {
                 addListener: function(listener) {

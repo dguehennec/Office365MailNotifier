@@ -184,7 +184,7 @@ office365_notifier_Util.openURL = function(UrlToGoTo) {
     chrome.tabs.query({}, function(extensionTabs) {
         var found = false;
         for ( var i = 0; i < extensionTabs.length; i++) {
-            if (extensionTabs[i].url.indexOf(UrlToGoTo)>=0) {
+            if (extensionTabs[i].url && (extensionTabs[i].url.indexOf(UrlToGoTo)>=0)) {
                 found = true;
                 chrome.tabs.update(extensionTabs[i].id, {
                     "selected" : true

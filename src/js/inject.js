@@ -210,7 +210,7 @@ function sendRequest(uri, postData, callback) {
 		}
 	}
 	var xhttp = new XMLHttpRequest();
-	xhttp.open("POST",  uri);
+	xhttp.open("POST", window.location.href.split("/owa/")[0] + "/owa/" + uri, true);
 	xhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 	xhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 	xhttp.setRequestHeader("Action", action);

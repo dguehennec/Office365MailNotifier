@@ -65,8 +65,7 @@ safari.application.addEventListener("command", function(event) {
  * need to add specifique listener for safari case in order to get tab information result
  */
 safari.application.addEventListener("message", function(event) {
-    console.log("message callback" + event.name);
-    if (event.name == "office365MailNotifier_message") {
+    if (event.name == "Office365MailNotifier_message") {
         chrome.runtime.onMessageCallback(event);
     }
 },false);

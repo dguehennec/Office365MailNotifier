@@ -39,19 +39,52 @@
 var sessionId = -1;
 
 //* Listen for messages */
-function manageMessage(msg) {
-    switch(msg) {
-        case "owsGetUnreadMessages":
-            getUnreadMessages();
+function manageMessage(event) {
+  switch(event.name) {
+        case "Office365MailNotifier_getCookie":
+            var name = event.message.name + "=";
+            var ca = document.cookie.split(';');
+            var value = "";
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1);
+                if (c.indexOf(name) != -1) {
+                    value = c.substring(name.length, c.length);
+                    break;
+                }
+            }
+            safari.self.tab.dispatchMessage("Office365MailNotifier_cookieResult",{id: event.message.id, url: event.message.url, name: event.message.name, value: value});
             break;
-        case "owsGetReminder":
-            getReminder();
+        case "Office365MailNotifier_setCookie":
+            var expires = "expires=" + (new Date(event.message.expirationDate*1000)).toUTCString();
+            document.cookie = event.message.name + "=" + event.message.value + "; expires=session"; /* + expires;*/
+            safari.self.tab.dispatchMessage("Office365MailNotifier_cookieResult",{id: event.message.id, url: event.message.url, name: event.message.name});
             break;
-        case "owsGetMailBoxInfo":
-            getMailBoxInfo();
+        case "Office365MailNotifier_removeCookie":
+            document.cookie = event.message.name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            safari.self.tab.dispatchMessage("Office365MailNotifier_cookieResult",{id: event.message.id, url: event.message.url, name: event.message.name});
+            break;
+        case "Office365MailNotifier_reload":
+            window.location.reload()
+            break;
+        case "Office365MailNotifier_sendMessage":
+            switch(event.message) {
+                case "owsGetUnreadMessages":
+                    getUnreadMessages();
+                    break;
+                case "owsGetReminder":
+                    getReminder();
+                    break;
+                case "owsGetMailBoxInfo":
+                    getMailBoxInfo();
+                    break;
+                default:
+            }
             break;
         default:
+            break;
     }
+    
 }
 
 function getCookiesValue(key)  {
@@ -69,7 +102,7 @@ function getCookiesValue(key)  {
 
 function getMailBoxInfo() {
     var mailBoxInfo = { email: getCookiesValue('DefaultAnchorMailbox') };
-    safari.self.tab.dispatchMessage("office365MailNotifier_message",{type: 'owsMailBoxInfoResult', data: mailBoxInfo});
+    safari.self.tab.dispatchMessage("Office365MailNotifier_message",{type: 'owsMailBoxInfoResult', data: mailBoxInfo});
 }
 
 function getUnreadMessages() {
@@ -144,7 +177,7 @@ function getUnreadMessages() {
                 });
             });
         }
-        safari.self.tab.dispatchMessage("office365MailNotifier_message",{type: 'owsUnreadMessagesResult', data: unreadMessages});
+        safari.self.tab.dispatchMessage("Office365MailNotifier_message",{type: 'owsUnreadMessagesResult', data: unreadMessages});
     });
 }
 
@@ -184,7 +217,7 @@ function getReminder() {
                 }
             });
         }
-        safari.self.tab.dispatchMessage("office365MailNotifier_message",{type: 'owsReminderResult', data: calendarEvents});   
+        safari.self.tab.dispatchMessage("Office365MailNotifier_message",{type: 'owsReminderResult', data: calendarEvents});
     });
 }
 
@@ -209,7 +242,7 @@ function sendRequest(uri, postData, callback) {
         }
     }
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST",  uri);
+    xhttp.open("POST", window.location.href.split("/owa/")[0] + "/owa/" + uri, true);
     xhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
     xhttp.setRequestHeader("Action", action);
@@ -237,6 +270,6 @@ function sendRequest(uri, postData, callback) {
  * adding message event listener of Office365MailNotifier extension
  */
 if (window.top === window) {
-    safari.self.addEventListener("Office365MailNotifier_sendMessage", manageMessage, false);
-    safari.self.tab.dispatchMessage("office365MailNotifier_message", {type: 'owsDOMContentLoaded'});
+    safari.self.addEventListener("message", manageMessage, false);
+    safari.self.tab.dispatchMessage("Office365MailNotifier_message", {type: 'owsDOMContentLoaded'});
 }
