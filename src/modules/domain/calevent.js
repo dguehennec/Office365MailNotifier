@@ -56,6 +56,7 @@ var office365_notifier_CalEvent = function(id, name, timestamp, duration, timeCo
     this.key = office365_notifier_Util.crc32(id + name + timestamp);
     this.id = id;
     this.name = name;
+    this.isInvalid = true;
     this.startDate = new Date(timestamp);
     this.endDate = new Date(timestamp + duration);
     this.duration = duration;
@@ -70,8 +71,8 @@ var office365_notifier_CalEvent = function(id, name, timestamp, duration, timeCo
  * @this {messageEvent}
  */
 office365_notifier_CalEvent.prototype.stopNotification = function() {
-    if (this._notifier) {
-        this._notifier.stop();
+    if (this.notifier) {
+        this.notifier.stop();
     }
 };
 

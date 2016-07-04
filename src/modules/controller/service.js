@@ -358,6 +358,7 @@ office365_notifier_Service.prototype.callbackReminder = function(events) {
             // Keep the old notifier object
             newEvent.notifier = oldEvent.notifier;
             oldEvent.notifier = null;
+            newEvent.isInvalid = false;
             this._eventsManager.updateEvent(oldEvent, newEvent);
             // refresh notifier
             newEvent.notifier.update(newEvent, office365_notifier_Prefs.getCalendarReminderTimeConf(),
