@@ -13,7 +13,7 @@
     "applications": {
         "gecko": {
             "id": "offie365_mail_notifier@davidguehennec.com",
-            "strict_min_version": "45.0.0",
+            "strict_min_version": "53.0.0",
             "strict_max_version": "*"
         }
     },
@@ -28,7 +28,6 @@
     "permissions": [
         "tabs",
         "notifications",
-        "chrome://favicon/",
         "storage"
     ],
     "background": {
@@ -38,7 +37,9 @@
         "matches": ["*://outlook.office365.com/*", "*://outlook.office.com/*", "*://outlook.live.com/*"],
         "js":      ["js/inject.js"]
     }],
-    "options_page": "options.html",
+    "options_ui": {
+        "page" : "options.html"
+    },
     "web_accessible_resources": [
         "skin/images/office365_mail_notifier.png"
     ]
