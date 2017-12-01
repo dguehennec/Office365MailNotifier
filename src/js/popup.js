@@ -38,7 +38,7 @@
 
 /**
  * Creates an instance of popup.
- * 
+ *
  * @constructor
  * @this {Popup}
  */
@@ -46,7 +46,7 @@ var office365_notifier_popup = {};
 
 /**
  * init
- * 
+ *
  * @this {Popup}
  */
 office365_notifier_popup.init = function(background) {
@@ -62,6 +62,7 @@ office365_notifier_popup.init = function(background) {
     $('#office365_mail_notifier_tooltipHome').on('click', $.proxy(function(evt) {
         evt.stopPropagation();
         this._office365_notifier_Controller.openWebInterface();
+        window.close();
     }, this));
     $('#office365_mail_notifier_tooltipOption').on('click', $.proxy(function(evt) {
         evt.stopPropagation();
@@ -87,7 +88,7 @@ office365_notifier_popup.init = function(background) {
 
 /**
  * Call when the window is closed
- * 
+ *
  * @this {Popup}
  */
 office365_notifier_popup.release = function() {
@@ -96,7 +97,7 @@ office365_notifier_popup.release = function() {
 
 /**
  * Initiliaze tooltip
- * 
+ *
  * @this {Popup}
  */
 office365_notifier_popup.refresh = function() {
@@ -108,7 +109,7 @@ office365_notifier_popup.refresh = function() {
 
 /**
  * Initialize tooltip identifier
- * 
+ *
  * @private
  * @this {office365_notifier_popup}
  */
@@ -160,7 +161,7 @@ office365_notifier_popup.initializeTooltipIdentifier = function() {
 
 /**
  * Initialize tooltip messages
- * 
+ *
  * @private
  * @this {offie365_notifier_popup}
  */
@@ -216,6 +217,7 @@ office365_notifier_popup.initializeTooltipMessage = function() {
             }).appendTo("#office365_mail_notifier_tooltipMessage");
             $('#office365_mail_notifier_tooltipMessage' + index).on('click', function() {
                 that._office365_notifier_Controller.openWebInterface();
+                window.close();
             });
         }
     }
@@ -223,7 +225,7 @@ office365_notifier_popup.initializeTooltipMessage = function() {
 
 /**
  * Initiliaze tooltip calendar
- * 
+ *
  * @private
  */
 office365_notifier_popup.initializeTooltipCalendar = function() {

@@ -40,10 +40,10 @@ var EXPORTED_SYMBOLS = [ "office365_notifier_Util" ];
 
 /**
  * Creates a global instance of office365_notifier_Util
- * 
+ *
  * @constructor
  * @this {Util}
- * 
+ *
  */
 var office365_notifier_Util = {
     /**
@@ -54,9 +54,9 @@ var office365_notifier_Util = {
 
 /**
  * get bundle.
- * 
+ *
  * @this {Util}
- * 
+ *
  * @param {String}
  *            param parameter value to get
  * @return {String} value of parameter
@@ -75,18 +75,18 @@ office365_notifier_Util.getBundleString = function(param) {
 
 /**
  * Create and launch a timer
- * 
+ *
  * @warning You must keep a reference of the timer as long as he lives
- * 
+ *
  * @this {Util}
- * 
+ *
  * @param {nsITimer}
  *            timer A previous instance of a timer to reuse, can be null: create a new one
  * @param {Function}
  *            func The callback to be fired when the timer timeout
  * @param {Number}
  *            delay The number of ms
- * 
+ *
  * @return {nsITimer} The created timer
  */
 office365_notifier_Util.setTimer = function(timer, func, delay) {
@@ -97,7 +97,7 @@ office365_notifier_Util.setTimer = function(timer, func, delay) {
 
 /**
  * return max length string
- * 
+ *
  * @this {Util}
  * @param {String}
  *            text text to limit.
@@ -120,7 +120,7 @@ office365_notifier_Util.maxStringLength = function(text, length) {
 
 /**
  * Show notification
- * 
+ *
  * @param {String}
  *            title The title of the notification
  * @param {String}
@@ -131,7 +131,7 @@ office365_notifier_Util.maxStringLength = function(text, length) {
  *            callback The function to call
  * @param {Object}
  *            callbackThis The context of the function (this)
- * 
+ *
  * @return {Boolean} true if success
  */
 office365_notifier_Util.showNotification = function(title, text, duration, callback, callbackThis) {
@@ -160,7 +160,7 @@ office365_notifier_Util.showNotification = function(title, text, duration, callb
 
 /**
  * play new mail sound
- * 
+ *
  * @return {Boolean} true if success
  */
 office365_notifier_Util.playSound = function() {
@@ -174,7 +174,7 @@ office365_notifier_Util.playSound = function() {
 
 /**
  * open url in a new browser tab
- * 
+ *
  * @this {Util}
  * @param {UrlToGoTo}
  *            UrlToGoTo url to open.
@@ -187,7 +187,7 @@ office365_notifier_Util.openURL = function(UrlToGoTo) {
             if (extensionTabs[i].url && (extensionTabs[i].url.indexOf(UrlToGoTo)>=0)) {
                 found = true;
                 chrome.tabs.update(extensionTabs[i].id, {
-                    "selected" : true
+                    "active" : true
                 });
             }
         }
@@ -201,7 +201,7 @@ office365_notifier_Util.openURL = function(UrlToGoTo) {
 
 /**
  * crc32.
- * 
+ *
  * @this {Util}
  * @param {String}
  *            str
@@ -226,7 +226,7 @@ office365_notifier_Util.crc32 = function(str) {
 
 /**
  * notifyObservers.
- * 
+ *
  * @this {Util}
  * @param {String}
  *            topic the topic
@@ -239,7 +239,7 @@ office365_notifier_Util.notifyObservers = function(topic, data) {
 
 /**
  * Extend the Object properties
- * 
+ *
  * @param {Object}
  *            base The base object
  * @param {Object}
@@ -263,7 +263,7 @@ office365_notifier_Util.extend = function(base, sub, superPropName) {
 
 /**
  * Dump the content of an object
- * 
+ *
  * @param {Object}
  *            obj The object to dump
  * @param {String}
@@ -301,7 +301,7 @@ office365_notifier_Util.dump = function(obj, pref) {
 
 /**
  * Freeze enum / constant object recursively
- * 
+ *
  * @param {Object}
  *            obj The object to freeze
  */
