@@ -7,7 +7,7 @@
         "message": "This extension notifies you when new messages arrive in your Office mailbox.",
         "description": ""
     },
-    
+
     "yes": {
         "message": "yes",
         "description": ""
@@ -94,6 +94,10 @@
     "about_homepage_label": {
         "message": "Web Site :",
         "description": ""
+    },
+    "about_donate": {
+        "message": "Donation",
+        "descripton": ""
     },
     "about_createdby_label": {
         "message": "By David GUEHENNEC",
@@ -329,8 +333,8 @@
     "option_identifiant_disconnect_button": {
         "message": "Disconnect",
         "description": ""
-    },  
-    
+    },
+
     "tooltip_notConnected_title": {
         "message": "Disconnected",
         "description": ""
@@ -399,7 +403,7 @@
         "message": "W%WEEK%",
         "description": ""
     },
-    
+
     "connector_error_req_internal": {
         "message": "Internal error",
         "description": ""

@@ -7,7 +7,7 @@
         "message": "Diese Erweiterung benachrichtigt dich wenn du neue Nachrichten in deiner Office Mailbox bekommst.",
         "description": ""
     },
-    
+
     "yes": {
         "message": "Ja",
         "description": ""
@@ -93,6 +93,10 @@
     "about_homepage_label": {
         "message": "Website:",
         "description": ""
+    },
+    "about_donate": {
+        "message": "Spenden",
+        "descripton": ""
     },
     "about_createdby_label": {
         "message": "Von: David GUEHENNEC",

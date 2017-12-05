@@ -62,11 +62,12 @@ function getCookiesValue(key)  {
 
 /**
  * sendRequest
+ * @param  {Number}   type
  * @param  {String}   uri
  * @param  {String}   postData
  * @param  {Function} callback
  */
-function sendRequest(uri, postData, callback) {
+function sendRequest(type, uri, postData, callback) {
 	if(uri.indexOf('?') >= 0){
 		uri = uri + '&ID=' + sessionId;
 	} else {
@@ -92,7 +93,9 @@ function sendRequest(uri, postData, callback) {
 	xhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 	xhttp.setRequestHeader("Action", action);
 	xhttp.setRequestHeader("X-OWA-CANARY", session_canary);
-	xhttp.setRequestHeader("X-OWA-UrlPostData", encodeURI(JSON.stringify(postData)));
+	if(type === 2016) {
+		xhttp.setRequestHeader("X-OWA-UrlPostData", encodeURI(JSON.stringify(postData)));
+	}
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4) {
 			try {
@@ -107,7 +110,11 @@ function sendRequest(uri, postData, callback) {
 			}
 		}
 	};
-	xhttp.send(JSON.stringify(postData));
+	if(type === 2016) {
+		xhttp.send();
+	} else {
+		xhttp.send(JSON.stringify(postData));
+	}
 }
 
 /**
@@ -116,6 +123,7 @@ function sendRequest(uri, postData, callback) {
  */
 var exchange2016 = function() {
 }
+exchange2016.type = 'exchange2016';
 /**
  * [getMailBoxInfo description]
  * @param {Function} callback
@@ -188,7 +196,7 @@ exchange2016.getUnreadMessages = function(callback) {
 		  ]
 	   }
 	};
-	sendRequest('service.svc?action=FindItem&EP=1&AC=1', data, function(response) {
+	sendRequest(2016, 'service.svc?action=FindItem&EP=1&AC=1', data, function(response) {
 		var unreadMessages = [];
 		if(response && response.Body && response.Body.ResponseMessages && response.Body.ResponseMessages.Items) {
 			response.Body.ResponseMessages.Items.forEach(function(folder) {
@@ -231,7 +239,7 @@ exchange2016.getReminder = function(startTime, endTime, callback) {
 		  EndTime: endTime
 	   }
 	};
-	sendRequest('service.svc?action=GetReminders&EP=1&AC=1', data, function(response) {
+	sendRequest(2016, 'service.svc?action=GetReminders&EP=1&AC=1', data, function(response) {
 		var calendarEvents = [];
 		if(response && response.Body && response.Body.Reminders) {
 			response.Body.Reminders.forEach(function(reminder) {
@@ -257,16 +265,18 @@ exchange2016.getReminder = function(startTime, endTime, callback) {
  */
 var exchange2013 = function() {
 };
+exchange2013.type = 'exchange2013';
 /**
  * [getMailBoxInfo description]
  * @param {Function} callback
  */
 exchange2013.getMailBoxInfo = function(callback) {
 	var data = {};
-	sendRequest('service.svc?action=GetOwaUserConfiguration&AC=1', data, function(response) {
+	sendRequest(2013, 'service.svc?action=GetOwaUserConfiguration&AC=1', data, function(response) {
 		if(response && response.SessionSettings && response.SessionSettings.UserEmailAddress) {
 			if(callback) {
-				callback({email: response.SessionSettings.UserEmailAddress});
+				var session = response.SessionSettings;
+				callback({displayName: session.UserDisplayName, email: session.UserEmailAddress, QuotaSend: session.QuotaSend, QuotaUsed: session.QuotaUsed});
 			}
 		}
 	});
@@ -322,7 +332,7 @@ exchange2013.getUnreadMessages = function(callback) {
 	      ]
 	   }
 	};
-	sendRequest('service.svc?action=FindConversation&AC=1', data, function(response) {
+	sendRequest(2013, 'service.svc?action=FindConversation&AC=1', data, function(response) {
 		var unreadMessages = [];
 		if(response && response.Body && response.Body.Conversations) {
 			response.Body.Conversations.forEach(function(conversation) {
@@ -475,7 +485,7 @@ exchange2013.getReminder = function(startTime, endTime, callback) {
 		  }
 	   }
     };
-	sendRequest('service.svc?action=FindItem&AC=1', data, function(response) {
+	sendRequest(2013, 'service.svc?action=FindItem&AC=1', data, function(response) {
 		var calendarEvents = [];
 		if(response && response.Body && response.Body.ResponseMessages && response.Body.ResponseMessages.Items) {
 			response.Body.ResponseMessages.Items.forEach(function(folder) {

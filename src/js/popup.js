@@ -302,7 +302,7 @@ office365_notifier_popup.openOptionPage = function(tab) {
             if (extensionTabs[i].url && optionsUrl == extensionTabs[i].url.split("#")[0]) {
                 found = true;
                 chrome.tabs.update(extensionTabs[i].id, {
-                    "selected" : true,
+                    "active" : true,
                     "url" : "options.html"+selectedTab
                 });
             }
@@ -312,6 +312,7 @@ office365_notifier_popup.openOptionPage = function(tab) {
                 url : "options.html"+selectedTab
             });
         }
+        window.close();
     });
 };
 

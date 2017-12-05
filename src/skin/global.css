@@ -5,18 +5,34 @@ fieldset {
 
 .option {
   background-color: #999;
+  font-size: 14px;
 }
 
 .option .header {
-  width:700px;
+  width:680px;
   margin: 0 auto;
-  padding-right: 30px;
-  text-align: right;
+  padding: 0px 30px;
+  position: relative;
+}
+
+.option .header .donate{
+  padding: 10px;
+  text-align: center;
+  background-color: #F07600;
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px #555;
+  vertical-align: middle;
+  position: absolute;
+  top: 12px;
+  right: 30px;
+  color: #FFF;
+  text-decoration: none !important;
 }
 
 .option .footer {
+  padding-top: 6px;
   width: 100%;
-  font-size: 12px;
+  font-size: 11px;
   color: #333;
 }
 
@@ -31,13 +47,13 @@ fieldset {
 }
 
 .option .content {
-  width: 700px;
+  width: 680px;
   margin: 0 auto;
   padding: 0;
 }
-			
+
 .option .tabContentWrapper {
-  min-width: 700px;
+  min-width: 680px;
   text-align: left;
   display: inline-block;
   background-color: #fff;
@@ -46,10 +62,8 @@ fieldset {
 }
 
 .option .tabContent {
-  min-width: 90%;
   min-height: 200px;
-  float: left;
-  padding:3px 30px 30px 30px
+  padding:3px 20px 20px 20px
 }
 
 .option .menu {
@@ -98,6 +112,14 @@ fieldset {
   display: none;
 }
 
+.option input {
+    padding: 2px 5px;
+}
+
+.option input:invalid {
+  border-color: red;
+  background-color: rgba(255, 0, 0, 0.2);
+}
 
 .popup {
   font-size: 12px;
@@ -105,6 +127,7 @@ fieldset {
   -moz-user-select: none;
   cursor: default;
   background-color: #FFFFFF;
+  width: 300px;
 }
 
 .popup #office365_mail_notifier_tooltipLogo {
@@ -123,9 +146,11 @@ fieldset {
 }
 
 .popup  fieldset {
-  margin:0px 6px;
-  width: 280px;
-  background-color: #F6F6F6;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  background-color: rgba(0,0,0,0.1);
 }
 
 .popup .actionidentifier {

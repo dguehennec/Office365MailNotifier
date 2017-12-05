@@ -7,7 +7,7 @@
         "message": "Cette extension vous notifie d'un nouveau mail sur votre messagerie Office.",
         "description": ""
     },
-    
+
     "yes": {
         "message": "Oui",
         "description": ""
@@ -94,6 +94,10 @@
     "about_homepage_label": {
         "message": "Site Web :",
         "description": ""
+    },
+    "about_donate": {
+        "message": "Faire un don",
+        "descripton": ""
     },
     "about_createdby_label": {
         "message": "Créé par David GUEHENNEC",
@@ -401,7 +405,7 @@
         "message": "S%WEEK%",
         "description": ""
     },
-    
+
     "connector_error_req_internal": {
         "message": "Erreur interne",
         "description": ""

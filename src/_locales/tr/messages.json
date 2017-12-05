@@ -7,7 +7,7 @@
         "message": "Bu eklenti, Office posta kutunuza yeni ileti geldiğinde sizi bilgilendirir.",
         "description": ""
     },
-    
+
     "yes": {
         "message": "Evet",
         "description": ""
@@ -93,6 +93,10 @@
     "about_homepage_label": {
         "message": "Web Sayfası:",
         "description": ""
+    },
+    "about_donate": {
+        "message": "Bağışlamak",
+        "descripton": ""
     },
     "about_createdby_label": {
         "message": "Vasıtasıyla: David GUEHENNEC",
@@ -205,7 +209,7 @@
         "message": "Tekrarla",
         "description": ""
     },
-    
+
     "option_task_label": {
         "message": "Görevler",
         "description": ""
@@ -254,7 +258,7 @@
         "message": "Düşük",
         "description": ""
     },
-    
+
     "option_identifiant_label": {
         "message": "Hesapları",
         "description": ""

@@ -40,21 +40,21 @@ var EXPORTED_SYMBOLS = [ "office365_notifier_Constant" ];
 
 /**
  * Creates a global instance of office365_notifier_Constant
- * 
+ *
  * @constructor
  */
 var office365_notifier_Constant = {};
 
 /**
  * The version of the extension
- * 
+ *
  * @constant
  */
-office365_notifier_Constant.VERSION = 0x010102;
+office365_notifier_Constant.VERSION = 0x010202;
 
 /**
  * Logger level
- * 
+ *
  * @constant
  */
 office365_notifier_Constant.LOGGER = {
@@ -65,7 +65,7 @@ office365_notifier_Constant.LOGGER = {
 
 /**
  * URLs
- * 
+ *
  * @constant
  */
 office365_notifier_Constant.URLS = {
@@ -74,7 +74,7 @@ office365_notifier_Constant.URLS = {
 
 /**
  * Oberver
- * 
+ *
  * @constant
  */
 office365_notifier_Constant.OBSERVER = {
@@ -83,7 +83,7 @@ office365_notifier_Constant.OBSERVER = {
 
 /**
  * The string bundle info
- * 
+ *
  * @constant
  */
 office365_notifier_Constant.STRING_BUNDLE = {

@@ -7,7 +7,7 @@
         "message": "Ово проширење вас обавештава када пристигну нове поруке у вашем Office поштанском сандучету.",
         "description": ""
     },
-    
+
     "yes": {
         "message": "да",
         "description": ""
@@ -94,6 +94,10 @@
     "about_homepage_label": {
         "message": "Веб сајт :",
         "description": ""
+    },
+    "about_donate": {
+        "message": "жертвовать",
+        "descripton": ""
     },
     "about_createdby_label": {
         "message": "Аутори: David GUEHENNEC",
@@ -329,8 +333,8 @@
     "option_identifiant_disconnect_button": {
         "message": "Прекини везу",
         "description": ""
-    },  
-    
+    },
+
     "tooltip_notConnected_title": {
         "message": "Није повезано",
         "description": ""
@@ -399,7 +403,7 @@
         "message": "Н%WEEK%",
         "description": ""
     },
-    
+
     "connector_error_req_internal": {
         "message": "Интерна грешка",
         "description": ""

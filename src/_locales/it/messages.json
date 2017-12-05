@@ -7,7 +7,7 @@
         "message": "Questa estenzione notifica l'arrivo di nuovi messaggi sulla sua mailbox office.",
         "description": ""
     },
-    
+
     "yes": {
         "message": "si",
         "description": ""
@@ -93,6 +93,10 @@
     "about_homepage_label": {
         "message": "Sito web:",
         "description": ""
+    },
+    "about_donate": {
+        "message": "Donare",
+        "descripton": ""
     },
     "about_createdby_label": {
         "message": "Creato da: David GUEHENNEC",

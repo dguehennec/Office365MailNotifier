@@ -7,7 +7,7 @@
         "message": "Office 365 Mail Notifier comprueba su cuenta de correo Office y le comunica el número de mensajes no leídos.",
         "description": ""
     },
-    
+
     "yes": {
         "message": "Si",
         "description": ""
@@ -93,6 +93,10 @@
     "about_homepage_label": {
         "message": "Página Web:",
         "description": ""
+    },
+    "about_donate": {
+        "message": "Donar",
+        "descripton": ""
     },
     "about_createdby_label": {
         "message": "Creado por: David GUEHENNEC",

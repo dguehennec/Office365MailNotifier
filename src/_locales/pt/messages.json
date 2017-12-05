@@ -7,7 +7,7 @@
         "message": "Esta extensão notifica-te quando novas mensagens chegarem à tua caixa de correio Office.",
         "description": ""
     },
-    
+
     "yes": {
         "message": "Sim",
         "description": ""
@@ -93,6 +93,10 @@
     "about_homepage_label": {
         "message": "Website:",
         "description": ""
+    },
+    "about_donate": {
+        "message": "Doar",
+        "descripton": ""
     },
     "about_createdby_label": {
         "message": "Por: David GUEHENNEC",
