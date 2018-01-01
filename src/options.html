@@ -6,22 +6,20 @@
 
 		<link rel="stylesheet" type="text/css" media="screen" href="skin/global.css" />
 
-		<script type="text/javascript" src="js/chrome.js"></script>
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/uiutil.js"></script>
 		<script type="text/javascript" src="js/options.js"></script>
-		<script type="text/javascript" src="js/options_specific.js"></script>
 
 	</head>
 	<body class="option">
         <div class="header">
-            <h1 class="title" style="text-shadow:1px 1px 4px #222"><img src="skin/images/office365_mail_notifier.png" height=48 alt="Icon" /><span msg="extName"></span></h1>
+            <h1 class="title" style="text-shadow:1px 1px 4px #222"><img src="skin/images/office365_mail_notifier.png" height="48" alt="Icon" /><span msg="extName"></span></h1>
             <a class="donate" href="https://www.paypal.me/DavidGUEHENNEC/5" msg="about_donate"></a>
         </div>
 		<div class="content">
 			<ul class="menu">
-				<li><a contentID="0" href="#"><img src="skin/images/prefs/message.png" height="22" alt="Icon" /><span msg="option_message_label"></span></a></li>
-				<li><a contentID="1" href="#"><img src="skin/images/prefs/calendar.png" height="22" alt="Icon" /><span msg="option_calendar_label"></span></a></li>
+				<li><a contentid="0" href="#"><img src="skin/images/prefs/message.png" height="22" alt="Icon" /><span msg="option_message_label"></span></a></li>
+				<li><a contentid="1" href="#"><img src="skin/images/prefs/calendar.png" height="22" alt="Icon" /><span msg="option_calendar_label"></span></a></li>
 			</ul>
 			<div class="tabContentWrapper">
 				<div id="content_0" class="tabContent hide">
@@ -31,11 +29,11 @@
 						<legend><label class="section" msg="option_message_view_caption"></label></legend>
 						<div class="subOptions">
 							<div>
-								<label msg="option_message_view_nbMax_label" msgTemplate="%MSG% : "></label>
+								<label msg="option_message_view_nbMax_label" msgtemplate="%MSG% : "></label>
 								<input id="office365_mail_notifier-optionMailNbDisplayed" type="number" min="1" max="30" step="1" maxlength="2" pref="messageNbDisplayed"/>
 							</div>
 							<div>
-								<label msg="option_message_view_nbMax_characters_label" msgTemplate="%MSG% : "></label>
+								<label msg="option_message_view_nbMax_characters_label" msgtemplate="%MSG% : "></label>
 								<input id="office365_mail_notifier-optionMailNbCharactersDisplayed" type="number" min="50" max="240" step="10" maxlength="3" pref="messageNbCharactersDisplayed"/>
 							</div>
 						</div>
@@ -52,7 +50,7 @@
 								<label for="office365_mail_notifier-optionMailSound" msg="option_common_mail_soundNotification"></label>
 							</div>
 							<div>
-								<label msg="option_common_mail_notify_duration_caption" msgTemplate="%MSG% : "></label>
+								<label msg="option_common_mail_notify_duration_caption" msgtemplate="%MSG% : "></label>
 								<input id="office365_mail_notifier-optionMailNotificationDuration" type="number" min="2" max="999" step="4" maxlength="3" pref="emailNotificationDuration"/>
 								<label msg="seconds"></label>
 							</div>
@@ -66,16 +64,16 @@
 						<legend><label class="section" msg="option_calendar_view_caption"></label></legend>
 						<div class="subOptions">
 							<div>
-								<label msg="option_calendar_view_period_label" msgTemplate="%MSG% : "></label>
+								<label msg="option_calendar_view_period_label" msgtemplate="%MSG% : "></label>
 								<select id="office365_mail_notifier-optionCalendarPeriodDisplayed" pref="calendarPeriodDisplayed">
-								   <option value="7" msg="week" msgTemplate="1 %MSG%"></option>
-								   <option value="14" msg="weeks" msgTemplate="2 %MSG%"></option>
-								   <option value="21" msg="weeks" msgTemplate="3 %MSG%"></option>
-								   <option value="28" msg="weeks" msgTemplate="4 %MSG%"></option>
+								   <option value="7" msg="week" msgtemplate="1 %MSG%"></option>
+								   <option value="14" msg="weeks" msgtemplate="2 %MSG%"></option>
+								   <option value="21" msg="weeks" msgtemplate="3 %MSG%"></option>
+								   <option value="28" msg="weeks" msgtemplate="4 %MSG%"></option>
 							   </select>
 							</div>
 							<div>
-								<label msg="option_calendar_view_nbMax_label" msgTemplate="%MSG% : "></label>
+								<label msg="option_calendar_view_nbMax_label" msgtemplate="%MSG% : "></label>
 								<input id="office365_mail_notifier-optionCalendarNbDisplayed" type="number" min="1" max="30" step="1" maxlength="2" pref="calendarNbDisplayed"/>
 							</div>
 						</div>
@@ -92,19 +90,19 @@
 								<label for="office365_mail_notifier-optionCalendarSoundNotification" msg="option_calendar_soundNotification"></label>
 							</div>
 							<div>
-								<label msg="option_task_view_reminder" msgTemplate="%MSG% : "></label>
+								<label msg="option_task_view_reminder" msgtemplate="%MSG% : "></label>
 								<select id="office365_mail_notifier-optionCalendarReminderTimeConf" pref="calendarReminderTimeConf">
 								   <option value="-1" msg="option_task_view_conf"></option>
 								   <option value="0" msg="atTime"></option>
-								   <option value="1" msg="minuteBefore" msgTemplate="1 %MSG%"></option>
-								   <option value="5" msg="minutesBefore" msgTemplate="5 %MSG%"></option>
-								   <option value="10" msg="minutesBefore" msgTemplate="10 %MSG%"></option>
-								   <option value="15" msg="minutesBefore" msgTemplate="15 %MSG%"></option>
-								   <option value="30" msg="minutesBefore" msgTemplate="30 %MSG%"></option>
-								   <option value="60" msg="hourBefore" msgTemplate="1 %MSG%"></option>
-								   <option value="120" msg="hoursBefore" msgTemplate="2 %MSG%"></option>
+								   <option value="1" msg="minuteBefore" msgtemplate="1 %MSG%"></option>
+								   <option value="5" msg="minutesBefore" msgtemplate="5 %MSG%"></option>
+								   <option value="10" msg="minutesBefore" msgtemplate="10 %MSG%"></option>
+								   <option value="15" msg="minutesBefore" msgtemplate="15 %MSG%"></option>
+								   <option value="30" msg="minutesBefore" msgtemplate="30 %MSG%"></option>
+								   <option value="60" msg="hourBefore" msgtemplate="1 %MSG%"></option>
+								   <option value="120" msg="hoursBefore" msgtemplate="2 %MSG%"></option>
 							    </select>
-								<label msg="option_calendar_repeat" msgTemplate="%MSG% : "></label>
+								<label msg="option_calendar_repeat" msgtemplate="%MSG% : "></label>
 								<select id="office365_mail_notifier-optionCalendarReminderNbRepeat" pref="calendarReminderRepeatNb">
 								   <option value="0" msg="no"></option>
 								   <option value="1">1</option>

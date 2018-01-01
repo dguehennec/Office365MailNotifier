@@ -38,7 +38,7 @@
 
 /**
  * Creates an instance of options.
- * 
+ *
  * @constructor
  * @this {Options}
  */
@@ -46,7 +46,7 @@ var office365_notifier_options = {};
 
 /**
  * init
- * 
+ *
  * @public
  * @this {Options}
  * @param {background} the background extension context
@@ -66,15 +66,15 @@ office365_notifier_options.init = function(background) {
     else {
         this.showContent(0, 0);
     }
-    
+
     // Register
     this._office365_notifier_Controller.addCallBackRefresh(this);
 
     // Add button event
     $(".menu a").click(function(evt) {
         evt.preventDefault();
-        var contentID = $(this).attr("contentID");
-        office365_notifier_options.showContent(contentID, 200);
+        var contentId = $(this).attr("contentid");
+        office365_notifier_options.showContent(contentId, 200);
     });
 
     // refresh screen
@@ -83,7 +83,7 @@ office365_notifier_options.init = function(background) {
 
 /**
  * Call when the window is closed
- * 
+ *
  * @public
  * @this {Option}
  */
@@ -97,7 +97,7 @@ office365_notifier_options.release = function() {
 
 /**
  * show selected content
- * 
+ *
  * @public
  * @this {Options}
  * @param {Number} content Id
@@ -124,7 +124,7 @@ office365_notifier_options.showContent = function(contentId, animationTime) {
 
 /**
  * Refresh.
- * 
+ *
  * @public
  * @this {Option}
  * @param {Event} the refresh event
@@ -142,7 +142,7 @@ office365_notifier_options.refresh = function(event) {
             } else {
                 $(this).val(value);
             }
-            
+
             $(this).on('change', function() {
                 if ($(this).attr("type") === "checkbox") {
                     office365_notifier_options._office365_notifier_Prefs.updatePref($(this).attr("pref"), $(this).is(":checked"));

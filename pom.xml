@@ -6,7 +6,7 @@
     <groupId>com.office365</groupId>
     <artifactId>Office365MailNotifier</artifactId>
     <packaging>pom</packaging>
-    <version>1.2.2</version>
+    <version>1.2.3</version>
 
     <name>Office 365 Notifier</name>
 
@@ -48,7 +48,6 @@
                                     <extension>js,jsm</extension>
                                     <exclude>
                                         <exc>js/jquery.min.js</exc>
-                                        <exc>modules/service/aes.js</exc>
                                     </exclude>
                                     <allfunctions>true</allfunctions>
                                     <Allfunctions>true</Allfunctions>
