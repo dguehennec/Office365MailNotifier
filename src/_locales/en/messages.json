@@ -450,7 +450,7 @@
         "description": ""
     },
     "connector_error_unreadmsg": {
-        "message": "Error when retrieving for new Emails: %REASON%!",
+        "message": "Error when retrieving new Emails: %REASON%!",
         "description": ""
     },
     "connector_error_calendar": {
@@ -463,7 +463,7 @@
     },
 
     "connector_notification_NewMessage": {
-        "message": "Message of %EMAIL%",
+        "message": "Message from %EMAIL%",
         "description": ""
     },
     "connector_notification_nbUnreadMessages": {
