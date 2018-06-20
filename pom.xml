@@ -6,9 +6,9 @@
     <groupId>com.office365</groupId>
     <artifactId>Office365MailNotifier</artifactId>
     <packaging>pom</packaging>
-    <version>1.2.4</version>
+    <version>1.2.5</version>
 
-    <name>Office 365 Notifier</name>
+    <name>365 Mail Notifier</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

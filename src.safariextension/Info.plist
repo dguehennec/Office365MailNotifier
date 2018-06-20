@@ -32,11 +32,11 @@
 				<key>Image</key>
 				<string>skin/images/icon_disabled.png</string>
 				<key>Label</key>
-				<string>Office 365 Mail Notifier</string>
+				<string>365 Mail Notifier</string>
 				<key>Palette Label</key>
-				<string>Office 365 Mail Notifier</string>
+				<string>365 Mail Notifier</string>
 				<key>Tool Tip</key>
-				<string>Office 365 Mail Notifier</string>
+				<string>365 Mail Notifier</string>
 			</dict>
 		</array>
 	</dict>
@@ -51,7 +51,7 @@
 		</dict>
 	</dict>
 	<key>Description</key>
-	<string>This extension notifies you when new messages arrive in your offie 365 mailbox.</string>
+	<string>This extension notifies you when new messages arrive in your Offie 365 mailbox.</string>
 	<key>DeveloperIdentifier</key>
 	<string>Z75WJL54B4</string>
 	<key>ExtensionInfoDictionaryVersion</key>

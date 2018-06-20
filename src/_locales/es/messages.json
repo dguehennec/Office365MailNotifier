@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Office 365 Mail Notifier",
+        "message": "365 Mail Notifier",
         "description": ""
     },
     "extDescription": {
-        "message": "Office 365 Mail Notifier comprueba su cuenta de correo Office y le comunica el número de mensajes no leídos.",
+        "message": "365 Mail Notifier comprueba su cuenta de correo Office y le comunica el número de mensajes no leídos.",
         "description": ""
     },
 
@@ -69,7 +69,7 @@
         "description": ""
     },
     "main_about_label": {
-        "message": "Acerca de Office 365 Mail Notifier",
+        "message": "Acerca de 365 Mail Notifier",
         "description": ""
     },
     "main_homepage_label": {

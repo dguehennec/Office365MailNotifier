@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Office 365 Mail Notifier",
+        "message": "365 Mail Notifier",
         "description": ""
     },
     "extDescription": {
@@ -69,7 +69,7 @@
         "description": ""
     },
     "main_about_label": {
-        "message": "A proposito di Office 365 Mail Notifier",
+        "message": "A proposito di 365 Mail Notifier",
         "description": ""
     },
     "main_homepage_label": {
