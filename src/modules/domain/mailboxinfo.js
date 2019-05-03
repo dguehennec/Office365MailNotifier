@@ -11,7 +11,7 @@
  * for the specific language governing rights and limitations under the
  * License.
  *
- * The Original Code is Office365 Mail Notifier.
+ * The Original Code is 365 Mail Notifier.
  *
  * The Initial Developer of the Original Code is
  * David GUEHENNEC.
@@ -44,11 +44,23 @@ var EXPORTED_SYMBOLS = ["office365_notifier_MailBoxInfo"];
  * @constructor
  * @this {MailBoxInfo}
  *
- * @param {String}
- *            email
+ * @param {Object}
+ *            mailbox
  */
-var office365_notifier_MailBoxInfo = function(email) {
-    this.email = email;
+var office365_notifier_MailBoxInfo = function(mailbox) {
+    if(!mailbox) {
+        return;
+    }
+    this.displayName = mailbox.displayName
+    if(!this.displayName) {
+        var email = mailbox.email;
+        if(email) {
+            displayName = mailbox.email.split('@')[0];
+        }
+    }
+    this.email = mailbox.email;
+    this.QuotaSend = mailbox.QuotaSend || 0
+    this.QuotaUsed = mailbox.QuotaUsed || 0
 };
 
 /**

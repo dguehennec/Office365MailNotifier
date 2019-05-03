@@ -11,7 +11,7 @@
  * for the specific language governing rights and limitations under the
  * License.
  *
- * The Original Code is office365 Mail Notifier.
+ * The Original Code is 365 Mail Notifier.
  *
  * The Initial Developer of the Original Code is
  * David GUEHENNEC.
@@ -61,6 +61,18 @@ function getCookiesValue(key)  {
 }
 
 /**
+ * getServerServiceUrl
+ * @param  {String} uri
+ * @return {String} the serveur service url
+ */
+function getServerServiceUrl(uri) {
+	if(window.location.href.indexOf("/owa")>0) {
+		return window.location.href.split("/owa/")[0] + "/owa/" + uri
+	}
+	return window.location.origin + "/owa/" + uri
+}
+
+/**
  * sendRequest
  * @param  {Number}   type
  * @param  {String}   uri
@@ -87,13 +99,14 @@ function sendRequest(type, uri, postData, callback) {
 			break;
 		}
 	}
+	var serveurServiceUrl = getServerServiceUrl(uri)
 	var xhttp = new XMLHttpRequest();
-	xhttp.open("POST", window.location.href.split("/owa/")[0] + "/owa/" + uri, true);
+	xhttp.open("POST", serveurServiceUrl, true);
 	xhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 	xhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 	xhttp.setRequestHeader("Action", action);
 	xhttp.setRequestHeader("X-OWA-CANARY", session_canary);
-	if(type === 2016) {
+	if(type !== 2013) {
 		xhttp.setRequestHeader("X-OWA-UrlPostData", encodeURI(JSON.stringify(postData)));
 	}
 	xhttp.onreadystatechange = function() {
@@ -116,6 +129,275 @@ function sendRequest(type, uri, postData, callback) {
 		xhttp.send(JSON.stringify(postData));
 	}
 }
+
+/**
+ * define exchange 2018 interface
+ *
+ */
+var exchange2018 = function() {
+}
+exchange2018.type = 'exchange2018';
+/**
+ * [getMailBoxInfo description]
+ * @param {Function} callback
+ */
+exchange2018.getMailBoxInfo = function(callback) {
+	var data = {
+	   app: 'Mail'
+	};
+	sendRequest(2018, 'sessiondata.ashx?app=Mail', data, function(response) {
+		const mailBoxInfo = {
+			displayName: '',
+			email: '',
+			QuotaSend: 0,
+			QuotaUsed: 0
+		}
+		if(response && response && response.owaUserConfig && response.owaUserConfig.SessionSettings) {
+			mailBoxInfo.displayName = response.owaUserConfig.SessionSettings.UserDisplayName
+			mailBoxInfo.email = response.owaUserConfig.SessionSettings.UserEmailAddress
+			mailBoxInfo.QuotaSend = response.owaUserConfig.SessionSettings.QuotaSend
+			mailBoxInfo.QuotaUsed = response.owaUserConfig.SessionSettings.QuotaUsed
+		}
+		if(callback) {
+			callback(mailBoxInfo);
+		}
+	});
+};
+
+/**
+ * getUnreadMessages
+ * @param {Function} callback
+ */
+exchange2018.getUnreadMessages = function(callback) {
+	var data = {
+	    "__type":"FindConversationJsonRequest:#Exchange",
+	    "Header":{
+	       "__type":"JsonRequestHeaders:#Exchange",
+	       "RequestServerVersion":"V2018_01_08",
+	       "TimeZoneContext":{
+	          "__type":"TimeZoneContext:#Exchange",
+	          "TimeZoneDefinition":{
+	             "__type":"TimeZoneDefinitionType:#Exchange",
+	             "Id":"Romance Standard Time"
+	          }
+	       }
+	    },
+	    "Body":{
+	       "__type":"FindConversationRequest:#Exchange",
+		   "ParentFolderId":{
+ 	         "__type":"TargetFolderId:#Exchange",
+ 	         "BaseFolderId":{
+ 	            "__type":"DistinguishedFolderId:#Exchange",
+ 	            "Id":"inbox"
+ 	         }
+ 	      },
+	       "ConversationShape":{
+	          "__type":"ConversationResponseShape:#Exchange",
+	          "BaseShape":"IdOnly"
+	       },
+	       "ShapeName":"ReactConversationListView",
+	       "Paging":{
+	          "__type":"IndexedPageView:#Exchange",
+	          "BasePoint":"Beginning",
+	          "Offset":0,
+	          "MaxEntriesReturned":100
+	       },
+	       "ViewFilter":"Unread",
+	       "SortOrder":[
+	          {
+	             "__type":"SortResults:#Exchange",
+	             "Order":"Descending",
+	             "Path":{
+	                "__type":"PropertyUri:#Exchange",
+	                "FieldURI":"ConversationLastDeliveryOrRenewTime"
+	             }
+	          },
+	          {
+	             "__type":"SortResults:#Exchange",
+	             "Order":"Descending",
+	             "Path":{
+	                "__type":"PropertyUri:#Exchange",
+	                "FieldURI":"ConversationLastDeliveryTime"
+	             }
+	          }
+	       ]
+	    }
+	};
+	sendRequest(2018, 'service.svc?action=FindConversation&AC=1', data, function(response) {
+		var unreadMessages = [];
+		if(response && response.Body && response.Body.Conversations) {
+			response.Body.Conversations.forEach(function(conversation) {
+				var emailDate = (new Date(conversation.LastDeliveryTime)).getTime();
+				var senderMail = "";
+				if(conversation.From && conversation.From.Mailbox && conversation.From.Mailbox.Name) {
+				  senderMail = conversation.From.Mailbox.Name;
+				}
+				unreadMessages.push({id: (conversation.ConversationId.Id + emailDate), subject: conversation.ConversationTopic, content: conversation.Preview, senderMail: senderMail, date: emailDate, convId: conversation.ConversationId.Id});
+			});
+		}
+		if(callback) {
+			callback(unreadMessages);
+		}
+	});
+};
+
+/**
+ * getReminder
+ * @param  {Function} callback
+ */
+exchange2018.getReminder = function(startTime, endTime, callback) {
+	var data = {
+	   "__type":"FindItemJsonRequest:#Exchange",
+	   "Header":{
+		  "__type":"JsonRequestHeaders:#Exchange",
+		  "RequestServerVersion":"V2018_01_08",
+		  "TimeZoneContext":{
+			 "__type":"TimeZoneContext:#Exchange",
+			 "TimeZoneDefinition":{
+				"__type":"TimeZoneDefinitionType:#Exchange",
+				"Id":"Romance Standard Time"
+			 }
+		  }
+	   },
+	   "Body":{
+		  "__type":"FindItemRequest:#Exchange",
+		  "ItemShape":{
+			 "__type":"ItemResponseShape:#Exchange",
+			 "BaseShape":"IdOnly",
+			 "AdditionalProperties":[
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"ItemParentId"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"Sensitivity"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"AppointmentState"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"IsCancelled"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"HasAttachments"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"LegacyFreeBusyStatus"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"CalendarItemType"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"Start"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"End"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"IsAllDayEvent"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"Organizer"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"Subject"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"IsMeeting"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"UID"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"InstanceKey"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"ItemEffectiveRights"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"JoinOnlineMeetingUrl"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"ConversationId"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"CalendarIsResponseRequested"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"Categories"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"IsRecurring"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"IsOrganizer"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"EnhancedLocation"
+				},
+				{
+				   "__type":"PropertyUri:#Exchange",
+				   "FieldURI":"IsSeriesCancelled"
+				}
+			 ]
+		  },
+		  "ParentFolderIds":[
+			 {
+				"__type":"DistinguishedFolderId:#Exchange",
+				"Id":"calendar"
+			 }
+		  ],
+		  "Traversal":"Shallow",
+		  "Paging":{
+			 "__type":"CalendarPageView:#Exchange",
+			 "StartDate": startTime,
+			 "EndDate": endTime
+		  }
+	   }
+    };
+	sendRequest(2018, 'service.svc?action=FindItem&AC=1', data, function(response) {
+		var calendarEvents = [];
+		if(response && response.Body && response.Body.ResponseMessages && response.Body.ResponseMessages.Items) {
+			response.Body.ResponseMessages.Items.forEach(function(folder) {
+				folder.RootFolder.Items.forEach(function(conversation) {
+					var currentDate = (new Date()).getTime();
+					var eventEndDate = (new Date(conversation.End)).getTime();
+					if(eventEndDate > currentDate) {
+						var eventStartDate = (new Date(conversation.Start)).getTime();
+							var timeConf = eventStartDate;
+						calendarEvents.push({id: (conversation.Subject + eventStartDate), name: conversation.Subject, timestamp: eventStartDate, duration: eventEndDate - eventStartDate, timeConf: timeConf});
+					}
+				});
+			});
+		}
+		if(callback) {
+			callback(calendarEvents);
+		}
+	});
+};
+
 
 /**
  * define exchange 2016 interface
@@ -260,7 +542,7 @@ exchange2016.getReminder = function(startTime, endTime, callback) {
 };
 
 /**
- * define exchange 2016 interface
+ * define exchange 2013 interface
  *
  */
 var exchange2013 = function() {
@@ -506,35 +788,54 @@ exchange2013.getReminder = function(startTime, endTime, callback) {
 	});
 };
 
-// start notifier only if cookie is defined
-if(getCookiesValue('X-OWA-CANARY')){
-	// select exchange version used to request api
-	var currentExchange = exchange2016;
-	if (!getCookiesValue('DefaultAnchorMailbox')) {
-		currentExchange = exchange2013;
-	}
-	//* Listen for notifier messages */
+/**
+ * startServiceListener
+ * @param  {[Object} serviceExchange
+ */
+function startServiceListener(serviceExchange) {
+	// Listen for notifier messages
 	chrome.runtime.onMessage.addListener(function(msg, sender) {
 		switch(msg) {
 			case "owsGetUnreadMessages":
-				currentExchange.getUnreadMessages(function(data) {
+				serviceExchange.getUnreadMessages(function(data) {
 					chrome.runtime.sendMessage({type: 'owsUnreadMessagesResult', data: data});
 				});
 				break;
 			case "owsGetReminder":
 				var startTime = new Date((new Date()).getTime()).toISOString().split('.')[0];
 				var endTime = new Date((new Date()).getTime() + 4*7*24*60*60*1000).toISOString().split('.')[0];
-				currentExchange.getReminder(startTime, endTime, function(data) {
+				serviceExchange.getReminder(startTime, endTime, function(data) {
 					chrome.runtime.sendMessage({type: 'owsReminderResult', data: data});
 				});
 				break;
 			case "owsGetMailBoxInfo":
-				currentExchange.getMailBoxInfo(function(data) {
+				serviceExchange.getMailBoxInfo(function(data) {
 					chrome.runtime.sendMessage({type: 'owsMailBoxInfoResult', data: data});
 				});
 				break;
 			default:
 		}
 	});
-    chrome.runtime.sendMessage({type: 'owsDOMContentLoaded'});
+	chrome.runtime.sendMessage({type: 'owsDOMContentLoaded'});
 }
+
+function checkOWAServiceVersion() {
+	// check service only if owa cookie is defined
+	if(!getCookiesValue('X-OWA-CANARY')){
+		return;
+	}
+	// select exchange version used to request api
+	if (!getCookiesValue('DefaultAnchorMailbox')) {
+		startServiceListener(exchange2013);
+	} else {
+		exchange2018.getMailBoxInfo(function(mailbox) {
+			if(mailbox && (mailbox.displayName !== '')) {
+				startServiceListener(exchange2018);
+			} else {
+				startServiceListener(exchange2016);
+			}
+		})
+	}
+}
+
+checkOWAServiceVersion();

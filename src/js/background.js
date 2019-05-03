@@ -11,7 +11,7 @@
  * for the specific language governing rights and limitations under the
  * License.
  *
- * The Original Code is office365 Mail Notifier.
+ * The Original Code is 365 Mail Notifier.
  *
  * The Initial Developer of the Original Code is
  * David GUEHENNEC.
@@ -38,7 +38,7 @@
 
 /**
  * The Class Main.
- * 
+ *
  * @constructor
  * @this {Main}
  */
@@ -46,7 +46,7 @@ var office365_notifier_main = {};
 
 /**
  * Init module.
- * 
+ *
  * @this {Main}
  */
 office365_notifier_main.init = function() {
@@ -66,7 +66,7 @@ office365_notifier_main.init = function() {
 
 /**
  * release Main.
- * 
+ *
  * @this {Main}
  */
 office365_notifier_main.release = function() {
@@ -75,7 +75,7 @@ office365_notifier_main.release = function() {
 
 /**
  * refresh interface.
- * 
+ *
  * @this {Main}
  */
 office365_notifier_main.refresh = function(inProgress) {
@@ -118,7 +118,7 @@ office365_notifier_main.refresh = function(inProgress) {
 
 /**
  * Checks if URL is Office 365.
- * 
+ *
  * @this {Main}
  * @param {String}
  *            href the url to test
@@ -153,7 +153,7 @@ chrome.tabs.onUpdated.addListener(function(tabId , info) {
         if(info.url && !office365_notifier_Controller.office365IsCurrentInterface(info.url)) {
             office365_notifier_Controller.office365InterfaceUnloaded(office365_notifier_Controller._currentInterfaceListener, info.url);
         }
-    }    
+    }
 });
 
 chrome.tabs.onRemoved.addListener(function(tabId , info) {

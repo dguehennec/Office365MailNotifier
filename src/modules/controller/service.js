@@ -11,7 +11,7 @@
  * for the specific language governing rights and limitations under the
  * License.
  *
- * The Original Code is office365 Mail Notifier.
+ * The Original Code is 365 Mail Notifier.
  *
  * The Initial Developer of the Original Code is
  * David GUEHENNEC.
@@ -40,7 +40,7 @@ var EXPORTED_SYMBOLS = [ "office365_notifier_Service" ];
 
 /**
  * Creates an instance of Service.
- * 
+ *
  * @constructor
  * @this {Service}
  * @param {Controller}
@@ -64,7 +64,7 @@ var office365_notifier_Service = function(parent) {
 
 /**
  * Release Service.
- * 
+ *
  * @this {Service}
  */
 office365_notifier_Service.prototype.shutdown = function() {
@@ -75,7 +75,7 @@ office365_notifier_Service.prototype.shutdown = function() {
 
 /**
  * is initialized
- * 
+ *
  * @this {Service}
  * @return {boolean} true if service initialized
  */
@@ -85,7 +85,7 @@ office365_notifier_Service.prototype.isInitialized = function() {
 
 /**
  * Check now
- * 
+ *
  * @this {Service}
  */
 office365_notifier_Service.prototype.checkNow = function() {
@@ -96,7 +96,7 @@ office365_notifier_Service.prototype.checkNow = function() {
 
 /**
  * preferences updated
- * 
+ *
  * @this {Service}
  */
 office365_notifier_Service.prototype.prefUpdated = function() {
@@ -105,7 +105,7 @@ office365_notifier_Service.prototype.prefUpdated = function() {
 
 /**
  * Get number of unread messages
- * 
+ *
  * @this {Service}
  * @return {Number} number of unread messages
  */
@@ -116,7 +116,7 @@ office365_notifier_Service.prototype.getNbMessageUnread = function() {
 
 /**
  * Get unread message
- * 
+ *
  * @this {Service}
  * @return {Array} unread messages list
  */
@@ -127,7 +127,7 @@ office365_notifier_Service.prototype.getUnreadMessages = function() {
 
 /**
  * Get calendar events
- * 
+ *
  * @this {Service}
  * @return {Array} calendar events list
  */
@@ -149,7 +149,7 @@ office365_notifier_Service.prototype.getMailBoxInfo = function() {
 
 /**
  * Get instant message events
- * 
+ *
  * @this {Service}
  * @return {Array} instant message events list
  */
@@ -160,7 +160,7 @@ office365_notifier_Service.prototype.getInstantMessagesEvents = function() {
 
 /**
  * Get last error message
- * 
+ *
  * @this {Service}
  * @return {String} the last error message
  */
@@ -171,7 +171,7 @@ office365_notifier_Service.prototype.getLastErrorMessage = function() {
 
 /**
  * After the delay run the refresh state
- * 
+ *
  * @private
  * @this {Service}
  * @param {Number}
@@ -196,7 +196,7 @@ office365_notifier_Service.prototype._planRefresh = function(delayMs) {
 
 /**
  * Cancel the running timer to the refresh state
- * 
+ *
  * @private
  * @this {Service}
  */
@@ -385,7 +385,7 @@ office365_notifier_Service.prototype.callbackMailBoxInfo = function(mailBoxInfo)
         return;
     }
     this._logger.info("Check mailbox info: " + mailBoxInfo.email);
-    this._currentMailBoxInfo = new office365_notifier_MailBoxInfo(mailBoxInfo.email);
+    this._currentMailBoxInfo = new office365_notifier_MailBoxInfo(mailBoxInfo);
     // refresh listeners
     this._parent.event();
 };

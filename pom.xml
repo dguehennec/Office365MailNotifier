@@ -6,7 +6,7 @@
     <groupId>com.office365</groupId>
     <artifactId>Office365MailNotifier</artifactId>
     <packaging>pom</packaging>
-    <version>1.2.5</version>
+    <version>1.3.0</version>
 
     <name>365 Mail Notifier</name>
 

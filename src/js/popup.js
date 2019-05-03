@@ -11,7 +11,7 @@
  * for the specific language governing rights and limitations under the
  * License.
  *
- * The Original Code is office365 Mail Notifier.
+ * The Original Code is 365 Mail Notifier.
  *
  * The Initial Developer of the Original Code is
  * David GUEHENNEC.
@@ -123,12 +123,9 @@ office365_notifier_popup.initializeTooltipIdentifier = function() {
     if (this._office365_notifier_Controller.isInitialized() && (errorMsg === "")) {
         $('#office365_mail_notifier_tooltipCheckNow').show();
         // show title informations
-        var email = this._office365_notifier_Controller.getMailBoxInfo().email;
-        if(email) {
-            email = email.split('@')[0];
-        }
+        var displayName = this._office365_notifier_Controller.getMailBoxInfo().displayName
         $('<div/>', {
-            text : chrome.i18n.getMessage("tooltip_connected_descriptionAccount").replace("%EMAIL%", email)
+            text : chrome.i18n.getMessage("tooltip_connected_descriptionAccount").replace("%EMAIL%", displayName)
         }).appendTo('#office365_mail_notifier_tooltipIdentifierTitle');
          // show State and account informations
         $('<div/>', {
